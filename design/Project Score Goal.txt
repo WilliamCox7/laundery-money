@@ -1,0 +1,11 @@
+Unit Testing										30pts
+Endpoint Testing								20pts
+Less														10pts
+ES6															10pts
+Electron												20pts
+Domain Registration							10pts
+Defined MVP											10pts
+Responsive											20pts
+Mentions Tech										10pts
+Uses Time Effectively						10pts
+																150pts
