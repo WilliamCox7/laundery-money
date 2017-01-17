@@ -25,7 +25,7 @@ var db = app.get('db');
 
 passport.serializeUser(function(user, done) { done(null, user); });
 passport.deserializeUser(function(obj, done) { done(null, obj); });
-passport.use(new LocalStrategy(
+passport.use('local', new LocalStrategy(
   function(username, password, done) {
     db.getUserByUsername([username], function(err, user) {
       user = user[0];
@@ -35,9 +35,25 @@ passport.use(new LocalStrategy(
       return done(null, user);
     })
   }
-))
+));
+
+passport.use('signup', new LocalStrategy(
+  function(username, password, done) {
+    db.getUserByUsername([username], function(err, user) {
+      if (!user[0]) {
+        db.createUser([username, password, null, null, null, null, null], function(err, user) {
+          return done(null, user);
+        });
+      }
+    });
+  }
+));
 
 app.post('/auth/local', passport.authenticate('local'), function(req, res) {
+  res.status(200).send(req.user);
+});
+
+app.post('/auth/signup', passport.authenticate('signup'), function(req, res) {
   res.status(200).send(req.user);
 });
 
@@ -53,6 +69,15 @@ passport.use(new FacebookStrategy({
   },
   function(token, refreshToken, profile, done) {
     process.nextTick(function () {
+      var fb_id = profile.id;
+      db.checkFbUser([fb_id], function(err, user) {
+        if (!user[0]) {
+          var first = profile.displayName.split(" ")[0];
+          var last = profile.displayName.split(" ")[1];
+          db.createFbUser([fb_id, first, last], function(err, user) {});
+          db.createUser([null, null, fb_id, null, first, last, null], function(err, user) {});
+        }
+      });
       return done(null, profile);
     });
   }
@@ -73,6 +98,16 @@ passport.use(new GoogleStrategy({
   },
   function(request, accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
+      var gplus_id = profile.id;
+      db.checkGoogleUser([gplus_id], function(err, user) {
+        if (!user[0]) {
+          var first = profile.displayName.split(" ")[0];
+          var last = profile.displayName.split(" ")[1];
+          var email = profile.email;
+          db.createGoogleUser([gplus_id, first, last], function(err, user) {});
+          db.createUser([null, null, null, gplus_id, first, last, email], function(err, user) {});
+        }
+      });
       return done(null, profile);
     });
   }

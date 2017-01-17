@@ -8,4 +8,13 @@ angular.module('budgetApp').service('loginSvc', function($http) {
       return res.data;
     });
   }
+  this.signUp = function(user, pass) {
+    return $http({
+      method: "POST",
+      url: 'auth/signup',
+      data: { username: user, password: pass }
+    }).then(function(res) {
+      return res.data;
+    });
+  }
 });
