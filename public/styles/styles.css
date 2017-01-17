@@ -1,20 +1,15 @@
-@main: #a5d6e8;
-@main-gray: lightgray;
-
 .login .intro-animation {
   width: 90%;
-  height: calc(~'100% - 378px');
+  height: calc(100% - 378px);
   display: flex;
   justify-content: center;
-  border: solid 3px @main;
+  border: solid 3px #a5d6e8;
   margin: 40px auto;
 }
-
 .login .intro-animation img {
   position: relative;
   margin: auto;
 }
-
 .login .login-form {
   width: 340px;
   display: flex;
@@ -22,9 +17,8 @@
   margin: auto;
   margin-bottom: 20px;
 }
-
 .login button {
-  border: solid 3px @main-gray;
+  border: solid 3px lightgray;
   padding: 15px;
   background: none;
   color: #a5d6e8;
@@ -32,79 +26,71 @@
   font-size: 13px;
   height: 50px;
 }
-
 .login .active {
-  background: @main;
-  border: solid 3px @main;
+  background: #a5d6e8;
+  border: solid 3px #a5d6e8;
   color: white;
 }
-
 .login .login-form button:hover {
-  background: @main;
-  border: solid 3px @main;
+  background: #a5d6e8;
+  border: solid 3px #a5d6e8;
   color: white;
   cursor: pointer;
 }
-
 .login form {
   width: 340px;
   margin: auto;
 }
-
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    -webkit-text-fill-color: @main !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #a5d6e8 !important;
 }
-
-.login form input[type="text"], .login form input[type="password"] {
+.login form input[type="text"],
+.login form input[type="password"] {
   width: 100%;
-  border: solid 3px @main;
+  border: solid 3px #a5d6e8;
   padding: 15px;
   background: white;
-  color: @main;
+  color: #a5d6e8;
   margin-bottom: 20px;
 }
-
 .login .sub {
   display: flex;
   justify-content: space-between;
 }
-
-.login form button, .login form a {
+.login form button,
+.login form a {
   font-size: 13px;
   padding: 12px;
-  border: solid 3px @main-gray;
+  border: solid 3px lightgray;
   width: 100px;
 }
-
-.login form button:hover, .login form a:hover {
-  border: solid 3px @main;
+.login form button:hover,
+.login form a:hover {
+  border: solid 3px #a5d6e8;
   cursor: pointer;
 }
-
-.login form a img, .login form button img {
+.login form a img,
+.login form button img {
   display: flex;
   justify-content: center;
   margin: auto;
   height: 20px;
 }
-
 .login .left-side {
   width: 340px;
   float: left;
   margin-left: 5%;
 }
-
 .login .right-side {
-  width: calc(~'90% - 380px');
+  width: calc(90% - 380px);
   margin-left: 40px;
   margin-right: 5%;
   height: 258px;
   display: flex;
   float: right;
-  border: solid 3px @main;
+  border: solid 3px #a5d6e8;
 }
-
 .login .right-side img {
   margin: auto;
 }

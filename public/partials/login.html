@@ -1,14 +1,25 @@
 <main class="login">
-  <section>
-    Animation Goes Here
+  <section class="intro-animation">
+    <!--http://fontmeme.com/better-call-saul-font/-->
+    <img src="../src/temp.png" />
   </section>
-  <section>
-    <button>Sign In</button>
-    <button>Sign Up</button>
-    <form>
-      <input type="text" placeholder="username" />
-      <input type="password" placeholder="password" />
-      <input type="submit" />
+  <section class="left-side">
+    <div class="login-form">
+      <button class="active">Sign In</button>
+      <button>Sign Up</button>
+    </div>
+    <form ng-submit="loginLocal(username, password)">
+      <input type="text" name="username" placeholder="username" ng-model="username" />
+      <input type="password" name="password" placeholder="password" ng-model="password" />
+      <div class="sub">
+        <button type="submit"><img src="../src/login.png" /></button>
+        <!-- <a href="auth/local"><img src="../src/login.png" /></a> -->
+        <a href="auth/fb"><img src="../src/fb.png" /></a>
+        <a href="auth/google"><img src="../src/gplus.png" /></a>
+      </div>
     </form>
+  </section>
+  <section class="right-side">
+    <img src="../src/temp2.png" />
   </section>
 </main>

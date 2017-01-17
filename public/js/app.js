@@ -10,7 +10,8 @@ angular.module('budgetApp', ['ui.router'])
     })
     .state('login', {
       templateUrl: '../partials/login.html',
-      url: '/login'
+      url: '/login',
+      controller: 'loginCtrl'
     });
 
 });
