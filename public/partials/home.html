@@ -1,20 +1,12 @@
 <main class="dashboard">
   <section class="navBar">
     <div class="left-side">
-      <h1>William{{name}}</h1>
+      <h1 ui-sref="home.options">William{{name}}</h1>
     </div>
     <div class="right-side">
-      <button ui-sref="upload"><img src="../src/upload.svg" /></button>
+      <button ui-sref="home.upload"><img src="../src/upload.svg" /></button>
       <a href="/logout"><img src="../src/logout.svg" /></a>
     </div>
   </section>
-  <section class="options">
-    <div class="half">
-      <h1 ui-sref="income">Income</h1>
-      <h1 ui-sref="expenses">Expenses</h1>
-    </div>
-    <div class="full">
-      <h1 ui-sref="projections">Projections</h1>
-    </div>
-  </section>
+  <ui-view></ui-view>
 </main>

@@ -13,21 +13,25 @@ angular.module('budgetApp', ['ui.router'])
       url: '/login',
       controller: 'loginCtrl'
     })
-    .state('upload', {
-      templateUrl: '../partials/upload.html',
+    .state('home.upload', {
+      templateUrl: '../partials/home.upload.html',
       url: '/upload'
     })
-    .state('income', {
-      templateUrl: '../partials/income.html',
+    .state('home.income', {
+      templateUrl: '../partials/home.income.html',
       url: '/income'
     })
-    .state('expenses', {
-      templateUrl: '../partials/expenses.html',
+    .state('home.expenses', {
+      templateUrl: '../partials/home.expenses.html',
       url: '/expenses'
     })
-    .state('projections', {
-      templateUrl: '../partials/projections.html',
+    .state('home.projections', {
+      templateUrl: '../partials/home.projections.html',
       url: '/projections'
+    })
+    .state('home.options', {
+      templateUrl: '../partials/home.options.html',
+      url: '/options'
     });
 
 });

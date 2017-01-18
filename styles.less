@@ -8,6 +8,11 @@
 
 button:focus {outline:0;}
 
+main {
+  max-width: 1300px;
+  margin: auto;
+}
+
 .login .intro-animation {
   width: 90%;
   height: calc(~'100% - 378px');
@@ -126,6 +131,10 @@ input:-webkit-autofill {
   height: 84px;
 }
 
+.dashboard h1:hover {
+  cursor: pointer;
+}
+
 .dashboard .navBar .left-side {
   float: left;
   margin-left: 30px;
@@ -216,4 +225,35 @@ input:-webkit-autofill {
 .dashboard .options .full h1:hover {
   border: solid 3px @main;
   cursor: pointer;
+}
+
+.upload {
+  width: 90%;
+  display: flex;
+  height: calc(~'100% - 328px');
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.upload h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  width: 300px;
+  color: @main;
+  font-family: 'betterCallSaul';
+  height: 230px;
+  border: dashed 3px @main-gray;
+  border-radius: 30px;
+}
+
+.upload h1:hover {
+  border: solid 3px @main;
+  cursor: pointer;
+}
+
+.upload input[type="file"] {
+  display: none;
 }

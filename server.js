@@ -86,7 +86,7 @@ passport.use(new FacebookStrategy({
 app.get('/auth/fb', passport.authenticate('facebook', { scope : 'email' }));
 
 app.get('/auth/fb/callback', passport.authenticate('facebook', {
-    successRedirect : '/#!/home',
+    successRedirect : '/#!/home/options',
     failureRedirect : '/#!/login'
 }));
 
@@ -116,7 +116,7 @@ passport.use(new GoogleStrategy({
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
 app.get('/auth/google/callback', passport.authenticate('google', {
-    successRedirect : '/#!/home',
+    successRedirect : '/#!/home/options',
     failureRedirect : '/#!/login'
 }));
 

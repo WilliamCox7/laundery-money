@@ -67,5 +67,34 @@ var views = {
         }
       }
     }
+  },
+  upload: {
+    description: "Simple view that lets you upload a csv file",
+    elements: {
+      section1: "Navigation bar (see home section1)",
+      section2: {
+        description: "Dotted line button",
+        action: "On click, pull up open file menu from local computer",
+      }
+    },
+    mvp: false
+  },
+  income: {
+    description: "Information regarding your income",
+    action: {
+      onOptionClick: {
+        ifInitClick: {
+          description: "Start Modal Prompt. Prompt for income info"
+        }
+      }
+    },
+    elements: {
+      section1: {
+        description: "Navigation Bar for income related options",
+        elements: {
+          
+        }
+      }
+    }
   }
 }

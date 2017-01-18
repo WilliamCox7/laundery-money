@@ -4,13 +4,13 @@ angular.module('budgetApp').controller('loginCtrl', function($scope, $location, 
     if ($scope.buttonText === 'Sign Up') {
       loginSvc.signUp(user, pass).then(function(res) {
         if (res) {
-          $location.path('/home');
+          $location.path('/home/options');
         }
       });
     } else {
       loginSvc.loginLocal(user, pass).then(function(res) {
         if (res) {
-          $location.path('/home');
+          $location.path('/home/options');
         }
       });
     }
