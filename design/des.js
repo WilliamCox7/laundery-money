@@ -44,6 +44,28 @@ var views = {
     mvp: false
   },
   home: {
-    
+    description: "Dashboard for the user with options",
+    frame: {
+      section1: {
+        description: "Status Bar",
+        elements: {
+          h1: "User's Name",
+          h2: "Projected Bank Amount",
+          h2: "Projected Expenditures",
+          h2: "Projected Income",
+          h2: "Projected +/-",
+          button: "Upload CSV",
+          button: "Logout"
+        }
+      },
+      section2: {
+        description: "Options",
+        elements: {
+          div: "Income",
+          div: "Expenses",
+          div: "Projections"
+        }
+      }
+    }
   }
 }

@@ -1,4 +1,0 @@
-module.exports = {
-    username: 'test',
-    password: 'test2'
-}

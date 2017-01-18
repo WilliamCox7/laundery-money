@@ -19,12 +19,12 @@ angular.module('budgetApp').controller('loginCtrl', function($scope, $location, 
   $scope.toggleActive = function($event) {
     var element = angular.element($event.currentTarget);
     var sibling = $(element).siblings();
-    var subButtonImg = $(element).parent().siblings().children().eq(2).children().eq(0).children().eq(0);
+    var subButtonP = $(element).parent().siblings().children().eq(2).children().eq(0).children().eq(0);
     $scope.buttonText = element[0].innerText;
     if (element[0].innerText === 'Sign Up') {
-      $(subButtonImg).attr('src', "../src/start.png");
+      $(subButtonP)[0].innerText = 'Start';
     } else {
-      $(subButtonImg).attr('src', "../src/login.png");
+      $(subButtonP)[0].innerText = 'Log In';
     }
     element.addClass('active');
     sibling.removeClass('active');
