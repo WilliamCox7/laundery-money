@@ -1,5 +1,5 @@
 <section class="income">
-  <div class="washer">
+  <div class="washer" ng-click="openModal()">
     <div class="plus-sign">
       <div class="tall-part"></div>
       <div class="long-part"></div>
@@ -82,5 +82,46 @@
         <td class="table-total"><span>$</span> 27,086.50</td>
       </tr>
     </table>
+  </div>
+  <div class="form-modal" ng-click="closeModal($event)">
+    <div class="modal-content">
+      <span class="close" ng-click="closeModal($event)">&times;</span>
+      <table>
+        <tr>
+          <td><p>Income Source:</p><p>(who is paying you?)</p></td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><p>Amount:</p><p>(what is your wage?)</p></td>
+          <td>
+            <input type="text" />
+            <select>
+              <option value="hourly">/Hr</option>
+              <option value="yearly">/Yr</option>
+              <option value="freelance">/Job</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><p>Next Payment:</p><p>(what day will you be paid next?)</p></td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><p>Payment Pattern:</p><p>(how do payments occur?)</p></td>
+          <td>
+            <select>
+              <option value="weekly">Weekly</option>
+              <option value="bi-weekly">Bi-Weekly</option>
+              <option value="days">Certain Days</option>
+            </select>
+            <input type="text" />
+          </td>
+        </tr>
+        <tr>
+          <td><p>Pre-Tax Deductions:</p><p>(ex: 401k)</p></td>
+          <td><input type="text" /></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </section>

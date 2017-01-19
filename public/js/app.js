@@ -19,7 +19,8 @@ angular.module('budgetApp', ['ui.router'])
     })
     .state('home.income', {
       templateUrl: '../partials/home.income.html',
-      url: '/income'
+      url: '/income',
+      controller: 'homeCtrl'
     })
     .state('home.expenses', {
       templateUrl: '../partials/home.expenses.html',
