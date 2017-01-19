@@ -2,12 +2,15 @@
   font-family: 'betterCallSaul';
   src: url('../src/script1scriptcasualnormal.ttf') format('truetype');
 }
-button:focus {
-  outline: 0;
+body {
+  font-family: arial;
 }
 main {
   max-width: 1300px;
   margin: auto;
+}
+button:focus {
+  outline: 0;
 }
 .login .intro-animation {
   width: 90%;
@@ -228,6 +231,7 @@ input:-webkit-autofill {
 }
 .income .washer {
   width: 270px;
+  min-width: 270px;
   height: 400px;
   display: flex;
   justify-content: center;
@@ -286,4 +290,62 @@ input:-webkit-autofill {
 .income .washer:hover .plus-sign .center-part-2 {
   background: #a5d6e8;
   border-color: #a5d6e8;
+}
+.income .income-summary {
+  margin-left: 40px;
+  min-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.income .income-summary table {
+  width: 100%;
+}
+.income .income-summary th {
+  text-align: left;
+  padding: 10px;
+  background: #4a798a;
+  color: white;
+  font-weight: bold;
+}
+.income .income-summary th:nth-child(n+2) {
+  text-align: left;
+  width: 135px;
+  padding: 0px 10px;
+}
+.income .income-summary td {
+  color: #4a798a;
+  padding: 6px;
+}
+.income .income-summary td span {
+  float: left;
+}
+.income .income-summary td:nth-child(n+2) {
+  text-align: right;
+  width: 135px;
+  padding: 0px 10px;
+}
+.income .income-summary .first-row {
+  border-top: solid 1px #4a798a;
+}
+.income .income-summary .table-header {
+  margin-top: 0px;
+}
+.income .income-summary .header-row {
+  border: solid 1px #4a798a;
+}
+.income .income-summary .table-subheader {
+  background: #a5d6e8;
+  color: #4a798a;
+  font-weight: bold;
+}
+.income .income-summary .table-total {
+  border-bottom: solid 1px #4a798a;
+  color: #4a798a;
+  background: lightgray;
+}
+.income .income-summary .table-row {
+  border-left: solid 1px #4a798a;
+  border-right: solid 1px #4a798a;
 }

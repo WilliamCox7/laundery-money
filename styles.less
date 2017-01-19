@@ -1,4 +1,5 @@
 @main: #a5d6e8;
+@main-dark: #4a798a;
 @main-gray: lightgray;
 
 @font-face {
@@ -6,12 +7,16 @@
     src: url('../src/script1scriptcasualnormal.ttf') format('truetype');
 }
 
-button:focus {outline:0;}
+body {
+  font-family: arial;
+}
 
 main {
   max-width: 1300px;
   margin: auto;
 }
+
+button:focus {outline:0;}
 
 .login .intro-animation {
   width: 90%;
@@ -266,6 +271,7 @@ input:-webkit-autofill {
 
 .income .washer {
   width: 270px;
+  min-width: 270px;
   height: 400px;
   display: flex;
   justify-content: center;
@@ -330,4 +336,75 @@ input:-webkit-autofill {
     background: @main;
     border-color: @main;
   }
+}
+
+.income .income-summary {
+  margin-left: 40px;
+  min-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.income .income-summary table {
+  width: 100%;
+}
+
+.income .income-summary th {
+  text-align: left;
+  padding: 10px;
+  background: @main-dark;
+  color: white;
+  font-weight: bold;
+}
+
+.income .income-summary th:nth-child(n+2) {
+  text-align: left;
+  width: 135px;
+  padding: 0px 10px;
+}
+
+.income .income-summary td {
+  color: @main-dark;
+  padding: 6px;
+}
+
+.income .income-summary td span {
+  float: left;
+}
+
+.income .income-summary td:nth-child(n+2) {
+  text-align: right;
+  width: 135px;
+  padding: 0px 10px;
+}
+
+.income .income-summary .first-row {
+  border-top: solid 1px @main-dark;
+}
+
+.income .income-summary .table-header {
+  margin-top: 0px;
+}
+
+.income .income-summary .header-row {
+  border: solid 1px @main-dark;
+}
+
+.income .income-summary .table-subheader {
+  background: @main;
+  color: @main-dark;
+  font-weight: bold;
+}
+
+.income .income-summary .table-total {
+  border-bottom: solid 1px @main-dark;
+  color: @main-dark;
+  background: @main-gray;
+}
+
+.income .income-summary .table-row {
+  border-left: solid 1px @main-dark;
+  border-right: solid 1px @main-dark;
 }
