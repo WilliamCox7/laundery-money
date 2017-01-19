@@ -221,3 +221,69 @@ input:-webkit-autofill {
 .upload input[type="file"] {
   display: none;
 }
+.income {
+  width: 90%;
+  margin: auto;
+  display: flex;
+}
+.income .washer {
+  width: 270px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  border: solid 3px lightgray;
+  align-items: center;
+}
+.income .washer .plus-sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.income .washer .plus-sign .tall-part {
+  border: solid 3px lightgray;
+  position: absolute;
+  width: 20px;
+  height: 70px;
+  border-radius: 5px;
+}
+.income .washer .plus-sign .long-part {
+  border: solid 3px lightgray;
+  position: absolute;
+  width: 70px;
+  height: 20px;
+  border-radius: 5px;
+}
+.income .washer .plus-sign .center-part-1 {
+  background: white;
+  border: solid 3px white;
+  position: absolute;
+  width: 20px;
+  height: 14px;
+}
+.income .washer .plus-sign .center-part-2 {
+  background: white;
+  border: solid 3px white;
+  position: absolute;
+  width: 14px;
+  height: 20px;
+}
+.income .washer:hover {
+  cursor: pointer;
+  border: solid 3px #a5d6e8;
+}
+.income .washer:hover .plus-sign .tall-part {
+  background: #a5d6e8;
+  border-color: #a5d6e8;
+}
+.income .washer:hover .plus-sign .long-part {
+  background: #a5d6e8;
+  border-color: #a5d6e8;
+}
+.income .washer:hover .plus-sign .center-part-1 {
+  background: #a5d6e8;
+  border-color: #a5d6e8;
+}
+.income .washer:hover .plus-sign .center-part-2 {
+  background: #a5d6e8;
+  border-color: #a5d6e8;
+}

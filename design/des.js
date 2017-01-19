@@ -77,7 +77,7 @@ var views = {
         action: "On click, pull up open file menu from local computer",
       }
     },
-    mvp: false
+    mvp: true
   },
   income: {
     description: "Information regarding your income",
@@ -86,13 +86,38 @@ var views = {
         ifInitClick: {
           description: "Start Modal Prompt. Prompt for income info"
         }
-      }
+      },
+      mvp: true
     },
     elements: {
       section1: {
-        description: "Navigation Bar for income related options",
+        description: "Displays each source of income from left to right",
         elements: {
-          
+          incomeSources: {
+            background: "Washers",
+            washerItems: {
+              item1: "Income name",
+              item2: "Income type"
+            },
+            plusWasher: "Click grayed out washer to add another source of income"
+          }
+        },
+        mvp: true
+      },
+      section2: {
+        description: "Displays a summary of all incomes",
+        elements: {
+          infoItems: {
+            item1: "Total Gross Income.../bi/m/y",
+            item2+: "Pre-Tax Deduction n.../bi/m/y",
+            item3: "Pre-Tax Deductions.../bi/m/y",
+            item4: "Social Security.../bi/m/y",
+            item5: "Medicare.../bi/m/y",
+            item6: "Withholding.../bi/m/y",
+            item7: "State Tax.../bi/m/y",
+            item8: "Taxes.../bi/m/y",
+            item9: "Total Net Income.../bi/m/y"
+          }
         }
       }
     }
