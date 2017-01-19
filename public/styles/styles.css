@@ -235,7 +235,7 @@ input:-webkit-autofill {
   height: 360px;
   display: flex;
   justify-content: center;
-  border: solid 3px lightgray;
+  border: dashed 3px lightgray;
   align-items: center;
 }
 .income .washer .plus-sign {
@@ -365,8 +365,8 @@ input:-webkit-autofill {
   width: 60%;
   margin: auto;
   margin-top: 100px;
-  border: solid 3px lightgray;
-  box-shadow: 0px 0px 10px black;
+  border: solid 3px #4a798a;
+  box-shadow: 0px 0px 10px #4a798a;
   background: #a5d6e8;
   padding: 20px;
   -webkit-animation-name: animatetop;
