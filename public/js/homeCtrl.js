@@ -8,4 +8,13 @@ angular.module('budgetApp').controller('homeCtrl', function($scope) {
       $('.form-modal').css('display', 'none');
     }
   }
+  $scope.toggleCertainDays = function(item) {
+    if (item === 'days') {
+      $('#certainDaysInput').css('display', 'inline-block');
+      $('#certainDaysSelect').addClass('medium-input');
+    } else {
+      $('#certainDaysInput').css('display', 'none');
+      $('#certainDaysSelect').removeClass('medium-input');
+    }
+  }
 });

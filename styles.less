@@ -271,6 +271,18 @@ input:-webkit-autofill {
 
 .income .washer {
   width: 245px;
+  margin-right: 40px;
+  min-width: 245px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  border: solid 3px @main;
+  align-items: center;
+}
+
+.income .addwasher {
+  width: 245px;
+  margin-right: 40px;
   min-width: 245px;
   height: 360px;
   display: flex;
@@ -279,13 +291,13 @@ input:-webkit-autofill {
   align-items: center;
 }
 
-.income .washer .plus-sign {
+.income .addwasher .plus-sign {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.income .washer .plus-sign .tall-part {
+.income .addwasher .plus-sign .tall-part {
   border: solid 3px @main-gray;
   position: absolute;
   width: 20px;
@@ -293,7 +305,7 @@ input:-webkit-autofill {
   border-radius: 5px;
 }
 
-.income .washer .plus-sign .long-part {
+.income .addwasher .plus-sign .long-part {
   border: solid 3px @main-gray;
   position: absolute;
   width: 70px;
@@ -301,7 +313,7 @@ input:-webkit-autofill {
   border-radius: 5px;
 }
 
-.income .washer .plus-sign .center-part-1 {
+.income .addwasher .plus-sign .center-part-1 {
   background: white;
   border: solid 3px white;
   position: absolute;
@@ -309,7 +321,7 @@ input:-webkit-autofill {
   height: 14px;
 }
 
-.income .washer .plus-sign .center-part-2 {
+.income .addwasher .plus-sign .center-part-2 {
   background: white;
   border: solid 3px white;
   position: absolute;
@@ -317,7 +329,7 @@ input:-webkit-autofill {
   height: 20px;
 }
 
-.income .washer:hover {
+.income .addwasher:hover {
   cursor: pointer;
   border: solid 3px @main;
   .plus-sign .tall-part {
@@ -339,7 +351,6 @@ input:-webkit-autofill {
 }
 
 .income .income-summary {
-  margin-left: 40px;
   min-width: 600px;
   width: 100%;
   display: flex;
@@ -423,7 +434,7 @@ input:-webkit-autofill {
 }
 
 .income .form-modal .modal-content {
-  width: 60%;
+  width: 460px;
   margin: auto;
   margin-top: 100px;
   border: solid 3px @main-dark;
@@ -458,4 +469,55 @@ input:-webkit-autofill {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.income .form-modal .modal-content td {
+  padding: 5px;
+}
+
+.income .form-modal .modal-content td p {
+  color: @main-dark;
+  text-align: right;
+  font-weight: bold;
+}
+
+.income .form-modal .modal-content td input {
+  border: solid 2px @main-dark;
+  padding: 6px;
+  width: 210px;
+}
+
+.income .form-modal .modal-content td select {
+  border: solid 2px @main-dark;
+  padding: 5px;
+  width: 210px;
+}
+
+.income .form-modal .modal-content .short-select {
+  width: 63px;
+}
+
+.income .form-modal .modal-content .medium-input {
+  width: 143px;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.income .form-modal .modal-content button {
+  width: 210px;
+  padding: 5px;
+  background: white;
+  border: solid 2px @main-dark;
+}
+
+.income .form-modal .modal-content button:hover {
+  background: @main-dark;
+  color: white;
+  cursor: pointer;
+}
+
+#certainDaysInput {
+  display: none;
 }

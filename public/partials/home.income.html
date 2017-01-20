@@ -1,5 +1,8 @@
 <section class="income">
-  <div class="washer" ng-click="openModal()">
+  <div class="washer">
+
+  </div>
+  <div class="addwasher" ng-click="openModal()">
     <div class="plus-sign">
       <div class="tall-part"></div>
       <div class="long-part"></div>
@@ -88,14 +91,14 @@
       <span class="close" ng-click="closeModal($event)">&times;</span>
       <table>
         <tr>
-          <td><p>Income Source:</p><p>(who is paying you?)</p></td>
-          <td><input type="text" /></td>
+          <td><p>Income Source:</p></td>
+          <td><input type="text" placeholder="who is paying you?" /></td>
         </tr>
         <tr>
-          <td><p>Amount:</p><p>(what is your wage?)</p></td>
+          <td><p>Amount:</p></td>
           <td>
-            <input type="text" />
-            <select>
+            <input class="medium-input" type="text" placeholder="what is your wage?" />
+            <select class="short-select">
               <option value="hourly">/Hr</option>
               <option value="yearly">/Yr</option>
               <option value="freelance">/Job</option>
@@ -103,23 +106,30 @@
           </td>
         </tr>
         <tr>
-          <td><p>Next Payment:</p><p>(what day will you be paid next?)</p></td>
-          <td><input type="text" /></td>
+          <td><p>Next Paycheck:</p></td>
+          <td><input type="date" /></td>
         </tr>
         <tr>
-          <td><p>Payment Pattern:</p><p>(how do payments occur?)</p></td>
+          <td><p>Paycheck Pattern:</p></td>
           <td>
-            <select>
+            <select id="certainDaysSelect" ng-model="item" ng-change="toggleCertainDays(item)">
               <option value="weekly">Weekly</option>
               <option value="bi-weekly">Bi-Weekly</option>
               <option value="days">Certain Days</option>
             </select>
-            <input type="text" />
+            <input id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
           </td>
         </tr>
         <tr>
-          <td><p>Pre-Tax Deductions:</p><p>(ex: 401k)</p></td>
-          <td><input type="text" /></td>
+          <td><p>Pre-Tax Deductions:</p></td>
+          <td>
+            <input class="medium-input" type="text" placeholder="ex: 401k" />
+            <input class="short-select" type="text" placeholder="%" />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>Add New Income</button></td>
         </tr>
       </table>
     </div>
