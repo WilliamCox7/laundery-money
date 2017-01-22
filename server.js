@@ -37,12 +37,13 @@ passport.use('local', new LocalStrategy(
   }
 ));
 
-passport.use('signup', new LocalStrategy(
-  function(username, password, done) {
+passport.use('signup', new LocalStrategy({
+  passReqToCallback: true
+}, function(req, username, password, done) {
     db.getUserByUsername([username], function(err, user) {
       if (!user[0]) {
-        db.createUser([username, password, null, null, null, null, null], function(err, user) {
-          return done(null, user);
+        db.createUser([username, password, null, null, req.body.firstName, req.body.lastName, null], function(err, user) {
+          return done(null, user); //user is not being sent on signup
         });
       }
     });

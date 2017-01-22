@@ -1,4 +1,4 @@
-angular.module('budgetApp').controller('homeCtrl', function($scope) {
+angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc) {
   $scope.openModal = function() {
     $('.form-modal').css('display', 'block');
   }
@@ -17,4 +17,14 @@ angular.module('budgetApp').controller('homeCtrl', function($scope) {
       $('#certainDaysSelect').removeClass('medium-input');
     }
   }
+  function getUserInfo() {
+    loginSvc.getUserInfo().then(function(res) {
+      if (res.provider) {
+        $scope.username = res.displayName.split(" ")[0];
+      } else {
+        $scope.username = res.first;
+      }
+    });
+  }
+  getUserInfo();
 });

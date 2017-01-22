@@ -6,7 +6,8 @@ angular.module('budgetApp', ['ui.router'])
     $stateProvider
     .state('home', {
       templateUrl: '../partials/home.html',
-      url: '/home'
+      url: '/home',
+      controller: 'homeCtrl'
     })
     .state('login', {
       templateUrl: '../partials/login.html',

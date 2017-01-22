@@ -68,6 +68,11 @@ button:focus {outline:0;}
   margin: auto;
 }
 
+.login .signUpForm {
+  width: 100px !important;
+  display: none;
+}
+
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
     -webkit-text-fill-color: @main !important;
@@ -420,7 +425,7 @@ input:-webkit-autofill {
   border-right: solid 1px @main-dark;
 }
 
-.income .form-modal {
+.form-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -433,7 +438,7 @@ input:-webkit-autofill {
   background-color: rgba(0,0,0,0.4);
 }
 
-.income .form-modal .modal-content {
+.form-modal .modal-content {
   width: 460px;
   margin: auto;
   margin-top: 100px;
@@ -457,47 +462,47 @@ input:-webkit-autofill {
     to {margin-top: 100; opacity: 1}
 }
 
-.income .form-modal .modal-content .close {
+.form-modal .modal-content .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.income .form-modal .modal-content .close:hover,
-.income .form-modal .modal-content .close:focus {
+.form-modal .modal-content .close:hover,
+.form-modal .modal-content .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-.income .form-modal .modal-content td {
+.form-modal .modal-content td {
   padding: 5px;
 }
 
-.income .form-modal .modal-content td p {
+.form-modal .modal-content td p {
   color: @main-dark;
   text-align: right;
   font-weight: bold;
 }
 
-.income .form-modal .modal-content td input {
+.form-modal .modal-content td input {
   border: solid 2px @main-dark;
   padding: 6px;
   width: 210px;
 }
 
-.income .form-modal .modal-content td select {
+.form-modal .modal-content td select {
   border: solid 2px @main-dark;
   padding: 5px;
   width: 210px;
 }
 
-.income .form-modal .modal-content .short-select {
+.form-modal .modal-content .short-select {
   width: 63px;
 }
 
-.income .form-modal .modal-content .medium-input {
+.form-modal .modal-content .medium-input {
   width: 143px;
 }
 
@@ -505,14 +510,14 @@ input[type="date"]::-webkit-inner-spin-button {
     display: none;
 }
 
-.income .form-modal .modal-content button {
+.form-modal .modal-content button {
   width: 210px;
   padding: 5px;
   background: white;
   border: solid 2px @main-dark;
 }
 
-.income .form-modal .modal-content button:hover {
+.form-modal .modal-content button:hover {
   background: @main-dark;
   color: white;
   cursor: pointer;
