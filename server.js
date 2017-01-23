@@ -42,9 +42,20 @@ passport.use('signup', new LocalStrategy({
 }, function(req, username, password, done) {
     db.getUserByUsername([username], function(err, user) {
       if (!user[0]) {
-        db.createUser([username, password, null, null, req.body.firstName, req.body.lastName, null], function(err, user) {
+        var newUser = {
+          username: username,
+          password: password,
+          fb_id: null,
+          gplus_id: null,
+          first: req.body.firstName,
+          last: req.body.lastName,
+          email: null
+        };
+        db.users.save(newUser, function(err, user) {
           return done(null, user); //user is not being sent on signup
         });
+      } else {
+        return done(err);
       }
     });
   }
