@@ -1,6 +1,6 @@
 <section class="income">
-  <div class="washer">
-
+  <div class="washer" ng-repeat="income in incomes">
+    <p>{{income.source}}</p>
   </div>
   <div class="addwasher" ng-click="openModal()">
     <div class="plus-sign">
@@ -22,9 +22,9 @@
     <table>
       <tr class="header-row">
         <td class="table-subHeader">Total Gross Income</td>
-        <td class="table-subHeader"><span>$</span> 1,346.15</td>
-        <td class="table-subHeader"><span>$</span> 2,916.67</td>
-        <td class="table-subHeader"><span>$</span> 35,000.00</td>
+        <td class="table-subHeader"><span>$</span> 0.00</td>
+        <td class="table-subHeader"><span>$</span> 0.00</td>
+        <td class="table-subHeader"><span>$</span> 0.00</td>
       </tr>
     </table>
     <table>
@@ -36,15 +36,15 @@
       </tr>
       <tr class="first-row table-row">
         <td>401k</td>
-        <td><span>$</span> 67.31</td>
-        <td><span>$</span> 145.83</td>
-        <td><span>$</span> 1,750.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
       </tr>
       <tr class="table-row">
         <td class="table-total">After Deductions</td>
-        <td class="table-total"><span>$</span> 1,278.84</td>
-        <td class="table-total"><span>$</span> 2,770.84</td>
-        <td class="table-total"><span>$</span> 33,250.00</td>
+        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> 0.00</td>
       </tr>
     </table>
     <table>
@@ -55,34 +55,34 @@
         <td class="table-subHeader"></td>
       </tr>
       <tr class="first-row table-row">
-        <td>Social Security</td>
-        <td><span>$</span> 82.65</td>
-        <td><span>$</span> 179.08</td>
-        <td><span>$</span> 2,149.00</td>
+        <td>Federal</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
       </tr>
       <tr class="table-row">
-        <td>Medicare</td>
-        <td><span>$</span> 19.38</td>
-        <td><span>$</span> 42.00</td>
-        <td><span>$</span> 504.00</td>
+        <td>FICA</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
       </tr>
       <tr class="table-row">
-        <td>Withholding</td>
-        <td><span>$</span> 140.81</td>
-        <td><span>$</span> 305.08</td>
-        <td><span>$</span> 3,661.00</td>
+        <td>State</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
       </tr>
       <tr class="table-row">
-        <td>State Tax</td>
-        <td><span>$</span> 61.52</td>
-        <td><span>$</span> 133.29</td>
-        <td><span>$</span> 1,599.50</td>
+        <td>Local</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
+        <td><span>$</span> 0.00</td>
       </tr>
       <tr class="table-row">
         <td class="table-total">Net Income</td>
-        <td class="table-total"><span>$</span> 974.47</td>
-        <td class="table-total"><span>$</span> 2,111.38</td>
-        <td class="table-total"><span>$</span> 27,086.50</td>
+        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> 0.00</td>
       </tr>
     </table>
   </div>
@@ -92,22 +92,21 @@
       <table>
         <tr>
           <td><p>Income Source:</p></td>
-          <td><input type="text" placeholder="who is paying you?" /></td>
+          <td><input ng-model="source" type="text" placeholder="who is paying you?" /></td>
         </tr>
         <tr>
           <td><p>Amount:</p></td>
           <td>
-            <input class="medium-input" type="text" placeholder="what is your wage?" />
-            <select class="short-select">
+            <input ng-model="amount" class="medium-input" type="text" placeholder="what is your wage?" />
+            <select ng-model="period" class="short-select">
               <option value="hourly">/Hr</option>
               <option value="yearly">/Yr</option>
-              <option value="freelance">/Job</option>
             </select>
           </td>
         </tr>
         <tr>
           <td><p>Next Paycheck:</p></td>
-          <td><input type="date" /></td>
+          <td><input ng-model="next" type="date" /></td>
         </tr>
         <tr>
           <td><p>Paycheck Pattern:</p></td>
@@ -117,19 +116,19 @@
               <option value="bi-weekly">Bi-Weekly</option>
               <option value="days">Certain Days</option>
             </select>
-            <input id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
+            <input ng-model="days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
           </td>
         </tr>
         <tr>
           <td><p>Pre-Tax Deductions:</p></td>
           <td>
-            <input class="medium-input" type="text" placeholder="ex: 401k" />
-            <input class="short-select" type="text" placeholder="%" />
+            <input ng-model="deduction" class="medium-input" type="text" placeholder="ex: 401k" />
+            <input ng-model="percent" class="short-select" type="text" placeholder="%" />
           </td>
         </tr>
         <tr>
           <td></td>
-          <td><button>Add New Income</button></td>
+          <td><button ng-click="addIncome(source, amount, period, next, item, days, deduction, percent)">Add New Income</button></td>
         </tr>
       </table>
     </div>

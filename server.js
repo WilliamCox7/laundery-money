@@ -137,6 +137,30 @@ app.get('/logout', function(req, res) {
   res.redirect('/#!/login');
 });
 
+app.post('/income/add', function(req, res) {
+  var newIncome = [
+    req.body.id,
+    req.body.source,
+    req.body.amount,
+    req.body.period,
+    req.body.next,
+    req.body.pattern,
+    req.body.days,
+    req.body.deduction,
+    req.body.percent
+  ];
+  db.addIncome(newIncome, function(err, income) {});
+  db.getIncomes(req.body.id, function(err, incomes) {
+    res.status(200).send(incomes);
+  });
+});
+
+app.post('/income/get', function(req, res) {
+  db.getIncomes(req.body.id, function(err, incomes) {
+    res.status(200).send(incomes);
+  });
+});
+
 app.listen(port, function() {
   console.log('port ' + port + ' is listening');
 });
