@@ -27,6 +27,7 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
       }
       calcSvc.getIncomes(res.id).then(function(res) {
         $scope.incomes = res;
+        $scope.incomeOutput = calcSvc.calcIncome(res);
       });
     });
   }

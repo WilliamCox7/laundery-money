@@ -22,9 +22,9 @@
     <table>
       <tr class="header-row">
         <td class="table-subHeader">Total Gross Income</td>
-        <td class="table-subHeader"><span>$</span> 0.00</td>
-        <td class="table-subHeader"><span>$</span> 0.00</td>
-        <td class="table-subHeader"><span>$</span> 0.00</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.b | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.m | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.y | currency:""}}</td>
       </tr>
     </table>
     <table>
@@ -36,15 +36,15 @@
       </tr>
       <tr class="first-row table-row">
         <td>401k</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
+        <td><span>$</span> {{incomeOutput.preTax.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax.y | currency:""}}</td>
       </tr>
       <tr class="table-row">
         <td class="table-total">After Deductions</td>
-        <td class="table-total"><span>$</span> 0.00</td>
-        <td class="table-total"><span>$</span> 0.00</td>
-        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.y | currency:""}}</td>
       </tr>
     </table>
     <table>
@@ -55,34 +55,34 @@
         <td class="table-subHeader"></td>
       </tr>
       <tr class="first-row table-row">
-        <td>Federal</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
+        <td>Social Security</td>
+        <td><span>$</span> {{incomeOutput.ss.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.ss.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.ss.y | currency:""}}</td>
       </tr>
       <tr class="table-row">
-        <td>FICA</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
+        <td>Medicare</td>
+        <td><span>$</span> {{incomeOutput.med.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.med.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.med.y | currency:""}}</td>
       </tr>
       <tr class="table-row">
-        <td>State</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
+        <td>Withholding</td>
+        <td><span>$</span> {{incomeOutput.fed.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.fed.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.fed.y | currency:""}}</td>
       </tr>
       <tr class="table-row">
-        <td>Local</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
-        <td><span>$</span> 0.00</td>
+        <td>State Tax</td>
+        <td><span>$</span> {{incomeOutput.state.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.state.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.state.y | currency:""}}</td>
       </tr>
       <tr class="table-row">
         <td class="table-total">Net Income</td>
-        <td class="table-total"><span>$</span> 0.00</td>
-        <td class="table-total"><span>$</span> 0.00</td>
-        <td class="table-total"><span>$</span> 0.00</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.y | currency:""}}</td>
       </tr>
     </table>
   </div>
