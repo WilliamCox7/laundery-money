@@ -28,6 +28,9 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
       calcSvc.getIncomes(res.id).then(function(res) {
         $scope.incomes = res;
         $scope.incomeOutput = calcSvc.calcIncome(res);
+        if (res.length > 1) {
+          $('.income').css('display', 'block');
+        }
       });
     });
   }
@@ -38,6 +41,9 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
       $scope.incomes = res;
       $('.form-modal').css('display', 'none');
       $scope.incomeOutput = calcSvc.calcIncome(res);
+      if (res.length > 1) {
+        $('.income').css('display', 'block');
+      }
     });
   }
 });

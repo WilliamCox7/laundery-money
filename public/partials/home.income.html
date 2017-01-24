@@ -1,13 +1,15 @@
 <section class="income">
-  <div class="washer" ng-repeat="income in incomes">
-    <p>{{income.source}}</p>
-  </div>
-  <div class="addwasher" ng-click="openModal()">
-    <div class="plus-sign">
-      <div class="tall-part"></div>
-      <div class="long-part"></div>
-      <div class="center-part-1"></div>
-      <div class="center-part-2"></div>
+  <div class="washers">
+    <div class="washer" ng-repeat="income in incomes">
+      <p>{{income.source}}</p>
+    </div>
+    <div class="addwasher" ng-click="openModal()">
+      <div class="plus-sign">
+        <div class="tall-part"></div>
+        <div class="long-part"></div>
+        <div class="center-part-1"></div>
+        <div class="center-part-2"></div>
+      </div>
     </div>
   </div>
   <div class="income-summary">

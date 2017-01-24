@@ -274,6 +274,11 @@ input:-webkit-autofill {
   display: flex;
 }
 
+.income .washers {
+  display: flex;
+  margin-bottom: 40px;
+}
+
 .income .washer {
   width: 245px;
   margin-right: 40px;
@@ -283,6 +288,20 @@ input:-webkit-autofill {
   justify-content: center;
   border: solid 3px @main;
   align-items: center;
+}
+
+.income .washer:hover {
+  cursor: pointer;
+  p {
+    color: @main-dark;
+  }
+  border: solid 3px @main-dark;
+}
+
+.income .washer p {
+  font-family: 'betterCallSaul';
+  font-size: 30px;
+  color: @main;
 }
 
 .income .addwasher {
@@ -358,6 +377,8 @@ input:-webkit-autofill {
 .income .income-summary {
   min-width: 600px;
   width: 100%;
+  margin-bottom: 40px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

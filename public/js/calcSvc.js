@@ -110,6 +110,7 @@ angular.module('budgetApp').service('calcSvc', function($http) {
   calc.stateTax = function(preTax) {
     var deduction = 2850;
     var taxable = preTax - deduction;
+    if (taxable < 0) { taxable = 0; }
     return taxable * .05;
   }
 
@@ -117,6 +118,7 @@ angular.module('budgetApp').service('calcSvc', function($http) {
     var deduction = 6300;
     var exemption = 4050;
     var taxable = preTax - deduction - exemption;
+    if (taxable < 0) { taxable = 0; }
     return calc.federalTaxBracket(taxable);
   }
 
