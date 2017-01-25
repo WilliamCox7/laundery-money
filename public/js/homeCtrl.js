@@ -29,7 +29,6 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
       calcSvc.getIncomes(res.id).then(function(res) {
         $scope.incomes = res;
         $scope.incomeOutput = calcSvc.calcIncome(res);
-        $scope.specIncomes = $scope.incomeOutput.individual;
         if (res.length > 1) {
           $('.income').css('display', 'block');
           $('.form-modal').css('marginTop', '-984px');
@@ -42,11 +41,15 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
     calcSvc.addIncome($scope.userID, source, amount, period, next, pattern, days, deduction, percent)
     .then(function(res) {
       $scope.incomes = res;
+      console.log($scope);
       $('.form-modal').css('display', 'none');
       $scope.incomeOutput = calcSvc.calcIncome(res);
       if (res.length > 1) {
         $('.income').css('display', 'block');
       }
     });
+  }
+  $scope.selectIncome = function(source) {
+    calcSvc.setIncome(source);
   }
 });

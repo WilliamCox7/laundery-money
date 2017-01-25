@@ -3,13 +3,13 @@
     <table>
       <tr>
         <td><p>Income Source:</p></td>
-        <td><input ng-model="specIncome.source" type="text" placeholder="who is paying you?" /></td>
+        <td><input ng-model="specIncome.info.source" type="text" placeholder="who is paying you?" /></td>
       </tr>
       <tr>
         <td><p>Amount:</p></td>
         <td>
-          <input ng-model="specIncome.amount" class="medium-input" type="text" placeholder="what is your wage?" />
-          <select ng-model="specIncome.period" class="short-select">
+          <input ng-model="specIncome.info.amount" class="medium-input" type="text" placeholder="what is your wage?" />
+          <select ng-model="specIncome.info.period" class="short-select">
             <option value="hourly">/Hr</option>
             <option value="yearly">/Yr</option>
           </select>
@@ -17,25 +17,29 @@
       </tr>
       <tr>
         <td><p>Next Paycheck:</p></td>
-        <td><input ng-model="specIncome.next" type="date" /></td>
+        <td><input ng-model="specIncome.info.next" type="date" /></td>
       </tr>
       <tr>
         <td><p>Paycheck Pattern:</p></td>
         <td>
-          <select id="certainDaysSelect" ng-model="specIncome.pattern" ng-change="toggleCertainDays(specIncome.pattern)">
+          <select id="certainDaysSelect" ng-model="specIncome.info.pattern" ng-change="toggleCertainDays(specIncome.info.pattern)">
             <option value="weekly">Weekly</option>
             <option value="bi-weekly">Bi-Weekly</option>
             <option value="days">Certain Days</option>
           </select>
-          <input ng-model="specIncome.days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
+          <input ng-model="specIncome.info.days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
         </td>
       </tr>
       <tr>
         <td><p>Pre-Tax Deductions:</p></td>
         <td>
-          <input ng-model="specIncome.deduction" class="medium-input" type="text" placeholder="ex: 401k" />
-          <input ng-model="specIncome.percent" class="short-select" type="text" placeholder="%" />
+          <input ng-model="specIncome.info.deduction" class="medium-input" type="text" placeholder="ex: 401k" />
+          <input ng-model="specIncome.info.percent" class="short-select" type="text" placeholder="%" />
         </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="updateIncome(specIncome.info.source, specIncome.info.amount, specIncome.info.period, specIncome.info.next, specIncome.info.pattern, specIncome.info.days, specIncome.info.deduction, specIncome.info.percent)">Update</button></td>
       </tr>
     </table>
   </div>

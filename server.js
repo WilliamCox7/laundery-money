@@ -161,6 +161,24 @@ app.post('/income/get', function(req, res) {
   });
 });
 
+app.put('/income/update', function(req, res) {
+  var updatedIncome = [
+    req.body.id,
+    req.body.source,
+    req.body.amount,
+    req.body.period,
+    req.body.next,
+    req.body.pattern,
+    req.body.days,
+    req.body.deduction,
+    req.body.percent
+  ];
+  db.updateIncome(updatedIncome, function(err, income) {});
+  db.getIncomes(req.body.id, function(err, incomes) {
+    res.status(200).send(incomes);
+  });
+});
+
 app.listen(port, function() {
   console.log('port ' + port + ' is listening');
 });

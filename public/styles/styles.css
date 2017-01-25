@@ -471,13 +471,15 @@ input:-webkit-autofill {
 input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
-.form-modal .modal-content button {
+.form-modal .modal-content button,
+.income-details button {
   width: 210px;
   padding: 5px;
   background: white;
   border: solid 2px #4a798a;
 }
-.form-modal .modal-content button:hover {
+.form-modal .modal-content button:hover,
+.income-details button:hover {
   background: #4a798a;
   color: white;
   cursor: pointer;
