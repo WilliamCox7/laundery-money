@@ -1,4 +1,4 @@
-angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, calcSvc) {
+angular.module('budgetApp').controller('homeCtrl', function($scope, $state, loginSvc, calcSvc) {
   $scope.openModal = function() {
     $('.form-modal').css('display', 'block');
   }
@@ -39,14 +39,18 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
   getUserInfo();
   $scope.addIncome = function(source, amount, period, next, pattern, days, deduction, percent) {
     calcSvc.addIncome($scope.userID, source, amount, period, next, pattern, days, deduction, percent)
-    .then(function(res) {
-      $scope.incomes = res;
-      console.log($scope);
-      $('.form-modal').css('display', 'none');
-      $scope.incomeOutput = calcSvc.calcIncome(res);
-      if (res.length > 1) {
-        $('.income').css('display', 'block');
-      }
+    .then(function(status) {
+      calcSvc.getIncomes($scope.userID).then(function(res) {
+        $scope.incomes = res;
+        $('.form-modal').css('display', 'none');
+        $scope.incomeOutput = calcSvc.calcIncome(res);
+        if (res.length > 1) {
+          $('.income').css('display', 'block');
+          $('.form-modal').css('marginTop', '-984px');
+        }
+        $state.go('home.incomeEdit', {source:source});
+        $scope.selectIncome(source);
+      });
     });
   }
   $scope.selectIncome = function(source) {

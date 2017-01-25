@@ -1,3 +1,4 @@
+/* PACKAGES */
 var express = require('express');
 var bodyParser = require('body-parser');
 var passport = require('passport');
@@ -11,7 +12,7 @@ var less = require('less');
 var fs = require('fs');
 var port = 3000;
 
-var app = express();
+var app = module.exports = express();
 
 app.use(session({ secret: config.secret, saveUninitialized: false, resave: false }));
 app.use(passport.initialize());
@@ -19,12 +20,20 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
-var massiveInstance = massive.connectSync({connectionString: 'postgres://postgres:Kmalone32@localhost:4000/laundery_money'})
+var massiveInstance = massive.connectSync({
+  connectionString: 'postgres://' + config.postgres.user + ':' + config.postgres.pass + '@localhost:4000/laundery_money'
+});
+
 app.set('db', massiveInstance);
 var db = app.get('db');
+var incomeCtrl = require('./api/incomeCtrl');
+var authCtrl = require('./auth/authCtrl');
 
+/* AUTH */
 passport.serializeUser(function(user, done) { done(null, user); });
 passport.deserializeUser(function(obj, done) { done(null, obj); });
+
+/* LOCAL STRATEGY */// -- LOG IN
 passport.use('local', new LocalStrategy(
   function(username, password, done) {
     db.getUserByUsername([username], function(err, user) {
@@ -37,6 +46,9 @@ passport.use('local', new LocalStrategy(
   }
 ));
 
+app.post('/auth/local', passport.authenticate('local'), authCtrl.login);
+
+/* LOCAL STRATEGY */// -- SIGN UP
 passport.use('signup', new LocalStrategy({
   passReqToCallback: true
 }, function(req, username, password, done) {
@@ -52,7 +64,7 @@ passport.use('signup', new LocalStrategy({
           email: null
         };
         db.users.save(newUser, function(err, user) {
-          return done(null, user); //user is not being sent on signup
+          return done(null, user);
         });
       } else {
         return done(err);
@@ -61,19 +73,9 @@ passport.use('signup', new LocalStrategy({
   }
 ));
 
-app.post('/auth/local', passport.authenticate('local'), function(req, res) {
-  res.status(200).send(req.user);
-});
+app.post('/auth/signup', passport.authenticate('signup'), authCtrl.signup);
 
-app.post('/auth/signup', passport.authenticate('signup'), function(req, res) {
-  res.status(200).send(req.user);
-});
-
-app.get('/auth/me', function(req, res) {
-  if (!req.user) return res.sendStatus(404);
-  res.status(200).send(req.user);
-});
-
+/* FACEBOOK STRATEGY */
 passport.use(new FacebookStrategy({
     clientID: config.fb.clientID,
     clientSecret: config.fb.clientSecret,
@@ -102,6 +104,7 @@ app.get('/auth/fb/callback', passport.authenticate('facebook', {
     failureRedirect : '/#!/login'
 }));
 
+/* GOOGLE STRATEGY */
 passport.use(new GoogleStrategy({
     clientID: config.google.clientID,
     clientSecret: config.google.clientSecret,
@@ -132,57 +135,29 @@ app.get('/auth/google/callback', passport.authenticate('google', {
     failureRedirect : '/#!/login'
 }));
 
+/* OTHER AUTH ENDPOINTS */
+app.get('/auth/me', authCtrl.sendUsr);
+
 app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/#!/login');
 });
 
-app.post('/income/add', function(req, res) {
-  var newIncome = [
-    req.body.id,
-    req.body.source,
-    req.body.amount,
-    req.body.period,
-    req.body.next,
-    req.body.pattern,
-    req.body.days,
-    req.body.deduction,
-    req.body.percent
-  ];
-  db.addIncome(newIncome, function(err, income) {});
-  db.getIncomes(req.body.id, function(err, incomes) {
-    res.status(200).send(incomes);
-  });
-});
+/* INCOME */
+app.post('/income/add', incomeCtrl.addIncome);
 
-app.post('/income/get', function(req, res) {
-  db.getIncomes(req.body.id, function(err, incomes) {
-    res.status(200).send(incomes);
-  });
-});
+app.post('/income/get', incomeCtrl.getIncomes);
 
-app.put('/income/update', function(req, res) {
-  var updatedIncome = [
-    req.body.id,
-    req.body.source,
-    req.body.amount,
-    req.body.period,
-    req.body.next,
-    req.body.pattern,
-    req.body.days,
-    req.body.deduction,
-    req.body.percent
-  ];
-  db.updateIncome(updatedIncome, function(err, income) {});
-  db.getIncomes(req.body.id, function(err, incomes) {
-    res.status(200).send(incomes);
-  });
-});
+app.put('/income/update', incomeCtrl.updateIncome);
 
+app.post('/income/remove', incomeCtrl.deleteIncome)
+
+/* SERVER */
 app.listen(port, function() {
   console.log('port ' + port + ' is listening');
 });
 
+/* LESS MANAGEMENT */
 fs.readFile('styles.less', function(err, styles) {
     less.render(styles.toString(), function(er, css) {
         fs.writeFile('./public/styles/styles.css', css.css, function(e) {

@@ -56,6 +56,15 @@ angular.module('budgetApp').service('calcSvc', function($http) {
       return res.data;
     });
   }
+  this.removeIncome = function(id, source) {
+    return $http ({
+      method: 'POST',
+      url: 'income/remove',
+      data: { id: id, source: source }
+    }).then(function(res) {
+      return res.data;
+    });
+  }
   this.calcIncome = function(incomes) {
     var incomeOutput = {
       gross: { b: 0, m: 0, y: 0 },

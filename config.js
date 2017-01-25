@@ -7,5 +7,9 @@ module.exports = {
   google: {
     clientID: '893173211493-4s4hfh0lcdg5lcq96912rjbm37jl87kt.apps.googleusercontent.com',
     clientSecret: 'AG0a8IFhuIKIdLOZ-ZynXKDB'
+  },
+  postgres: {
+    user: 'postgres',
+    pass: 'Kmalone32'
   }
 }
