@@ -1,1 +1,25 @@
-expenses
+<section class="expenses">
+  <div class="expense-report">
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Habit</th>
+        <th></th>
+        <th>/Day</th>
+        <th>/Year</th>
+        <th>/Month</th>
+      </tr>
+      <tr ng-repeat="expense in expenses">
+        <td>{{expense.category}}</td>
+        <td>{{expense.total}}</td>
+        <td>{{expense.percent}}</td>
+        <td>{{expense.d}}</td>
+        <td>{{expense.m}}</td>
+        <td>{{expense.y}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="expense-manager">
+    <p>Expense Manager</p>
+  </div>
+</section>

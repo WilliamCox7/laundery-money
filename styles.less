@@ -559,3 +559,44 @@ input[type="date"]::-webkit-inner-spin-button {
 .income-details {
   width: 640px;
 }
+
+.expenses {
+  width: calc(~'100% - 120px');
+  margin: auto;
+  display: flex;
+}
+
+.expenses .expense-report {
+  width: calc(~'100% - 300px');
+}
+
+.expenses .expense-manager {
+  width: 260px;
+  height: 360px;
+  font-size: 24px;
+  margin-left: 40px;
+  font-family: 'betterCallSaul';
+  border: solid 3px @main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @main;
+  float: right;
+}
+
+.expenses .expense-manager:hover {
+  cursor: pointer;
+  color: @main-dark;
+  border: solid 3px @main-dark;
+}
+
+.expenses .expense-report table {
+  width: 100%;
+}
+
+.expenses .expense-report th {
+  background: @main-dark;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}

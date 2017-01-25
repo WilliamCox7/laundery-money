@@ -145,11 +145,8 @@ app.get('/logout', function(req, res) {
 
 /* INCOME */
 app.post('/income/add', incomeCtrl.addIncome);
-
 app.post('/income/get', incomeCtrl.getIncomes);
-
 app.put('/income/update', incomeCtrl.updateIncome);
-
 app.post('/income/remove', incomeCtrl.deleteIncome)
 
 /* SERVER */
