@@ -34,6 +34,10 @@ angular.module('budgetApp', ['ui.router'])
     .state('home.options', {
       templateUrl: '../partials/home.options.html',
       url: '/options'
-    });
+    })
+    .state('home.incomeEdit', {
+      templateUrl: '../partials/home.incomeEdit.html',
+      url: '/income/:source'
+    })
 
 });

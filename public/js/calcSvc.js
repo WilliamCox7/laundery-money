@@ -39,8 +39,11 @@ angular.module('budgetApp').service('calcSvc', function($http) {
       state: { b: 0, m: 0, y: 0 },
       net: { b: 0, m: 0, y: 0 }
     }
-    incomes.forEach(function(income) {
 
+    incomes.forEach(function(income) {
+      /* SAVE INDIVIDUAL INFO */
+      var key = income.source.split(" ").join("");
+      
       /* GROSS INCOME */
       var gross = 0;
       if (income.period === 'hourly') {

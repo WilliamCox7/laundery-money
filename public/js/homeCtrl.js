@@ -4,7 +4,8 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
   }
   $scope.closeModal = function($event) {
     var element = angular.element($event.target);
-    if (element[0].className === 'form-modal' || element[0].className === 'close') {
+    var className = element[0].className;
+    if (className.indexOf('form-modal') >= 0 || className === 'close') {
       $('.form-modal').css('display', 'none');
     }
   }
@@ -28,8 +29,10 @@ angular.module('budgetApp').controller('homeCtrl', function($scope, loginSvc, ca
       calcSvc.getIncomes(res.id).then(function(res) {
         $scope.incomes = res;
         $scope.incomeOutput = calcSvc.calcIncome(res);
+        $scope.specIncomes = $scope.incomeOutput.individual;
         if (res.length > 1) {
           $('.income').css('display', 'block');
+          $('.form-modal').css('marginTop', '-984px');
         }
       });
     });

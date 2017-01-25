@@ -1,6 +1,6 @@
 <section class="income">
   <div class="washers">
-    <div class="washer" ng-repeat="income in incomes">
+    <div class="washer" ng-repeat="income in incomes" ng-click="selectIncome(income.source)" ui-sref="home.incomeEdit({source: income.source})">
       <p>{{income.source}}</p>
     </div>
     <div class="addwasher" ng-click="openModal()">
@@ -88,51 +88,51 @@
       </tr>
     </table>
   </div>
-  <div class="form-modal" ng-click="closeModal($event)">
-    <div class="modal-content">
-      <span class="close" ng-click="closeModal($event)">&times;</span>
-      <table>
-        <tr>
-          <td><p>Income Source:</p></td>
-          <td><input ng-model="source" type="text" placeholder="who is paying you?" /></td>
-        </tr>
-        <tr>
-          <td><p>Amount:</p></td>
-          <td>
-            <input ng-model="amount" class="medium-input" type="text" placeholder="what is your wage?" />
-            <select ng-model="period" class="short-select">
-              <option value="hourly">/Hr</option>
-              <option value="yearly">/Yr</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><p>Next Paycheck:</p></td>
-          <td><input ng-model="next" type="date" /></td>
-        </tr>
-        <tr>
-          <td><p>Paycheck Pattern:</p></td>
-          <td>
-            <select id="certainDaysSelect" ng-model="item" ng-change="toggleCertainDays(item)">
-              <option value="weekly">Weekly</option>
-              <option value="bi-weekly">Bi-Weekly</option>
-              <option value="days">Certain Days</option>
-            </select>
-            <input ng-model="days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
-          </td>
-        </tr>
-        <tr>
-          <td><p>Pre-Tax Deductions:</p></td>
-          <td>
-            <input ng-model="deduction" class="medium-input" type="text" placeholder="ex: 401k" />
-            <input ng-model="percent" class="short-select" type="text" placeholder="%" />
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><button ng-click="addIncome(source, amount, period, next, item, days, deduction, percent)">Add New Income</button></td>
-        </tr>
-      </table>
-    </div>
-  </div>
 </section>
+<div class="form-modal" ng-click="closeModal($event)">
+  <div class="modal-content">
+    <span class="close" ng-click="closeModal($event)">&times;</span>
+    <table>
+      <tr>
+        <td><p>Income Source:</p></td>
+        <td><input ng-model="source" type="text" placeholder="who is paying you?" /></td>
+      </tr>
+      <tr>
+        <td><p>Amount:</p></td>
+        <td>
+          <input ng-model="amount" class="medium-input" type="text" placeholder="what is your wage?" />
+          <select ng-model="period" class="short-select">
+            <option value="hourly">/Hr</option>
+            <option value="yearly">/Yr</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>Next Paycheck:</p></td>
+        <td><input ng-model="next" type="date" /></td>
+      </tr>
+      <tr>
+        <td><p>Paycheck Pattern:</p></td>
+        <td>
+          <select id="certainDaysSelect" ng-model="item" ng-change="toggleCertainDays(item)">
+            <option value="weekly">Weekly</option>
+            <option value="bi-weekly">Bi-Weekly</option>
+            <option value="days">Certain Days</option>
+          </select>
+          <input ng-model="days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Pre-Tax Deductions:</p></td>
+        <td>
+          <input ng-model="deduction" class="medium-input" type="text" placeholder="ex: 401k" />
+          <input ng-model="percent" class="short-select" type="text" placeholder="%" />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="addIncome(source, amount, period, next, item, days, deduction, percent)">Add New Income</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

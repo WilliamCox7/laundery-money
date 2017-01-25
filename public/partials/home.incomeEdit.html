@@ -1,0 +1,118 @@
+<section class="income">
+  <div class="income-details">
+    <table>
+      <tr>
+        <td><p>Income Source:</p></td>
+        <td><input ng-model="specIncome.source" type="text" placeholder="who is paying you?" /></td>
+      </tr>
+      <tr>
+        <td><p>Amount:</p></td>
+        <td>
+          <input ng-model="specIncome.amount" class="medium-input" type="text" placeholder="what is your wage?" />
+          <select ng-model="specIncome.period" class="short-select">
+            <option value="hourly">/Hr</option>
+            <option value="yearly">/Yr</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>Next Paycheck:</p></td>
+        <td><input ng-model="specIncome.next" type="date" /></td>
+      </tr>
+      <tr>
+        <td><p>Paycheck Pattern:</p></td>
+        <td>
+          <select id="certainDaysSelect" ng-model="specIncome.pattern" ng-change="toggleCertainDays(specIncome.pattern)">
+            <option value="weekly">Weekly</option>
+            <option value="bi-weekly">Bi-Weekly</option>
+            <option value="days">Certain Days</option>
+          </select>
+          <input ng-model="specIncome.days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Pre-Tax Deductions:</p></td>
+        <td>
+          <input ng-model="specIncome.deduction" class="medium-input" type="text" placeholder="ex: 401k" />
+          <input ng-model="specIncome.percent" class="short-select" type="text" placeholder="%" />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="income-summary">
+    <table class="table-header">
+      <tr>
+        <th>Item</th>
+        <th>Bi-Weekly</th>
+        <th>Monthly</th>
+        <th>Yearly</th>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Gross Income</td>
+        <td class="table-subHeader"><span>$</span> {{specIncome.gross.b | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{specIncome.gross.m | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{specIncome.gross.y | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Pre-Tax Deductions</td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>401k</td>
+        <td><span>$</span> {{specIncome.preTax.b | currency:""}}</td>
+        <td><span>$</span> {{specIncome.preTax.m | currency:""}}</td>
+        <td><span>$</span> {{specIncome.preTax.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">After Deductions</td>
+        <td class="table-total"><span>$</span> {{specIncome.after.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{specIncome.after.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{specIncome.after.y | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Taxes</td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>Social Security</td>
+        <td><span>$</span> {{specIncome.ss.b | currency:""}}</td>
+        <td><span>$</span> {{specIncome.ss.m | currency:""}}</td>
+        <td><span>$</span> {{specIncome.ss.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Medicare</td>
+        <td><span>$</span> {{specIncome.med.b | currency:""}}</td>
+        <td><span>$</span> {{specIncome.med.m | currency:""}}</td>
+        <td><span>$</span> {{specIncome.med.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Withholding</td>
+        <td><span>$</span> {{specIncome.fed.b | currency:""}}</td>
+        <td><span>$</span> {{specIncome.fed.m | currency:""}}</td>
+        <td><span>$</span> {{specIncome.fed.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>State Tax</td>
+        <td><span>$</span> {{specIncome.state.b | currency:""}}</td>
+        <td><span>$</span> {{specIncome.state.m | currency:""}}</td>
+        <td><span>$</span> {{specIncome.state.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">Net Income</td>
+        <td class="table-total"><span>$</span> {{specIncome.net.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{specIncome.net.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{specIncome.net.y | currency:""}}</td>
+      </tr>
+    </table>
+  </div>
+</section>

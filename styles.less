@@ -451,7 +451,7 @@ input:-webkit-autofill {
   position: fixed;
   z-index: 1;
   left: 0;
-  margin-top: -184px;
+  margin-top: -584px;
   right: 0;
   width: 100%;
   height: 100%;
@@ -497,33 +497,39 @@ input:-webkit-autofill {
     cursor: pointer;
 }
 
-.form-modal .modal-content td {
+.form-modal .modal-content td,
+.income-details td {
   padding: 5px;
 }
 
-.form-modal .modal-content td p {
+.form-modal .modal-content td p,
+.income-details td p {
   color: @main-dark;
   text-align: right;
   font-weight: bold;
 }
 
-.form-modal .modal-content td input {
+.form-modal .modal-content td input,
+.income-details td input {
   border: solid 2px @main-dark;
   padding: 6px;
   width: 210px;
 }
 
-.form-modal .modal-content td select {
+.form-modal .modal-content td select,
+.income-details td select {
   border: solid 2px @main-dark;
   padding: 5px;
   width: 210px;
 }
 
-.form-modal .modal-content .short-select {
+.form-modal .modal-content .short-select,
+.income-details .short-select {
   width: 63px;
 }
 
-.form-modal .modal-content .medium-input {
+.form-modal .modal-content .medium-input,
+.income-details .medium-input {
   width: 143px;
 }
 
@@ -546,4 +552,8 @@ input[type="date"]::-webkit-inner-spin-button {
 
 #certainDaysInput {
   display: none;
+}
+
+.income-details {
+  width: 640px;
 }
