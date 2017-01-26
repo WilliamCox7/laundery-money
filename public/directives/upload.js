@@ -5,6 +5,7 @@ angular.module('budgetApp').directive('upload', function($http) {
       elem.on("change" ,function(evt) {
         var file = evt.currentTarget.files[0];
         var reader = new FileReader();
+        $('.form-modal').css('display', 'block');
         reader.onload = function(evt) {
           scope.$apply(function($scope) {
             var content = evt.target.result;
