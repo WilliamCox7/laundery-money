@@ -72,6 +72,12 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
       expenses.categories[key].y = expenses.categories[key].d * 365;
       expenses.categories[key].sub[subKey].y = expenses.categories[key].sub[subKey].d * 365;
     });
+    for (var prop in expenses.categories) {
+      if (prop === expenses.categoryNames[0]) {
+        expenses.categories[prop].habit = (expenses.categories[prop].total / expenses.total) * 100;
+      }
+      expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].habit = (expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].total / expenses.categories[prop].total) * 100;
+    }
     return expenses;
   }
 });

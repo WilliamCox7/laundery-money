@@ -10,7 +10,7 @@
     <div class="exp-tbl-cat" ng-repeat="category in categories" ng-style="{ marginBottom: expense[category].subcategoryNames.length * 37 }">
       <p>{{expense[category].name}}</p>
       <p>${{expense[category].total | makePos | currency:"" }}</p>
-      <p>{{expense[category].habit}}%</p>
+      <p>{{expense[category].habit | currency:""}}%</p>
       <p>${{expense[category].d | makePos | currency:""}}</p>
       <p>${{expense[category].m | makePos | currency:""}}</p>
       <p>${{expense[category].y | makePos | currency:""}}</p>
@@ -18,7 +18,7 @@
         <div class="exp-tbl-row" ng-repeat="subcategory in expense[category].subcategoryNames" >
           <p>{{expense[category].sub[subcategory].name}}</p>
           <p>${{expense[category].sub[subcategory].total | makePos | currency:""}}</p>
-          <p>{{expense[category].sub[subcategory].habit}}%</p>
+          <p>{{expense[category].sub[subcategory].habit | currency:""}}%</p>
           <p>${{expense[category].sub[subcategory].d | makePos | currency:""}}</p>
           <p>${{expense[category].sub[subcategory].m | makePos | currency:""}}</p>
           <p>${{expense[category].sub[subcategory].y | makePos | currency:""}}</p>
