@@ -3,6 +3,7 @@ angular.module('budgetApp').controller('expenseCtrl', function($scope, expenseSv
     expenseSvc.getExpenses($scope.userID).then(function(res) {
       $scope.categories = res.categoryNames;
       $scope.expense = res.categories;
+      $scope.totalExpense = res;
     });
   }
   getExpenses();

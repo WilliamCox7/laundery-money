@@ -563,3 +563,17 @@ input[type="date"]::-webkit-inner-spin-button {
   display: flex;
   width: 100%;
 }
+.expenses .expense-report .exp-tbl-totals {
+  width: 100%;
+  display: flex;
+  color: #4a798a;
+  background: lightgray;
+  border: solid 1px #4a798a;
+}
+.expenses .expense-report .exp-tbl-totals p {
+  width: 16.66%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}

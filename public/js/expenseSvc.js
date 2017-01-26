@@ -13,7 +13,10 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
     var expenses = {
       categoryNames: [],
       categories: {},
-      total: 0
+      total: 0,
+      d: 0,
+      m: 0,
+      y: 0
     };
     var maxDate, minDate;
     var firstTime = true;
@@ -76,6 +79,9 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
       if (prop === expenses.categoryNames[0]) {
         expenses.categories[prop].habit = (expenses.categories[prop].total / expenses.total) * 100;
       }
+      expenses.d += expenses.categories[prop].d;
+      expenses.m += expenses.categories[prop].m;
+      expenses.y += expenses.categories[prop].y;
       expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].habit = (expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].total / expenses.categories[prop].total) * 100;
     }
     return expenses;

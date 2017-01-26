@@ -25,6 +25,13 @@
         </div>
       </div>
     </div>
+    <div class="exp-tbl-totals">
+      <p>Totals</p>
+      <p id="long-column">${{totalExpense.total | makePos | currency:""}}</p>
+      <p>${{totalExpense.d | makePos | currency:""}}</p>
+      <p>${{totalExpense.m | makePos | currency:""}}</p>
+      <p>${{totalExpense.y | makePos | currency:""}}</p>
+    </div>
   </div>
   <div class="expense-manager">
     <p>Expense Manager</p>
