@@ -1,6 +1,6 @@
 var app = require( '../server');
 
-var authCtrl = {
+var authControl = {
   login: function(req, res) {
     res.status(200).send(req.user);
   },
@@ -13,4 +13,4 @@ var authCtrl = {
   }
 }
 
-module.exports = authCtrl;
+module.exports = authControl;

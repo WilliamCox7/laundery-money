@@ -1,7 +1,7 @@
 var app = require( '../server');
 var db = app.get('db');
 
-var incomeCtrl = {
+var incomeControl = {
   addIncome: function(req, res) {
     var newIncome = [
       req.body.id,
@@ -43,4 +43,4 @@ var incomeCtrl = {
   }
 }
 
-module.exports = incomeCtrl;
+module.exports = incomeControl;

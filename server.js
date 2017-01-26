@@ -26,8 +26,9 @@ var massiveInstance = massive.connectSync({
 
 app.set('db', massiveInstance);
 var db = app.get('db');
-var incomeCtrl = require('./api/incomeCtrl');
-var authCtrl = require('./auth/authCtrl');
+var incomeCtrl = require('./api/incomeControl');
+var authCtrl = require('./auth/authControl');
+var expenseCtrl = require('./api/expenseControl');
 
 /* AUTH */
 passport.serializeUser(function(user, done) { done(null, user); });
@@ -147,7 +148,10 @@ app.get('/logout', function(req, res) {
 app.post('/income/add', incomeCtrl.addIncome);
 app.post('/income/get', incomeCtrl.getIncomes);
 app.put('/income/update', incomeCtrl.updateIncome);
-app.post('/income/remove', incomeCtrl.deleteIncome)
+app.post('/income/remove', incomeCtrl.deleteIncome);
+
+/* EXPENSES */
+app.post('/expense/get', expenseCtrl.getExpenses);
 
 /* SERVER */
 app.listen(port, function() {

@@ -16,7 +16,8 @@ angular.module('budgetApp', ['ui.router'])
     })
     .state('home.upload', {
       templateUrl: '../partials/home.upload.html',
-      url: '/upload'
+      url: '/upload',
+      controller: 'expenseCtrl'
     })
     .state('home.income', {
       templateUrl: '../partials/home.income.html',
@@ -25,7 +26,8 @@ angular.module('budgetApp', ['ui.router'])
     })
     .state('home.expenses', {
       templateUrl: '../partials/home.expenses.html',
-      url: '/expenses'
+      url: '/expenses',
+      controller: 'expenseCtrl'
     })
     .state('home.projections', {
       templateUrl: '../partials/home.projections.html',
