@@ -1,23 +1,30 @@
 <section class="expenses">
   <div class="expense-report">
-    <table>
-      <tr>
-        <th>Category</th>
-        <th>Habit</th>
-        <th></th>
-        <th>/Day</th>
-        <th>/Year</th>
-        <th>/Month</th>
-      </tr>
-      <tr ng-repeat="expense in expenses">
-        <td>{{expense.category}}</td>
-        <td>{{expense.total}}</td>
-        <td>{{expense.percent}}</td>
-        <td>{{expense.d}}</td>
-        <td>{{expense.m}}</td>
-        <td>{{expense.y}}</td>
-      </tr>
-    </table>
+    <div class="exp-tbl-header">
+      <h1>Category</h1>
+      <h1 id="long-column">Habit</h1>
+      <h1>/Day</h1>
+      <h1>/Month</h1>
+      <h1>/Year</h1>
+    </div>
+    <div class="exp-tbl-cat" ng-repeat="category in categories" ng-style="{ marginBottom: expense[category].subcategoryNames.length * 37 }">
+      <p>{{expense[category].name}}</p>
+      <p>${{expense[category].total | makePos | currency:"" }}</p>
+      <p>{{expense[category].habit}}%</p>
+      <p>${{expense[category].d | makePos | currency:""}}</p>
+      <p>${{expense[category].m | makePos | currency:""}}</p>
+      <p>${{expense[category].y | makePos | currency:""}}</p>
+      <div class="exp-tbl-sub">
+        <div class="exp-tbl-row" ng-repeat="subcategory in expense[category].subcategoryNames" >
+          <p>{{expense[category].sub[subcategory].name}}</p>
+          <p>${{expense[category].sub[subcategory].total | makePos | currency:""}}</p>
+          <p>{{expense[category].sub[subcategory].habit}}%</p>
+          <p>${{expense[category].sub[subcategory].d | makePos | currency:""}}</p>
+          <p>${{expense[category].sub[subcategory].m | makePos | currency:""}}</p>
+          <p>${{expense[category].sub[subcategory].y | makePos | currency:""}}</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="expense-manager">
     <p>Expense Manager</p>

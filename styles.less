@@ -590,13 +590,57 @@ input[type="date"]::-webkit-inner-spin-button {
   border: solid 3px @main-dark;
 }
 
-.expenses .expense-report table {
+.expenses .expense-report .exp-tbl-header {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
-.expenses .expense-report th {
+.expenses .expense-report .exp-tbl-header h1 {
   background: @main-dark;
   color: white;
+  width: 16.66%;
+  text-align: center;
   padding: 10px;
   font-weight: bold;
+}
+
+#long-column {
+  width: 33.33%;
+}
+
+.expenses .expense-report .exp-tbl-cat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border: solid 1px @main-dark;
+}
+
+.expenses .expense-report .exp-tbl-cat p {
+  background: @main;
+  color: white;
+  width: 16.66%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.expenses .expense-report .exp-tbl-sub {
+  position: absolute;
+  width: 100%;
+  margin-top: 37px;
+}
+
+.expenses .expense-report .exp-tbl-sub p {
+  background: white;
+  color: @main-dark;
+  font-weight: normal;
+}
+
+.expenses .expense-report .exp-tbl-row {
+  position: relative;
+  display: flex;
+  width: 100%;
 }

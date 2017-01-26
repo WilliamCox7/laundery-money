@@ -516,12 +516,50 @@ input[type="date"]::-webkit-inner-spin-button {
   color: #4a798a;
   border: solid 3px #4a798a;
 }
-.expenses .expense-report table {
+.expenses .expense-report .exp-tbl-header {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }
-.expenses .expense-report th {
+.expenses .expense-report .exp-tbl-header h1 {
   background: #4a798a;
   color: white;
+  width: 16.66%;
+  text-align: center;
   padding: 10px;
   font-weight: bold;
+}
+#long-column {
+  width: 33.33%;
+}
+.expenses .expense-report .exp-tbl-cat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border: solid 1px #4a798a;
+}
+.expenses .expense-report .exp-tbl-cat p {
+  background: #a5d6e8;
+  color: white;
+  width: 16.66%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+.expenses .expense-report .exp-tbl-sub {
+  position: absolute;
+  width: 100%;
+  margin-top: 37px;
+}
+.expenses .expense-report .exp-tbl-sub p {
+  background: white;
+  color: #4a798a;
+  font-weight: normal;
+}
+.expenses .expense-report .exp-tbl-row {
+  position: relative;
+  display: flex;
+  width: 100%;
 }
