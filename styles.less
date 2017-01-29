@@ -751,3 +751,49 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   padding: 10px;
   text-align: center;
 }
+
+.expenses .exp-manager {
+  width: calc(~'100% - 300px');
+  margin-left: 40px;
+}
+
+.expenses .exp-manager-animation {
+  width: 260px;
+  height: 360px;
+  border: solid 3px @main;
+}
+
+.expenses .exp-manager table {
+  width: 100%;
+  border: solid 1px @main-dark;
+}
+
+.expenses .exp-manager table th {
+  background: @main-dark;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+.expenses .exp-manager table tr {
+  color: @main-dark;
+
+}
+
+.expenses .exp-manager table tr:nth-child(odd) {
+  background: @main-gray;
+}
+
+.expenses .exp-manager table td {
+  padding: 10px;
+}
+
+.expenses .exp-manager table td:nth-child(4) {
+  width: 30px;
+}
+
+.expenses .exp-manager table td:nth-child(4):hover {
+  font-weight: bold;
+  cursor: pointer;
+}

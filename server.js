@@ -155,6 +155,7 @@ app.post('/expense/get', expenseCtrl.getExpenses);
 app.post('/expense/insert', expenseCtrl.insertExpenses);
 app.post('/expense/keyword', expenseCtrl.saveKeywords);
 app.post('/expense/getKeywords', expenseCtrl.getKeywords);
+app.post('/expense/removeKeyword', expenseCtrl.removeKeyword);
 
 /* SERVER */
 app.listen(port, function() {

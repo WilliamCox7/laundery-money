@@ -25,6 +25,10 @@ var expenseControl = {
     db.getKeywords(req.body.id, function(err, keywords) {
       res.status(200).send(keywords);
     });
+  },
+  removeKeyword: function(req, res) {
+    db.removeKeyword(req.body.id, req.body.keyword, function(err, info) {});
+    res.status(200).send("Removed Keyword");
   }
 }
 

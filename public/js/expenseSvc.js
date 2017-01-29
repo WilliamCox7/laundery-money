@@ -111,4 +111,13 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
       return res.data;
     });
   }
+  this.removeKeyword = function(id, keyword) {
+    return $http ({
+      method: 'POST',
+      url: 'expense/removeKeyword',
+      data: { id: id, keyword: keyword }
+    }).then(function(res) {
+      return res.data;
+    });
+  }
 });
