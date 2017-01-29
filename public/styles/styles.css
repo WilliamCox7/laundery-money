@@ -487,6 +487,82 @@ input[type="date"]::-webkit-inner-spin-button {
 #certainDaysInput {
   display: none;
 }
+.form-modal .modal-content .exp-details p {
+  color: #4a798a;
+  font-weight: bold;
+  padding: 10px;
+}
+.form-modal .modal-content .exp-details #exp-detail-desc {
+  border-bottom: solid 2px #4a798a;
+  width: 91%;
+  padding-bottom: 5px;
+}
+.form-modal .modal-content .exp-details #exp-detail-desc span {
+  float: right;
+}
+.form-modal .modal-content .exp-details .exp-detail-info {
+  display: flex;
+  justify-content: space-between;
+  width: 91%;
+}
+.form-modal .modal-content .exp-actions select,
+.form-modal .modal-content .exp-actions input[type="text"] {
+  width: 43%;
+  padding: 5px;
+  border: solid 2px #4a798a;
+  margin: 5px;
+}
+.form-modal .modal-content .exp-actions button {
+  width: 43%;
+  margin-left: 197px;
+  margin-top: 6px;
+}
+input[type="checkbox"] {
+  display: none;
+}
+.exp-actions label {
+  position: relative;
+  margin-left: 40px;
+  top: 1px;
+}
+.exp-actions span::before,
+.exp-actions span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.exp-actions span.checkbox {
+  color: #4a798a;
+}
+.exp-actions span.checkbox::before {
+  width: 27px;
+  height: 27px;
+  background-color: #fff;
+  left: -35px;
+  box-sizing: border-box;
+  border: solid 2px #4a798a;
+  transition: border-color 0.2s;
+}
+.exp-actions span.checkbox:hover::before,
+.exp-actions span.checkbox:hover::after {
+  cursor: pointer;
+}
+.exp-actions span.checkbox::after {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  left: -30px;
+  top: 1px;
+  color: transparent;
+  transition: color .2s;
+}
+input[type="checkbox"]:checked + label span.checkbox::after {
+  color: #4a798a;
+}
+#upload-modal {
+  top: 584px;
+}
 .income-details {
   width: 640px;
 }

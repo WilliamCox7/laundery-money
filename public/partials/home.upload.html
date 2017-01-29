@@ -2,21 +2,24 @@
   <input id="inputButton" type="file" accept=".csv" upload />
   <h1 onclick="document.getElementById('inputButton').click();">Select CSV</h1>
 </section>
-<div class="form-modal" ng-click="closeModal($event)">
+<div id="upload-modal" class="form-modal" ng-click="closeModal($event)">
   <div class="modal-content">
     <span class="close" ng-click="closeModal($event)">&times;</span>
     <div class="exp-details">
-      <p>{{exp.description}}</p>
-      <p>{{exp.date}}</p>
-      <p>{{exp.amount}}</p>
+      <p id="exp-detail-desc">{{exp.description}}<span>{{expCurrent}} of {{expTotal}}</span></p>
+      <div class="exp-detail-info">
+        <p>{{exp.date | date:'shortDate'}}</p>
+        <p>${{exp.amount | makePos | currency:""}}</p>
+      </div>
     </div>
     <div class="exp-actions">
-      <select ng-options="exp-cat in exp-categories"></select>
-      <input type="text" placeholder="new category" />
-      <select ng-options="exp-sub in exp-subcategories"></select>
-      <input type="text" placeholder="new subcategory" />
-      <input type="text" placeholder="bind to keyword" />
-      <input type="checkbox" /> remember keyword
+      <select ng-model="catSelect" ng-options="e as e for e in categories"></select>
+      <input ng-model="catNew" type="text" placeholder="new category" />
+      <select ng-model="subSelect" ng-options="s as s for s in subcategories"></select>
+      <input ng-model="subNew" type="text" placeholder="new subcategory" />
+      <input ng-model="keyword" type="text" placeholder="bind to keyword" />
+      <input ng-model="checkBool" type="checkbox" id="checkbox-1" /><label for="checkbox-1"><span class="checkbox">remember keyword</span></label>
+      <button ng-click="saveUserSelection(catSelect, catNew, subSelect, subNew, keyword, checkBool)">Save</button>
     </div>
   </div>
 </div>

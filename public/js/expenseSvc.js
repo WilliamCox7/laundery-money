@@ -12,6 +12,7 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
   this.categorize = function(data) {
     var expenses = {
       categoryNames: [],
+      subcategoryNames: [],
       categories: {},
       total: 0,
       d: 0,
@@ -46,6 +47,7 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
           y: 0
         }
         expenses.categories[key].subcategoryNames.push(subKey);
+        expenses.subcategoryNames.push(subKey);
       }
       expenses.categories[key].total += expense.amount;
       expenses.categories[key].sub[subKey].total += expense.amount;
@@ -85,5 +87,28 @@ angular.module('budgetApp').service('expenseSvc', function($http) {
       expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].habit = (expenses.categories[prop].sub[expenses.categories[prop].subcategoryNames[0]].total / expenses.categories[prop].total) * 100;
     }
     return expenses;
+  }
+  this.addExpenses = function(expenseInfo) {
+    $http ({
+      method: 'POST',
+      url: 'expense/insert',
+      data: { info: expenseInfo }
+    });
+  }
+  this.saveKeywords = function(keywordInfo) {
+    $http ({
+      method: 'POST',
+      url: 'expense/keyword',
+      data: { info: keywordInfo }
+    });
+  }
+  this.getKeywordInfo = function(id) {
+    return $http ({
+      method: 'POST',
+      url: 'expense/getKeywords',
+      data: { id: id }
+    }).then(function(res) {
+      return res.data;
+    });
   }
 });
