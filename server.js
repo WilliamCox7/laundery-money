@@ -29,6 +29,7 @@ var db = app.get('db');
 var incomeCtrl = require('./api/incomeControl');
 var authCtrl = require('./auth/authControl');
 var expenseCtrl = require('./api/expenseControl');
+var loanCtrl = require('./api/loanControl');
 
 /* AUTH */
 passport.serializeUser(function(user, done) { done(null, user); });
@@ -156,6 +157,10 @@ app.post('/expense/insert', expenseCtrl.insertExpenses);
 app.post('/expense/keyword', expenseCtrl.saveKeywords);
 app.post('/expense/getKeywords', expenseCtrl.getKeywords);
 app.post('/expense/removeKeyword', expenseCtrl.removeKeyword);
+
+/* LOANS */
+app.post('/loans/get', loanCtrl.getLoans);
+app.post('/loans/add', loanCtrl.addLoan);
 
 /* SERVER */
 app.listen(port, function() {

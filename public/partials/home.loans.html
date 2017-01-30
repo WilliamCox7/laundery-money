@@ -1,0 +1,124 @@
+<section class="income">
+  <div class="washers">
+    <div class="washer" ng-repeat="loan in loans" ng-click="selectLoan(loan.payee)" ui-sref="home.loanEdit({payee: loan.payee})">
+      <p>{{loan.payee}}</p>
+    </div>
+    <div class="addwasher" ng-click="openModal()">
+      <div class="plus-sign">
+        <div class="tall-part"></div>
+        <div class="long-part"></div>
+        <div class="center-part-1"></div>
+        <div class="center-part-2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="income-summary">
+    <table class="table-header">
+      <tr>
+        <th>Item</th>
+        <th>Monthly</th>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Principal/Interest</td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>Principal</td>
+        <td><span>$</span> {{loanOutput.principal | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Interest</td>
+        <td><span>$</span> {{loanOutput.interest | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">After P/I</td>
+        <td class="table-total"><span>$</span> {{loanOutput.afterPI | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Other</td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>Mortgage Insurance</td>
+        <td><span>$</span> {{loanOutput.mortgageIns | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">Total Other</td>
+        <td class="table-total"><span>$</span> {{loanOutput.otherTotal | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Outgoing</td>
+        <td class="table-subHeader"><span>$</span> {{loanOutput.total | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Remaining</td>
+        <td class="table-subHeader"><span>$</span> {{loanOutput.totalRem | currency:""}}</td>
+      </tr>
+    </table>
+  </div>
+</section>
+<div class="form-modal" ng-click="closeModal($event)">
+  <div class="modal-content" id="loan-modal">
+    <span class="close" ng-click="closeModal($event)">&times;</span>
+    <table>
+      <tr>
+        <td><p>Payee:</p></td>
+        <td><input ng-model="payee" type="text" placeholder="who are you paying?" /></td>
+      </tr>
+      <tr>
+        <td><p>Loan Amount:</p></td>
+        <td>
+          <input ng-model="loanAmount" type="text" placeholder="how much to pay off?" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Payment:</p></td>
+        <td>
+          <input ng-model="payment" type="text" placeholder="how much monthly?" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Rate:</p></td>
+        <td>
+          <input ng-model="rate" type="text" placeholder="interest rate" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Loan Type:</p></td>
+        <td>
+          <select ng-model="loanType">
+            <option value="mortgage">Mortgage</option>
+            <option value="personal">Personal</option>
+            <option value="car">Car</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>Loan Term:</p></td>
+        <td>
+          <input ng-model="term" type="text" class="medium-input" placeholder="# years/months" />
+          <select ng-model="termLength" class="short-select">
+            <option value="years">/Yr</option>
+            <option value="months">/Mo</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>First Payment:</p></td>
+        <td><input ng-model="nextPay" type="date" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="addLoan(payee, loanAmount, payment, rate, loanType, term, termLength, nextPay)">Add New Loan</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
