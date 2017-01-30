@@ -39,6 +39,11 @@ angular.module('budgetApp', ['ui.router'])
       url: '/loans',
       controller: 'loanCtrl'
     })
+    .state('home.loanEdit', {
+      templateUrl: '../partials/home.loanEdit.html',
+      url: '/loans/:payee',
+      controller: 'loanEditCtrl'
+    })
     .state('home.projections', {
       templateUrl: '../partials/home.projections.html',
       url: '/projections'

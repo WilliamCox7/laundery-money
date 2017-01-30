@@ -54,6 +54,7 @@ angular.module('budgetApp').service('loanSvc', function($http) {
         totalRem: 0
       }
       var firstPayment = new Date(loan.firstpay);
+      loanInfo[key].info.firstpay = firstPayment;
       var months = calc.monthDiff(firstPayment, today);
       var balance = loan.amount;
       var monPay = loan.payment;
@@ -67,14 +68,14 @@ angular.module('budgetApp').service('loanSvc', function($http) {
       loanOutput.principal += principal;
       loanOutput.interest += interest;
       loanOutput.afterPI += principal + interest;
-      loanOutput.otherTotal += loanOutput.mortgageIns;
-      loanOutput.total += loanOutput.afterPI + loanOutput.otherTotal;
+      loanOutput.otherTotal += 0;
+      loanOutput.total += loan.payment + 0;
       loanOutput.totalRem += balance;
       loanInfo[key].principal = principal;
       loanInfo[key].interest = interest;
       loanInfo[key].afterPI = principal + interest;
-      loanInfo[key].otherTotal = loanOutput.mortgageIns;
-      loanInfo[key].total = loanOutput.afterPI + loanOutput.otherTotal;
+      loanInfo[key].otherTotal = 0;
+      loanInfo[key].total = loan.payment + 0;
       loanInfo[key].totalRem = balance;
     });
     return loanOutput;
@@ -87,7 +88,38 @@ angular.module('budgetApp').service('loanSvc', function($http) {
     return months <= 0 ? 0 : months;
   }
   this.setLoan = function(payee) {
-    var key = source.split(" ").join("");
+    var key = payee.split(" ").join("");
     specLoan = loanInfo[key];
+  }
+  this.getLoan = function() {
+    return specLoan;
+  }
+  this.updateLoan = function(id, payee, loanAmount, payment, rate, loanType, term, termLength, nextPay) {
+    return $http ({
+      method: 'PUT',
+      url: 'loans/update',
+      data: {
+        id: id,
+        payee: payee,
+        amount: loanAmount,
+        payment: payment,
+        rate: rate,
+        type: loanType,
+        term: term,
+        termLength: termLength,
+        next: nextPay
+      }
+    }).then(function(res) {
+      return res.data;
+    });
+  }
+  this.removeLoan = function(id, payee) {
+    return $http ({
+      method: 'POST',
+      url: 'loans/remove',
+      data: { id: id, payee: payee }
+    }).then(function(res) {
+      return res.data;
+    });
   }
 });

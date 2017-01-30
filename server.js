@@ -161,6 +161,8 @@ app.post('/expense/removeKeyword', expenseCtrl.removeKeyword);
 /* LOANS */
 app.post('/loans/get', loanCtrl.getLoans);
 app.post('/loans/add', loanCtrl.addLoan);
+app.put('/loans/update', loanCtrl.updateLoan);
+app.post('/loans/remove', loanCtrl.removeLoan);
 
 /* SERVER */
 app.listen(port, function() {

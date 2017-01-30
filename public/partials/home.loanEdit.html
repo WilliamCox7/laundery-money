@@ -1,0 +1,112 @@
+<section class="income">
+  <div class="income-details">
+    <table>
+      <tr>
+        <td><p>Payee:</p></td>
+        <td><input ng-model="specLoan.info.payee" type="text" placeholder="who are you paying?" /></td>
+      </tr>
+      <tr>
+        <td><p>Loan Amount:</p></td>
+        <td>
+          <input ng-model="specLoan.info.amount" type="text" placeholder="how much to pay off?" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Payment:</p></td>
+        <td>
+          <input ng-model="specLoan.info.payment" type="text" placeholder="how much monthly?" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Rate:</p></td>
+        <td>
+          <input ng-model="specLoan.info.rate" type="text" placeholder="interest rate" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Loan Type:</p></td>
+        <td>
+          <select ng-model="specLoan.info.type">
+            <option value="mortgage">Mortgage</option>
+            <option value="personal">Personal</option>
+            <option value="car">Car</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>Loan Term:</p></td>
+        <td>
+          <input ng-model="specLoan.info.term" type="text" class="medium-input" placeholder="# years/months" />
+          <select ng-model="specLoan.info.termlength" class="short-select">
+            <option value="years">/Yr</option>
+            <option value="months">/Mo</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>First Payment:</p></td>
+        <td><input ng-model="specLoan.info.firstpay" type="date" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="updateLoan(specLoan.info.payee, specLoan.info.amount, specLoan.info.payment, specLoan.info.rate, specLoan.info.type, specLoan.info.term, specLoan.info.termlength, specLoan.info.firstpay)">Update</button></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="removeLoan(specLoan.info.payee)">Delete Income</button></td>
+      </tr>
+    </table>
+  </div>
+  <div class="income-summary">
+    <table class="table-header">
+      <tr>
+        <th>Item</th>
+        <th>Monthly</th>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Principal/Interest</td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>Principal</td>
+        <td><span>$</span> {{specLoan.principal | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Interest</td>
+        <td><span>$</span> {{specLoan.interest | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">After P/I</td>
+        <td class="table-total"><span>$</span> {{specLoan.afterPI | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Other</td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="first-row table-row">
+        <td>Mortgage Insurance</td>
+        <td><span>$</span> {{specLoan.mortgageIns | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">Total Other</td>
+        <td class="table-total"><span>$</span> {{specLoan.otherTotal | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Outgoing</td>
+        <td class="table-subHeader"><span>$</span> {{specLoan.total | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Remaining</td>
+        <td class="table-subHeader"><span>$</span> {{specLoan.totalRem | currency:""}}</td>
+      </tr>
+    </table>
+  </div>
+</section>
