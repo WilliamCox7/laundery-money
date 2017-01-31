@@ -778,3 +778,30 @@ input[type="checkbox"]:checked + label span.checkbox::after {
 #loan-modal {
   width: 415px;
 }
+
+.projections {
+  width: calc(~'100% - 120px');
+  margin: auto;
+  display: flex;
+}
+
+.projections table {
+  width: 100%;
+}
+
+.projections table th:nth-child(1) {
+  background: @main-dark;
+  color: white;
+  font-size: 20px;
+  font-family: 'betterCallSaul';
+}
+
+.projections table th {
+  padding: 10px;
+  background: @main;
+  color: @main-dark;
+}
+
+.projections table td {
+  padding: 10px;
+}

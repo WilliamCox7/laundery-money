@@ -46,7 +46,8 @@ angular.module('budgetApp', ['ui.router'])
     })
     .state('home.projections', {
       templateUrl: '../partials/home.projections.html',
-      url: '/projections'
+      url: '/projections',
+      controller: 'projectionCtrl'
     })
     .state('home.options', {
       templateUrl: '../partials/home.options.html',

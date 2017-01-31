@@ -2,6 +2,10 @@ angular.module('budgetApp').service('calcSvc', function($http) {
   var calc = this;
   var incomeInfo = {};
   var specIncome = {};
+  var projectionInfo = {
+    biWeeklyNet: 0,
+    payDate: null
+  };
   this.addIncome = function(id, source, amount, period, next, pattern, days, deduction, percent) {
     return $http ({
       method: 'POST',
@@ -32,6 +36,9 @@ angular.module('budgetApp').service('calcSvc', function($http) {
   }
   this.getIncome = function() {
     return specIncome;
+  }
+  this.getProjectionInfo = function() {
+    return projectionInfo;
   }
   this.setIncome = function(source) {
     var key = source.split(" ").join("");
@@ -94,6 +101,7 @@ angular.module('budgetApp').service('calcSvc', function($http) {
       };
       var next = new Date(income.next);
       incomeInfo[key].info.next = next;
+      projectionInfo.payDate = next;
 
       /* GROSS INCOME */
       var gross = 0;
@@ -172,6 +180,7 @@ angular.module('budgetApp').service('calcSvc', function($http) {
       incomeInfo[key].net.b = net / 26;
 
     });
+    projectionInfo.biWeeklyNet = incomeOutput.net.b;
     return incomeOutput;
   }
 

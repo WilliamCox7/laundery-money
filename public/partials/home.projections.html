@@ -1,1 +1,79 @@
-projections
+<section class="projections">
+  <table>
+    <tr>
+      <th>{{currentYear}}</th>
+      <th>January</th>
+      <th>February</th>
+      <th>March</th>
+      <th>April</th>
+      <th>May</th>
+      <th>June</th>
+      <th>July</th>
+      <th>August</th>
+      <th>September</th>
+      <th>October</th>
+      <th>November</th>
+      <th>December</th>
+    </tr>
+    <tr>
+      <td>Income</td>
+      <td>${{projections.income.January | currency:""}}</td>
+      <td>${{projections.income.February | currency:""}}</td>
+      <td>${{projections.income.March | currency:""}}</td>
+      <td>${{projections.income.April | currency:""}}</td>
+      <td>${{projections.income.May | currency:""}}</td>
+      <td>${{projections.income.June | currency:""}}</td>
+      <td>${{projections.income.July | currency:""}}</td>
+      <td>${{projections.income.August | currency:""}}</td>
+      <td>${{projections.income.September | currency:""}}</td>
+      <td>${{projections.income.October | currency:""}}</td>
+      <td>${{projections.income.November | currency:""}}</td>
+      <td>${{projections.income.December | currency:""}}</td>
+    </tr>
+    <tr ng-repeat="projLoan in projLoans">
+      <td>{{projLoan.category}}</td>
+      <td>${{projections[projLoan.category].January | currency:""}}</td>
+      <td>${{projections[projLoan.category].February | currency:""}}</td>
+      <td>${{projections[projLoan.category].March | currency:""}}</td>
+      <td>${{projections[projLoan.category].April | currency:""}}</td>
+      <td>${{projections[projLoan.category].May | currency:""}}</td>
+      <td>${{projections[projLoan.category].June | currency:""}}</td>
+      <td>${{projections[projLoan.category].July | currency:""}}</td>
+      <td>${{projections[projLoan.category].August | currency:""}}</td>
+      <td>${{projections[projLoan.category].September | currency:""}}</td>
+      <td>${{projections[projLoan.category].October | currency:""}}</td>
+      <td>${{projections[projLoan.category].November | currency:""}}</td>
+      <td>${{projections[projLoan.category].December | currency:""}}</td>
+    </tr>
+    <tr ng-repeat="projExp in projExps">
+      <td>{{projExp.category}}</td>
+      <td>${{projections[projExp.category].January | currency:""}}</td>
+      <td>${{projections[projExp.category].February | currency:""}}</td>
+      <td>${{projections[projExp.category].March | currency:""}}</td>
+      <td>${{projections[projExp.category].April | currency:""}}</td>
+      <td>${{projections[projExp.category].May | currency:""}}</td>
+      <td>${{projections[projExp.category].June | currency:""}}</td>
+      <td>${{projections[projExp.category].July | currency:""}}</td>
+      <td>${{projections[projExp.category].August | currency:""}}</td>
+      <td>${{projections[projExp.category].September | currency:""}}</td>
+      <td>${{projections[projExp.category].October | currency:""}}</td>
+      <td>${{projections[projExp.category].November | currency:""}}</td>
+      <td>${{projections[projExp.category].December | currency:""}}</td>
+    </tr>
+    <tr>
+      <td>Left Over</td>
+      <td>${{projections.leftOver.January | currency:""}}</td>
+      <td>${{projections.leftOver.February | currency:""}}</td>
+      <td>${{projections.leftOver.March | currency:""}}</td>
+      <td>${{projections.leftOver.April | currency:""}}</td>
+      <td>${{projections.leftOver.May | currency:""}}</td>
+      <td>${{projections.leftOver.June | currency:""}}</td>
+      <td>${{projections.leftOver.July | currency:""}}</td>
+      <td>${{projections.leftOver.August | currency:""}}</td>
+      <td>${{projections.leftOver.September | currency:""}}</td>
+      <td>${{projections.leftOver.October | currency:""}}</td>
+      <td>${{projections.leftOver.November | currency:""}}</td>
+      <td>${{projections.leftOver.December | currency:""}}</td>
+    </tr>
+  </table>
+</section>

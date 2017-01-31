@@ -672,3 +672,25 @@ input[type="checkbox"]:checked + label span.checkbox::after {
 #loan-modal {
   width: 415px;
 }
+.projections {
+  width: calc(100% - 120px);
+  margin: auto;
+  display: flex;
+}
+.projections table {
+  width: 100%;
+}
+.projections table th:nth-child(1) {
+  background: #4a798a;
+  color: white;
+  font-size: 20px;
+  font-family: 'betterCallSaul';
+}
+.projections table th {
+  padding: 10px;
+  background: #a5d6e8;
+  color: #4a798a;
+}
+.projections table td {
+  padding: 10px;
+}
