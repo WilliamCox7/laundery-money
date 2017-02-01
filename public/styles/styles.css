@@ -56,8 +56,11 @@ button:focus {
   margin: auto;
 }
 .login .signUpForm {
-  width: 100px !important;
+  width: 167.7px !important;
   display: none;
+}
+.login .signUpInput {
+  width: 167.7px !important;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;

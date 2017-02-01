@@ -28,7 +28,7 @@ angular.module('budgetApp').controller('loginCtrl',
       if (element[0].innerText === 'Sign Up') {
         $(subButtonP)[0].innerText = 'Start';
         $('.signUpForm').css('display', 'inline-block');
-        $('.inputForm').css('width', '235');
+        $('.inputForm').css('width', '167.7');
       } else {
         $(subButtonP)[0].innerText = 'Log In';
         $('.signUpForm').css('display', 'none');

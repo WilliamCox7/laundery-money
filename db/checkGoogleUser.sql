@@ -1,2 +1,2 @@
-select gplus_id from gplus_users
+select * from users
 where gplus_id = $1;

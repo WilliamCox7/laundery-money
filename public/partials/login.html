@@ -9,10 +9,10 @@
       <button ng-click="toggleActive($event)">Sign Up</button>
     </div>
     <form ng-submit="loginLocal(username, password, first, last)">
-      <input class="inputForm" type="text" name="username" placeholder="username" ng-model="username" />
       <input class="signUpForm inputForm" type="text" name"first" placeholder="first name" ng-model="first" />
-      <input class="inputForm" type="password" name="password" placeholder="password" ng-model="password" />
       <input class="signUpForm inputForm" type="text" name="last" placeholder="last name" ng-model="last" />
+      <input class="inputForm" type="text" name="username" placeholder="username" ng-model="username" />
+      <input class="inputForm" type="password" name="password" placeholder="password" ng-model="password" />
       <div class="sub">
         <button type="submit"><p>Log In</p></button>
         <a href="auth/fb"><p>Fb</p></a>

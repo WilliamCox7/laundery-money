@@ -1,2 +1,2 @@
-select fb_id from fb_users
+select * from users
 where fb_id = $1;

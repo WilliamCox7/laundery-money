@@ -86,17 +86,17 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://localhost:3000/auth/fb/callback"
   },
   function(token, refreshToken, profile, done) {
-    process.nextTick(function () {
-      var fb_id = profile.id;
-      db.checkFbUser([fb_id], function(err, user) {
-        if (!user[0]) {
-          var first = profile.displayName.split(" ")[0];
-          var last = profile.displayName.split(" ")[1];
-          db.createFbUser([fb_id, first, last], function(err, user) {});
-          db.createUser([null, null, fb_id, null, first, last, null], function(err, user) {});
-        }
-      });
-      return done(null, profile);
+    var fb_id = profile.id;
+    db.checkFbUser([fb_id], function(err, user) {
+      if (!user[0]) {
+        var first = profile.displayName.split(" ")[0];
+        var last = profile.displayName.split(" ")[1];
+        db.createUser([null, null, fb_id, null, first, last, null], function(err, newUser) {
+          return done(err, newUser[0]);
+        });
+      } else {
+        return done(err, user[0]);
+      }
     });
   }
 ));
@@ -116,18 +116,18 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
   },
   function(request, accessToken, refreshToken, profile, done) {
-    process.nextTick(function () {
-      var gplus_id = profile.id;
-      db.checkGoogleUser([gplus_id], function(err, user) {
-        if (!user[0]) {
-          var first = profile.displayName.split(" ")[0];
-          var last = profile.displayName.split(" ")[1];
-          var email = profile.email;
-          db.createGoogleUser([gplus_id, first, last], function(err, user) {});
-          db.createUser([null, null, null, gplus_id, first, last, email], function(err, user) {});
-        }
-      });
-      return done(null, profile);
+    var gplus_id = profile.id;
+    db.checkGoogleUser([gplus_id], function(err, user) {
+      if (!user[0]) {
+        var first = profile.displayName.split(" ")[0];
+        var last = profile.displayName.split(" ")[1];
+        var email = profile.email;
+        db.createUser([null, null, null, gplus_id, first, last, email], function(err, newUser) {
+          return done(err, newUser[0]);
+        });
+      } else {
+        return done(err, user[0]);
+      }
     });
   }
 ));

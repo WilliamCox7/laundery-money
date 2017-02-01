@@ -14,8 +14,8 @@ var authAPI = {
 
   /* SENDS USER INFO */
   sendUsr: function(req, res) {
-    if (!req.user) { return res.sendStatus(404); }
-    else { res.status(200).send(req.user); }
+    if (!req.session.passport.user) { return res.sendStatus(404); }
+    else { res.status(200).send(req.session.passport.user); }
   }
 
 }
