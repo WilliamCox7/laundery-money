@@ -45,20 +45,20 @@
       <td>${{projections[projLoan.category].November | currency:""}}</td>
       <td>${{projections[projLoan.category].December | currency:""}}</td>
     </tr>
-    <tr ng-repeat="projExp in projExps">
-      <td>{{projExp.category}}</td>
-      <td>${{projections[projExp.category].January | currency:""}}</td>
-      <td>${{projections[projExp.category].February | currency:""}}</td>
-      <td>${{projections[projExp.category].March | currency:""}}</td>
-      <td>${{projections[projExp.category].April | currency:""}}</td>
-      <td>${{projections[projExp.category].May | currency:""}}</td>
-      <td>${{projections[projExp.category].June | currency:""}}</td>
-      <td>${{projections[projExp.category].July | currency:""}}</td>
-      <td>${{projections[projExp.category].August | currency:""}}</td>
-      <td>${{projections[projExp.category].September | currency:""}}</td>
-      <td>${{projections[projExp.category].October | currency:""}}</td>
-      <td>${{projections[projExp.category].November | currency:""}}</td>
-      <td>${{projections[projExp.category].December | currency:""}}</td>
+    <tr ng-repeat="(key, value) in projections.projExps">
+      <td>{{key}}</td>
+      <td>${{projections.projExps[key][0] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][1] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][2] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][3] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][4] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][5] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][6] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][7] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][8] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][9] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][10] | makePos | currency:""}}</td>
+      <td>${{projections.projExps[key][11] | makePos | currency:""}}</td>
     </tr>
     <tr>
       <td>Left Over</td>

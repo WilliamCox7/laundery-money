@@ -6,6 +6,12 @@ angular.module('budgetApp').service('loanSvc',
     var loanInfo = {};
     var specLoan = {};
 
+    /* SAVES PROJECTION INFO FOR LATER USE */
+    var loanProjectionInfo = {};
+    this.getLoanProjectionInfo = function() {
+      return loanProjectionInfo;
+    }
+
     /* ADDS NEW LOAN CREATED BY USER */
     this.addLoan = function(id, payee, loanAmount, payment, rate, loanType, term, termLength, nextPay) {
       return $http ({

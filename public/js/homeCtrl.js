@@ -39,6 +39,7 @@ angular.module('budgetApp').controller('homeCtrl',
 
           /* GET EXPENSE PROJECTION INFO */
           var expProjInfo = expenseSvc.getExpProjectionInfo();
+          $scope.projections.projExps = projectionSvc.calcExpenses(expProjInfo);
 
         });
 
@@ -55,6 +56,10 @@ angular.module('budgetApp').controller('homeCtrl',
             $('.income').css('display', 'block');
             $('.form-modal').css('marginTop', '-984px');
           }
+
+          /* GET LOAN PROJECTION INFO */
+          var loanProjInfo = loanSvc.getLoanProjectionInfo();
+
         });
 
 
