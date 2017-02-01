@@ -26,10 +26,12 @@ var massiveInstance = massive.connectSync({
 
 app.set('db', massiveInstance);
 var db = app.get('db');
-var incomeCtrl = require('./api/incomeControl');
-var authCtrl = require('./auth/authControl');
-var expenseCtrl = require('./api/expenseControl');
-var loanCtrl = require('./api/loanControl');
+
+var incomeAPI = require('./api/incomeAPI');
+var authAPI = require('./auth/authAPI');
+var expenseAPI = require('./api/expenseAPI');
+var loanAPI = require('./api/loanAPI');
+var projectionAPI = require('./api/projectionAPI');
 
 /* AUTH */
 passport.serializeUser(function(user, done) { done(null, user); });
@@ -48,7 +50,7 @@ passport.use('local', new LocalStrategy(
   }
 ));
 
-app.post('/auth/local', passport.authenticate('local'), authCtrl.login);
+app.post('/auth/local', passport.authenticate('local'), authAPI.login);
 
 /* LOCAL STRATEGY */// -- SIGN UP
 passport.use('signup', new LocalStrategy({
@@ -75,7 +77,7 @@ passport.use('signup', new LocalStrategy({
   }
 ));
 
-app.post('/auth/signup', passport.authenticate('signup'), authCtrl.signup);
+app.post('/auth/signup', passport.authenticate('signup'), authAPI.signup);
 
 /* FACEBOOK STRATEGY */
 passport.use(new FacebookStrategy({
@@ -138,7 +140,7 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 }));
 
 /* OTHER AUTH ENDPOINTS */
-app.get('/auth/me', authCtrl.sendUsr);
+app.get('/auth/me', authAPI.sendUsr);
 
 app.get('/logout', function(req, res) {
   req.logout();
@@ -146,23 +148,23 @@ app.get('/logout', function(req, res) {
 });
 
 /* INCOME */
-app.post('/income/add', incomeCtrl.addIncome);
-app.post('/income/get', incomeCtrl.getIncomes);
-app.put('/income/update', incomeCtrl.updateIncome);
-app.post('/income/remove', incomeCtrl.deleteIncome);
+app.post('/income/add', incomeAPI.addIncome);
+app.post('/income/get', incomeAPI.getIncomes);
+app.put('/income/update', incomeAPI.updateIncome);
+app.post('/income/remove', incomeAPI.deleteIncome);
 
 /* EXPENSES */
-app.post('/expense/get', expenseCtrl.getExpenses);
-app.post('/expense/insert', expenseCtrl.insertExpenses);
-app.post('/expense/keyword', expenseCtrl.saveKeywords);
-app.post('/expense/getKeywords', expenseCtrl.getKeywords);
-app.post('/expense/removeKeyword', expenseCtrl.removeKeyword);
+app.post('/expense/get', expenseAPI.getExpenses);
+app.post('/expense/insert', expenseAPI.insertExpenses);
+app.post('/expense/keyword', expenseAPI.saveKeywords);
+app.post('/expense/getKeywords', expenseAPI.getKeywords);
+app.post('/expense/removeKeyword', expenseAPI.removeKeyword);
 
 /* LOANS */
-app.post('/loans/get', loanCtrl.getLoans);
-app.post('/loans/add', loanCtrl.addLoan);
-app.put('/loans/update', loanCtrl.updateLoan);
-app.post('/loans/remove', loanCtrl.removeLoan);
+app.post('/loans/get', loanAPI.getLoans);
+app.post('/loans/add', loanAPI.addLoan);
+app.put('/loans/update', loanAPI.updateLoan);
+app.post('/loans/remove', loanAPI.removeLoan);
 
 /* SERVER */
 app.listen(port, function() {

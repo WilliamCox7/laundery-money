@@ -22,7 +22,7 @@ angular.module('budgetApp', ['ui.router'])
     .state('home.income', {
       templateUrl: '../partials/home.income.html',
       url: '/income',
-      controller: 'homeCtrl'
+      controller: 'incomeCtrl'
     })
     .state('home.expenses', {
       templateUrl: '../partials/home.expenses.html',
@@ -32,7 +32,7 @@ angular.module('budgetApp', ['ui.router'])
     .state('home.expenseEdit', {
       templateUrl: '../partials/home.expenseEdit.html',
       url: '/expenses/expense_manager',
-      controller: 'expenseCtrl'
+      controller: 'expenseEditCtrl'
     })
     .state('home.loans', {
       templateUrl: '../partials/home.loans.html',

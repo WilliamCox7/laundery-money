@@ -1,59 +1,70 @@
-angular.module('budgetApp').controller('homeCtrl', function($scope, $state, loginSvc, calcSvc) {
-  $scope.openModal = function() {
-    $('.form-modal').css('display', 'block');
-  }
-  $scope.closeModal = function($event) {
-    var element = angular.element($event.target);
-    var className = element[0].className;
-    if (className.indexOf('form-modal') >= 0 || className === 'close') {
-      $('.form-modal').css('display', 'none');
-    }
-  }
-  $scope.toggleCertainDays = function(item) {
-    if (item === 'days') {
-      $('#certainDaysInput').css('display', 'inline-block');
-      $('#certainDaysSelect').addClass('medium-input');
-    } else {
-      $('#certainDaysInput').css('display', 'none');
-      $('#certainDaysSelect').removeClass('medium-input');
-    }
-  }
-  function getUserInfo() {
-    loginSvc.getUserInfo().then(function(res) {
-      $scope.userID = res.id;
-      if (res.provider) {
-        $scope.username = res.displayName.split(" ")[0];
-      } else {
-        $scope.username = res.first;
-      }
-      calcSvc.getIncomes(res.id).then(function(res) {
-        $scope.incomes = res;
-        $scope.incomeOutput = calcSvc.calcIncome(res);
-        if (res.length > 1) {
-          $('.income').css('display', 'block');
-          $('.form-modal').css('marginTop', '-984px');
-        }
+angular.module('budgetApp').controller('homeCtrl',
+
+  function($scope, $state, loginSvc, incomeSvc, expenseSvc, loanSvc, projectionSvc) {
+
+    $scope.projections = {
+      income: {}
+    };
+
+    function getUserInfo() {
+
+      loginSvc.getUserInfo().then(function(res) {
+
+        /* GET USER INFO ON LOGIN */
+        $scope.userID = res.id;
+        if (res.provider) { $scope.username = res.displayName.split(" ")[0]; }
+        else { $scope.username = res.first; }
+
+        /* GET INCOMES FOR USER */
+        incomeSvc.getIncomes(res.id).then(function(res) {
+          $scope.incomes = res;
+          $scope.incomeOutput = incomeSvc.calcIncome(res);
+          if (res.length > 1) {
+            $('.income').css('display', 'block');
+            $('.form-modal').css('marginTop', '-984px');
+          }
+
+          /* GET INCOME PROJECTION INFO */
+          var incProjInfo = incomeSvc.getIncProjectionInfo();
+          $scope.projections.income = projectionSvc.calcIncome(incProjInfo.biWeeklyNet, incProjInfo.payDate);
+
+        });
+
+        /* GET EXPENSES FOR USER */
+        expenseSvc.getExpenses(res.id).then(function(res) {
+          $scope.categories = res.categoryNames;
+          $scope.subcategories = res.subcategoryNames;
+          $scope.expense = res.categories;
+          $scope.totalExpense = res;
+
+          /* GET EXPENSE PROJECTION INFO */
+          var expProjInfo = expenseSvc.getExpProjectionInfo();
+
+        });
+
+        /* GET EXPENSE MANAGER INFO FOR USER */
+        expenseSvc.getKeywordInfo(res.id).then(function(res) {
+          $scope.userKeywords = res;
+        });
+
+        /* GET LOAN INFO FOR USER */
+        loanSvc.getLoans(res.id).then(function(res) {
+          $scope.loans = res;
+          $scope.loanOutput = loanSvc.calcLoans(res);
+          if (res.length > 1) {
+            $('.income').css('display', 'block');
+            $('.form-modal').css('marginTop', '-984px');
+          }
+        });
+
+
       });
-    });
+
+    }
+
+    /* ON LOGIN, GET ALL NEEDED INFO */
+    getUserInfo();
+
   }
-  getUserInfo();
-  $scope.addIncome = function(source, amount, period, next, pattern, days, deduction, percent) {
-    calcSvc.addIncome($scope.userID, source, amount, period, next, pattern, days, deduction, percent)
-    .then(function(status) {
-      calcSvc.getIncomes($scope.userID).then(function(res) {
-        $scope.incomes = res;
-        $('.form-modal').css('display', 'none');
-        $scope.incomeOutput = calcSvc.calcIncome(res);
-        if (res.length > 1) {
-          $('.income').css('display', 'block');
-          $('.form-modal').css('marginTop', '-984px');
-        }
-        $state.go('home.incomeEdit', {source:source});
-        $scope.selectIncome(source);
-      });
-    });
-  }
-  $scope.selectIncome = function(source) {
-    calcSvc.setIncome(source);
-  }
-});
+
+);
