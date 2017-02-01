@@ -112,6 +112,7 @@ angular.module('budgetApp').service('loanSvc',
         var monPay = loan.payment;
         var rate = loan.rate;
         var interest, principal;
+        loanProjectionInfo[key] = { firstPayment: firstPayment, monthlyPayment: monPay };
 
         for (var i = 0; i < months; i++) {
           interest = (balance * (rate/100)) / 12;

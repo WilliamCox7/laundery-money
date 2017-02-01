@@ -1,6 +1,20 @@
 angular.module('budgetApp').controller('loanCtrl',
 
-  function($scope, loanSvc) {
+  function($scope, $state, loanSvc) {
+
+    /* OPENS FORM FOR NEW LOAN */
+    $scope.openModal = function() {
+      $('.form-modal').css('display', 'block');
+    }
+
+    /* CLOSES FORM FOR NEW LOAN */
+    $scope.closeModal = function($event) {
+      var element = angular.element($event.target);
+      var className = element[0].className;
+      if (className.indexOf('form-modal') >= 0 || className === 'close') {
+        $('.form-modal').css('display', 'none');
+      }
+    }
 
     /* ADDS NEW LOAN FOR USER */
     $scope.addLoan = function(payee, loanAmount, payment, rate, loanType, term, termLength, nextPay) {

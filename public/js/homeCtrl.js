@@ -26,7 +26,7 @@ angular.module('budgetApp').controller('homeCtrl',
 
           /* GET INCOME PROJECTION INFO */
           var incProjInfo = incomeSvc.getIncProjectionInfo();
-          $scope.projections.income = projectionSvc.calcIncome(incProjInfo.biWeeklyNet, incProjInfo.payDate);
+          $scope.projections.income = projectionSvc.calcIncome(incProjInfo);
 
         });
 
@@ -59,8 +59,12 @@ angular.module('budgetApp').controller('homeCtrl',
 
           /* GET LOAN PROJECTION INFO */
           var loanProjInfo = loanSvc.getLoanProjectionInfo();
+          $scope.projections.projLoans = projectionSvc.calcLoans(loanProjInfo);
 
         });
+
+        /* GET LEFT OVER OUTPUT */
+        $scope.projections.leftOver = projectionSvc.getLeftOver();
 
 
       });

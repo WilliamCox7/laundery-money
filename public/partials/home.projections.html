@@ -17,33 +17,33 @@
     </tr>
     <tr>
       <td>Income</td>
-      <td>${{projections.income.January | currency:""}}</td>
-      <td>${{projections.income.February | currency:""}}</td>
-      <td>${{projections.income.March | currency:""}}</td>
-      <td>${{projections.income.April | currency:""}}</td>
-      <td>${{projections.income.May | currency:""}}</td>
-      <td>${{projections.income.June | currency:""}}</td>
-      <td>${{projections.income.July | currency:""}}</td>
-      <td>${{projections.income.August | currency:""}}</td>
-      <td>${{projections.income.September | currency:""}}</td>
-      <td>${{projections.income.October | currency:""}}</td>
-      <td>${{projections.income.November | currency:""}}</td>
-      <td>${{projections.income.December | currency:""}}</td>
+      <td>${{projections.income[0] | currency:""}}</td>
+      <td>${{projections.income[1] | currency:""}}</td>
+      <td>${{projections.income[2] | currency:""}}</td>
+      <td>${{projections.income[3] | currency:""}}</td>
+      <td>${{projections.income[4] | currency:""}}</td>
+      <td>${{projections.income[5] | currency:""}}</td>
+      <td>${{projections.income[6] | currency:""}}</td>
+      <td>${{projections.income[7] | currency:""}}</td>
+      <td>${{projections.income[8] | currency:""}}</td>
+      <td>${{projections.income[9] | currency:""}}</td>
+      <td>${{projections.income[10] | currency:""}}</td>
+      <td>${{projections.income[11] | currency:""}}</td>
     </tr>
-    <tr ng-repeat="projLoan in projLoans">
-      <td>{{projLoan.category}}</td>
-      <td>${{projections[projLoan.category].January | currency:""}}</td>
-      <td>${{projections[projLoan.category].February | currency:""}}</td>
-      <td>${{projections[projLoan.category].March | currency:""}}</td>
-      <td>${{projections[projLoan.category].April | currency:""}}</td>
-      <td>${{projections[projLoan.category].May | currency:""}}</td>
-      <td>${{projections[projLoan.category].June | currency:""}}</td>
-      <td>${{projections[projLoan.category].July | currency:""}}</td>
-      <td>${{projections[projLoan.category].August | currency:""}}</td>
-      <td>${{projections[projLoan.category].September | currency:""}}</td>
-      <td>${{projections[projLoan.category].October | currency:""}}</td>
-      <td>${{projections[projLoan.category].November | currency:""}}</td>
-      <td>${{projections[projLoan.category].December | currency:""}}</td>
+    <tr ng-repeat="(key, value) in projections.projLoans">
+      <td>{{key}}</td>
+      <td>${{projections.projLoans[key][0] | currency:""}}</td>
+      <td>${{projections.projLoans[key][1] | currency:""}}</td>
+      <td>${{projections.projLoans[key][2] | currency:""}}</td>
+      <td>${{projections.projLoans[key][3] | currency:""}}</td>
+      <td>${{projections.projLoans[key][4] | currency:""}}</td>
+      <td>${{projections.projLoans[key][5] | currency:""}}</td>
+      <td>${{projections.projLoans[key][6] | currency:""}}</td>
+      <td>${{projections.projLoans[key][7] | currency:""}}</td>
+      <td>${{projections.projLoans[key][8] | currency:""}}</td>
+      <td>${{projections.projLoans[key][9] | currency:""}}</td>
+      <td>${{projections.projLoans[key][10] | currency:""}}</td>
+      <td>${{projections.projLoans[key][11] | currency:""}}</td>
     </tr>
     <tr ng-repeat="(key, value) in projections.projExps">
       <td>{{key}}</td>
@@ -62,18 +62,18 @@
     </tr>
     <tr>
       <td>Left Over</td>
-      <td>${{projections.leftOver.January | currency:""}}</td>
-      <td>${{projections.leftOver.February | currency:""}}</td>
-      <td>${{projections.leftOver.March | currency:""}}</td>
-      <td>${{projections.leftOver.April | currency:""}}</td>
-      <td>${{projections.leftOver.May | currency:""}}</td>
-      <td>${{projections.leftOver.June | currency:""}}</td>
-      <td>${{projections.leftOver.July | currency:""}}</td>
-      <td>${{projections.leftOver.August | currency:""}}</td>
-      <td>${{projections.leftOver.September | currency:""}}</td>
-      <td>${{projections.leftOver.October | currency:""}}</td>
-      <td>${{projections.leftOver.November | currency:""}}</td>
-      <td>${{projections.leftOver.December | currency:""}}</td>
+      <td>${{projections.leftOver[0] | currency:""}}</td>
+      <td>${{projections.leftOver[1] | currency:""}}</td>
+      <td>${{projections.leftOver[2] | currency:""}}</td>
+      <td>${{projections.leftOver[3] | currency:""}}</td>
+      <td>${{projections.leftOver[4] | currency:""}}</td>
+      <td>${{projections.leftOver[5] | currency:""}}</td>
+      <td>${{projections.leftOver[6] | currency:""}}</td>
+      <td>${{projections.leftOver[7] | currency:""}}</td>
+      <td>${{projections.leftOver[8] | currency:""}}</td>
+      <td>${{projections.leftOver[9] | currency:""}}</td>
+      <td>${{projections.leftOver[10] | currency:""}}</td>
+      <td>${{projections.leftOver[11] | currency:""}}</td>
     </tr>
   </table>
 </section>

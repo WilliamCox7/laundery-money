@@ -7,7 +7,7 @@ angular.module('budgetApp').service('incomeSvc',
     var selectedIncome = {}; //INCOME FOR INCOME-EDIT VIEW
 
     /* SAVED INFORMATION FOR PROJECTIONS */
-    var incProjectionInfo = { biWeeklyNet: 0, payDate: null };
+    var incProjectionInfo = {};
     this.getIncProjectionInfo = function() {
       return incProjectionInfo;
     }
@@ -97,7 +97,7 @@ angular.module('budgetApp').service('incomeSvc',
         incomeInfo[key].info = income;
         var next = new Date(income.next);
         incomeInfo[key].info.next = next;
-        incProjectionInfo.payDate = next;
+        incProjectionInfo[key] = { payDate: next, biWeeklyNet: 0 };
 
         /* GROSS INCOME */
         var gross = 0;
@@ -176,9 +176,10 @@ angular.module('budgetApp').service('incomeSvc',
         incomeInfo[key].net.m = net / 12;
         incomeInfo[key].net.b = net / 26;
 
+        incProjectionInfo[key].biWeeklyNet = incomeInfo[key].net.b;
+
       });
 
-      incProjectionInfo.biWeeklyNet = incomeOutput.net.b;
       return incomeOutput;
 
     }

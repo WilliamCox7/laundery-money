@@ -1,6 +1,6 @@
 angular.module('budgetApp').controller('incomeCtrl',
 
-  function($scope, incomeSvc) {
+  function($scope, $state, incomeSvc) {
 
     /* OPENS FORM FOR NEW INCOME */
     $scope.openModal = function() {
