@@ -67,7 +67,7 @@ var ToDo = {
 
     INCOME: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'flex wrapping has problems',
         mvp: true
       },

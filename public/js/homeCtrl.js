@@ -19,10 +19,6 @@ angular.module('budgetApp').controller('homeCtrl',
         incomeSvc.getIncomes(res.id).then(function(res) {
           var incOutput = incomeSvc.calcIncome(res);
           incomeSvc.saveIncomeInfo(res, incOutput);
-          if (res.length > 1) {
-            $('.income').css('display', 'block');
-            $('.form-modal').css('marginTop', '-984px');
-          }
 
           /* GET INCOME PROJECTION INFO */
           var incProjInfo = incomeSvc.getIncProjectionInfo();
@@ -49,10 +45,6 @@ angular.module('budgetApp').controller('homeCtrl',
         loanSvc.getLoans(res.id).then(function(res) {
           var loanOutputInfo = loanSvc.calcLoans(res);
           loanSvc.saveLoanInfo(res, loanOutputInfo);
-          if (res.length > 1) {
-            $('.income').css('display', 'block');
-            $('.form-modal').css('marginTop', '-984px');
-          }
 
           /* GET LOAN PROJECTION INFO */
           var loanProjInfo = loanSvc.getLoanProjectionInfo();

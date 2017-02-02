@@ -4,6 +4,10 @@ angular.module('budgetApp').controller('loanCtrl',
 
     $scope.loans = loanSvc.getSavedLoans();
     $scope.loanOutput = loanSvc.getSavedOuput();
+    if ($scope.loans.length > 1) {
+      $('#income-loans').css('display', 'block');
+      $('.form-modal').css('marginTop', '-984px');
+    }
 
     /* OPENS FORM FOR NEW LOAN */
     $scope.openModal = function() {
@@ -30,7 +34,7 @@ angular.module('budgetApp').controller('loanCtrl',
           $('.form-modal').css('display', 'none');
           $scope.loanOutput = loanSvc.calcLoans(res);
           loanSvc.saveLoanInfo($scope.loans, $scope.loanOutput);
-          
+
           if (res.length > 1) {
             $('.income').css('display', 'block');
             $('.form-modal').css('marginTop', '-984px');
