@@ -29,14 +29,13 @@ var expenseAPI = {
     var keywordInfo = req.body.info;
     for (var i = 0; i < keywordInfo.length; i++) {
       if (i !== keywordInfo.length - 1) {
-        db.saveKeyword(keywordInfo[i], function(err, keywords) {});
+        db.saveLastKeyword(keywordInfo[i], function(err, keywords) {});
       } else {
         db.saveLastKeyword(keywordInfo[i], function(err, keywords) {
-          res.status(200).send("Added All Expenses");
+          res.status(200).send("Added All Keywords");
         });
       }
     }
-    res.status(200).send("Added All Keyword Info");
   },
 
   /* GETS USER PREFERENCES */

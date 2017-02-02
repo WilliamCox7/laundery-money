@@ -6,6 +6,7 @@ angular.module('budgetApp').service('projectionSvc',
     var iDone = false;
     var eDone = false;
     var lDone = false;
+    var balance = 0;
 
     var leftOverOutput = {
       0: 0, 1: 0, 2: 0,
@@ -19,6 +20,8 @@ angular.module('budgetApp').service('projectionSvc',
         for (var i = 0; i < 12; i++) {
           if (i !== 0) {
             leftOverOutput[i] += leftOverOutput[i-1];
+          } else {
+            leftOverOutput[0] += balance;
           }
         }
       }
@@ -26,6 +29,10 @@ angular.module('budgetApp').service('projectionSvc',
 
     this.getLeftOver = function() {
       return leftOverOutput;
+    }
+
+    this.saveBalance = function(b) {
+      balance = b;
     }
 
     this.calcIncome = function(incomes) {
@@ -37,7 +44,7 @@ angular.module('budgetApp').service('projectionSvc',
       end = Number(end) / (1000*60*60*24);
 
       var income = {
-        0: 0, 1: 0, 2: 0,
+        0: balance, 1: 0, 2: 0,
         3: 0, 4: 0, 5: 0,
         6: 0, 7: 0, 8: 0,
         9: 0, 10: 0, 11: 0
@@ -124,7 +131,7 @@ angular.module('budgetApp').service('projectionSvc',
               leftOverOutput[i] -= Math.abs(loans[loan].monthlyPayment);
             }
           } else {
-            if (currentDate <= firstPayment && currentDay >= payDate) {
+            if (currentDate >= firstPayment) {
               loanOutput[loan][i] = loans[loan].monthlyPayment;
               leftOverOutput[i] -= Math.abs(loans[loan].monthlyPayment);
             }

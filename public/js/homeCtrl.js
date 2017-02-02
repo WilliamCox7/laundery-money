@@ -18,6 +18,7 @@ angular.module('budgetApp').controller('homeCtrl',
     $scope.getStarted = function(bankBalance) {
       loginSvc.getStarted($scope.userID, bankBalance);
       $('.form-modal').css('display', 'none');
+      projectionSvc.saveBalance(bankBalance);
     }
 
     function getUserInfo() {
@@ -35,6 +36,8 @@ angular.module('budgetApp').controller('homeCtrl',
           var balance = res.balance;
           if (!balance) {
             $('#init-modal').css('display', 'block');
+          } else {
+            projectionSvc.saveBalance(balance);
           }
         });
 

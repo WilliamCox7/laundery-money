@@ -175,7 +175,7 @@ var ToDo = {
 
     PROJECTIONS: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'previous months show incorrect data',
         mvp: true
       },
