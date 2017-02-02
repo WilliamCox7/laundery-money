@@ -6,6 +6,20 @@ angular.module('budgetApp').controller('homeCtrl',
       income: {}
     };
 
+    /* CLOSES FORM FOR NEW INCOME */
+    $scope.closeModal = function($event) {
+      var element = angular.element($event.target);
+      var className = element[0].className;
+      if (className.indexOf('form-modal') >= 0 || className === 'close') {
+        $('.form-modal').css('display', 'none');
+      }
+    }
+
+    $scope.getStarted = function(bankBalance) {
+      loginSvc.getStarted($scope.userID, bankBalance);
+      $('.form-modal').css('display', 'none');
+    }
+
     function getUserInfo() {
 
       loginSvc.getUserInfo().then(function(res) {
@@ -14,6 +28,15 @@ angular.module('budgetApp').controller('homeCtrl',
         $scope.userID = res.id;
         if (res.provider) { $scope.username = res.displayName.split(" ")[0]; }
         else { $scope.username = res.first; }
+
+        /* GET USER INIT STATUS */
+        loginSvc.getInitStatus(res.id).then(function(res) {
+          var isInitialized = res.init;
+          var balance = res.balance;
+          if (!balance) {
+            $('#init-modal').css('display', 'block');
+          }
+        });
 
         /* GET INCOMES FOR USER */
         incomeSvc.getIncomes(res.id).then(function(res) {

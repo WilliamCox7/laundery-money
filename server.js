@@ -68,6 +68,7 @@ passport.use('signup', new LocalStrategy({
           email: null
         };
         db.users.save(newUser, function(err, user) {
+          db.initUser(user.id, false, function(err, init) {});
           return done(null, user);
         });
       } else {
@@ -92,6 +93,7 @@ passport.use(new FacebookStrategy({
         var first = profile.displayName.split(" ")[0];
         var last = profile.displayName.split(" ")[1];
         db.createUser([null, null, fb_id, null, first, last, null], function(err, newUser) {
+          db.initUser(newUser[0].id, false, function(err, init) {});
           return done(err, newUser[0]);
         });
       } else {
@@ -123,6 +125,7 @@ passport.use(new GoogleStrategy({
         var last = profile.displayName.split(" ")[1];
         var email = profile.email;
         db.createUser([null, null, null, gplus_id, first, last, email], function(err, newUser) {
+          db.initUser(newUser[0].id, false, function(err, init) {});
           return done(err, newUser[0]);
         });
       } else {
@@ -141,6 +144,8 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 
 /* OTHER AUTH ENDPOINTS */
 app.get('/auth/me', authAPI.sendUsr);
+app.post('/init', authAPI.initUsr);
+app.post('/init/getStarted', authAPI.getStarted);
 
 app.get('/logout', function(req, res) {
   req.logout();

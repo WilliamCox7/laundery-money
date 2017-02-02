@@ -35,6 +35,24 @@ angular.module('budgetApp').service('loginSvc',
       });
     }
 
+    this.getInitStatus = function(id) {
+      return $http({
+        method: 'POST',
+        url: '/init',
+        data: { id: id }
+      }).then(function(res) {
+        return res.data[0];
+      });
+    }
+
+    this.getStarted = function(id, balance) {
+      $http ({
+        method: 'POST',
+        url: '/init/getStarted',
+        data: { id: id, balance: balance }
+      });
+    }
+
   }
 
 );

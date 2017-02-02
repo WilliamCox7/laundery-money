@@ -180,7 +180,7 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'on first login, ask user for initial information',
         mvp: true
       },
@@ -198,7 +198,7 @@ var ToDo = {
 
     UPLOAD: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'display finished message when upload is complete',
         mvp: true
       },

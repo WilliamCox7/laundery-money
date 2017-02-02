@@ -8,3 +8,12 @@
     <h1 ui-sref="home.projections">Projections</h1>
   </div>
 </section>
+<div id="init-modal" class="form-modal" ng-click="closeModal($event)">
+  <div class="modal-content">
+    <span class="close" ng-click="closeModal($event)">&times;</span>
+    <p>In order for me to process your projections correctly, I'm going to need a little more info.</p>
+    <p class="modal-question">What is your current bank account balance?</p>
+    <input ng-model="bankBalance" type="text" placeholder="$" />
+    <button ng-click="getStarted(bankBalance)">Get Started</button>
+  </div>
+</div>

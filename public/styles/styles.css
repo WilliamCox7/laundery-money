@@ -12,6 +12,27 @@ main {
 button:focus {
   outline: 0;
 }
+#init-modal {
+  top: 584px;
+  display: none;
+}
+#init-modal .modal-content {
+  width: 290px;
+}
+#init-modal .modal-content input {
+  padding: 5px;
+  margin: 10px 0px;
+  width: 210px;
+  border: solid 2px #4a798a;
+}
+#init-modal .modal-content .modal-question {
+  margin-top: 10px;
+}
+#init-modal .modal-content p {
+  width: 210px;
+  text-align: justify;
+  color: #4a798a;
+}
 .login .intro-animation {
   width: 90%;
   height: calc(100% - 378px);
