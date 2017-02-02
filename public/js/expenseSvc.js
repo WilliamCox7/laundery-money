@@ -16,6 +16,16 @@ angular.module('budgetApp').service('expenseSvc',
       return expProjectionInfo;
     }
 
+    var uploadHistory = [];
+    this.addToHistory = function(item) {
+      uploadHistory.unshift(item);
+      return uploadHistory;
+    }
+
+    this.getHistory = function() {
+      return uploadHistory;
+    }
+
     /* GETS ALL EXPENSES FOR USER */
     this.getExpenses = function(id) {
       return $http ({

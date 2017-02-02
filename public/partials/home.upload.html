@@ -2,6 +2,9 @@
   <input id="inputButton" type="file" accept=".csv" upload />
   <h1 onclick="document.getElementById('inputButton').click();">Select CSV</h1>
 </section>
+<section class="upload-hist">
+  <p ng-repeat="histItem in uploadHistory">{{histItem}}</p>
+</section>
 <div id="upload-modal" class="form-modal" ng-click="closeModal($event)">
   <div class="modal-content">
     <span class="close" ng-click="closeModal($event)">&times;</span>

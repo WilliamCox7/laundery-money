@@ -5,9 +5,11 @@ angular.module('budgetApp').controller('expenseCtrl',
     var expenseInfo = [];
     var keywordInfo = [];
     var savedExpenses = [];
+    var lastFileName;
     var expIter = 0;
     $scope.exp = { description: null, date: null, amount: null }
     $scope.expCurrent = 1;
+    $scope.uploadHistory = expenseSvc.getHistory();
 
     var savedExpInfo = expenseSvc.getSavedExpenses();
     $scope.categories = savedExpInfo.categories;
@@ -16,8 +18,9 @@ angular.module('budgetApp').controller('expenseCtrl',
     $scope.totalExpense = savedExpInfo.totalExpense;
 
     /* THIS BEGINS THE UPLOAD PROCESS FOR USER */
-    $scope.saveExpenses = function(arr) {
+    $scope.saveExpenses = function(arr, fileName) {
 
+      lastFileName = fileName; //save fileName for future use
       savedExpenses = arr; //saves arr for future use (saveUserSelection function)
       $scope.expTotal = arr.length / 5; //gets how many expenses there are
 
@@ -112,6 +115,8 @@ angular.module('budgetApp').controller('expenseCtrl',
         $scope.keyword = undefined;
         $scope.checkBool = false;
         $scope.expCurrent = 1;
+
+        $scope.uploadHistory = expenseSvc.addToHistory(lastFileName + ' Uploaded');
 
       } else { //if there are more expenses to loop through
 

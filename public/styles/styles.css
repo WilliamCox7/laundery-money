@@ -187,10 +187,15 @@ input:-webkit-autofill {
 .upload {
   width: 90%;
   display: flex;
-  height: calc(100% - 328px);
+  height: calc(100% - 468px);
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+.upload-hist {
+  display: flex;
+  justify-content: center;
+  color: lightgray;
 }
 .upload h1 {
   display: flex;
