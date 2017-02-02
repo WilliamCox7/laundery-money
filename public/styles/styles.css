@@ -341,9 +341,6 @@ input:-webkit-autofill {
   width: 135px;
   padding: 0px 10px;
 }
-.income .income-summary .first-row {
-  border-top: solid 1px #4a798a;
-}
 .income .income-summary .table-header {
   margin-top: 0px;
 }

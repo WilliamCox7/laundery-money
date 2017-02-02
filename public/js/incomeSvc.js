@@ -97,7 +97,7 @@ angular.module('budgetApp').service('incomeSvc',
 
       var incomeOutput = {
         gross: { b: 0, m: 0, y: 0 },
-        preTax: { b: 0, m: 0, y: 0 },
+        preTax: {},
         after: { b: 0, m: 0, y: 0 },
         ss: { b: 0, m: 0, y: 0 },
         med: { b: 0, m: 0, y: 0 },
@@ -144,9 +144,14 @@ angular.module('budgetApp').service('incomeSvc',
         var deduction = 0;
         if (income.percent !== null) { deduction = gross * (income.percent / 100); }
         var preTax = gross - deduction;
-        incomeOutput.preTax.y += deduction;
-        incomeOutput.preTax.m += deduction / 12;
-        incomeOutput.preTax.b += deduction / 26;
+        if (income.deduction) {
+          var monDed = deduction / 12;
+          var biWDed = deduction / 26
+          console.log(deduction);
+          console.log(monDed);
+          console.log(biWDed);
+          incomeOutput.preTax[income.deduction] = { y: deduction, m: monDed, b: biWDed };
+        }
         incomeInfo[key].preTax.y = deduction;
         incomeInfo[key].preTax.m = deduction / 12;
         incomeInfo[key].preTax.b = deduction / 26;

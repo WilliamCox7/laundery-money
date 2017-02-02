@@ -36,11 +36,11 @@
         <td class="table-subHeader"></td>
         <td class="table-subHeader"></td>
       </tr>
-      <tr class="first-row table-row">
-        <td>401k</td>
-        <td><span>$</span> {{incomeOutput.preTax.b | currency:""}}</td>
-        <td><span>$</span> {{incomeOutput.preTax.m | currency:""}}</td>
-        <td><span>$</span> {{incomeOutput.preTax.y | currency:""}}</td>
+      <tr class="table-row" ng-repeat="(key, value) in incomeOutput.preTax">
+        <td>{{key}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].y | currency:""}}</td>
       </tr>
       <tr class="table-row">
         <td class="table-total">After Deductions</td>
@@ -56,7 +56,7 @@
         <td class="table-subHeader"></td>
         <td class="table-subHeader"></td>
       </tr>
-      <tr class="first-row table-row">
+      <tr class="table-row">
         <td>Social Security</td>
         <td><span>$</span> {{incomeOutput.ss.b | currency:""}}</td>
         <td><span>$</span> {{incomeOutput.ss.m | currency:""}}</td>
