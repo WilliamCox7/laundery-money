@@ -5,6 +5,10 @@ angular.module('budgetApp').service('incomeSvc',
     var calc = this;
     var incomeInfo = {}; //SAVED INFORMATION FOR WHEN A USER SELECTS AN INCOME
     var selectedIncome = {}; //INCOME FOR INCOME-EDIT VIEW
+    var savedIncomeInfo = {
+      incomes: null,
+      output: null
+    }
 
     /* SAVED INFORMATION FOR PROJECTIONS */
     var incProjectionInfo = {};
@@ -26,6 +30,19 @@ angular.module('budgetApp').service('incomeSvc',
       }).then(function(res) {
         return res.data;
       });
+    }
+
+    this.saveIncomeInfo = function(incomes, incomeOutput) {
+      savedIncomeInfo.incomes = incomes;
+      savedIncomeInfo.output = incomeOutput;
+    }
+
+    this.getSavedIncomes = function() {
+      return savedIncomeInfo.incomes;
+    }
+
+    this.getSavedOuput = function() {
+      return savedIncomeInfo.output;
     }
 
     /* ADDS INCOME CREATED BY USER */
@@ -93,7 +110,16 @@ angular.module('budgetApp').service('incomeSvc',
 
         /* SAVE INFO */
         var key = income.source.split(" ").join("");
-        incomeInfo[key] = incomeOutput;
+        incomeInfo[key] = {
+          gross: { b: 0, m: 0, y: 0 },
+          preTax: { b: 0, m: 0, y: 0 },
+          after: { b: 0, m: 0, y: 0 },
+          ss: { b: 0, m: 0, y: 0 },
+          med: { b: 0, m: 0, y: 0 },
+          fed: { b: 0, m: 0, y: 0 },
+          state: { b: 0, m: 0, y: 0 },
+          net: { b: 0, m: 0, y: 0 }
+        }
         incomeInfo[key].info = income;
         var next = new Date(income.next);
         incomeInfo[key].info.next = next;

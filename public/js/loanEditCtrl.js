@@ -5,6 +5,7 @@ angular.module('budgetApp').controller('loanEditCtrl',
     /* GETS SPECIFIC LOAN ON USER SELECT */
     function getLoan() {
       $scope.specLoan = loanSvc.getLoan();
+      console.log($scope.specLoan);
     }
 
     getLoan();

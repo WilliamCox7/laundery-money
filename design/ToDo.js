@@ -44,7 +44,7 @@ var ToDo = {
 
     OPTIONS: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'On any edit to anything in the app, re-run homeCtrl',
         mvp: true
       },

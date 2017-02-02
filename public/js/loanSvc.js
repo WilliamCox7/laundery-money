@@ -6,6 +6,11 @@ angular.module('budgetApp').service('loanSvc',
     var loanInfo = {};
     var specLoan = {};
 
+    var savedLoanInfo = {
+      loans: null,
+      output: null
+    }
+
     /* SAVES PROJECTION INFO FOR LATER USE */
     var loanProjectionInfo = {};
     this.getLoanProjectionInfo = function() {
@@ -36,6 +41,19 @@ angular.module('budgetApp').service('loanSvc',
       }).then(function(res) {
         return res.data;
       });
+    }
+
+    this.saveLoanInfo = function(loans, output) {
+      savedLoanInfo.loans = loans;
+      savedLoanInfo.output = output;
+    }
+
+    this.getSavedLoans = function() {
+      return savedLoanInfo.loans;
+    }
+
+    this.getSavedOuput = function() {
+      return savedLoanInfo.output;
     }
 
     /* SETS SPECIFIC LOAN FOR LATER USE */

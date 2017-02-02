@@ -17,8 +17,9 @@ var loanAPI = {
       req.body.payment, req.body.rate, req.body.type,
       req.body.term, req.body.termLength, req.body.next
     ];
-    db.addLoan(newLoan, function(err, loan) {});
-    res.status(200).send("Added Loan");
+    db.addLoan(newLoan, function(err, loan) {
+      res.status(200).send("Added Loan");
+    });
   },
 
   /* UPDATES LOAN EDITED BY USER */

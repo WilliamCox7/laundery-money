@@ -17,8 +17,8 @@ angular.module('budgetApp').controller('homeCtrl',
 
         /* GET INCOMES FOR USER */
         incomeSvc.getIncomes(res.id).then(function(res) {
-          $scope.incomes = res;
-          $scope.incomeOutput = incomeSvc.calcIncome(res);
+          var incOutput = incomeSvc.calcIncome(res);
+          incomeSvc.saveIncomeInfo(res, incOutput);
           if (res.length > 1) {
             $('.income').css('display', 'block');
             $('.form-modal').css('marginTop', '-984px');
@@ -32,10 +32,7 @@ angular.module('budgetApp').controller('homeCtrl',
 
         /* GET EXPENSES FOR USER */
         expenseSvc.getExpenses(res.id).then(function(res) {
-          $scope.categories = res.categoryNames;
-          $scope.subcategories = res.subcategoryNames;
-          $scope.expense = res.categories;
-          $scope.totalExpense = res;
+          expenseSvc.saveExpenses(res.categoryNames, res.subcategoryNames, res.categories, res);
 
           /* GET EXPENSE PROJECTION INFO */
           var expProjInfo = expenseSvc.getExpProjectionInfo();
@@ -50,8 +47,8 @@ angular.module('budgetApp').controller('homeCtrl',
 
         /* GET LOAN INFO FOR USER */
         loanSvc.getLoans(res.id).then(function(res) {
-          $scope.loans = res;
-          $scope.loanOutput = loanSvc.calcLoans(res);
+          var loanOutputInfo = loanSvc.calcLoans(res);
+          loanSvc.saveLoanInfo(res, loanOutputInfo);
           if (res.length > 1) {
             $('.income').css('display', 'block');
             $('.form-modal').css('marginTop', '-984px');

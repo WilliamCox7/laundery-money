@@ -1,6 +1,9 @@
 angular.module('budgetApp').controller('incomeCtrl',
 
-  function($scope, $state, incomeSvc) {
+  function($scope, $state, incomeSvc, projectionSvc) {
+
+    $scope.incomes = incomeSvc.getSavedIncomes();
+    $scope.incomeOutput = incomeSvc.getSavedOuput();
 
     /* OPENS FORM FOR NEW INCOME */
     $scope.openModal = function() {
@@ -31,18 +34,30 @@ angular.module('budgetApp').controller('incomeCtrl',
     $scope.addIncome = function(source, amount, period, next, pattern, days, deduction, percent) {
       incomeSvc.addIncome($scope.userID, source, amount, period, next, pattern, days, deduction, percent)
       .then(function(status) {
+
         incomeSvc.getIncomes($scope.userID).then(function(res) {
+
           $scope.incomes = res;
           $('.form-modal').css('display', 'none');
           $scope.incomeOutput = incomeSvc.calcIncome(res);
+          incomeSvc.saveIncomeInfo($scope.incomes, $scope.incomeOutput);
+
           if (res.length > 1) {
             $('.income').css('display', 'block');
             $('.form-modal').css('marginTop', '-984px');
           }
+
+          /* GET INCOME PROJECTION INFO */
+          var incProjInfo = incomeSvc.getIncProjectionInfo();
+          $scope.projections.income = projectionSvc.calcIncome(incProjInfo);
+
           $state.go('home.incomeEdit', {source:source});
           $scope.selectIncome(source);
+
         });
+
       });
+
     }
 
     /* SETS THE SELECTED INCOME FOR FUTURE USE */

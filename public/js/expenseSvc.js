@@ -3,6 +3,12 @@ angular.module('budgetApp').service('expenseSvc',
   function($http) {
 
     var calc = this;
+    var savedExpenses = {
+      categories: [],
+      subcategories: [],
+      expense: null,
+      totalExpense: null
+    }
 
     /* SAVES PROJECTION INFO FOR LATER USE */
     var expProjectionInfo = {};
@@ -23,11 +29,24 @@ angular.module('budgetApp').service('expenseSvc',
 
     /* ADDS ALL NEW EXPENSES FROM UPLOAD FOR USER */
     this.addExpenses = function(expenseInfo) {
-      $http ({
+      return $http ({
         method: 'POST',
         url: 'expense/insert',
         data: { info: expenseInfo }
+      }).then(function(res) {
+        return res.data;
       });
+    }
+
+    this.saveExpenses = function(categories, subcategories, expense, totalExpense) {
+      savedExpenses.categories = categories;
+      savedExpenses.subcategories = subcategories;
+      savedExpenses.expense = expense;
+      savedExpenses.totalExpense = totalExpense;
+    }
+
+    this.getSavedExpenses = function() {
+      return savedExpenses;
     }
 
     /* SAVES USER PREFERENCES FOR UPLOAD */
@@ -94,7 +113,7 @@ angular.module('budgetApp').service('expenseSvc',
             y: 0,
             sub: {}
           }
-          
+
           expProjectionInfo[key] = {
             0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0,
             6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0,

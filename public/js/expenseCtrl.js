@@ -1,6 +1,6 @@
 angular.module('budgetApp').controller('expenseCtrl',
 
-  function($scope, expenseSvc) {
+  function($scope, expenseSvc, projectionSvc) {
 
     var expenseInfo = [];
     var keywordInfo = [];
@@ -8,6 +8,12 @@ angular.module('budgetApp').controller('expenseCtrl',
     var expIter = 0;
     $scope.exp = { description: null, date: null, amount: null }
     $scope.expCurrent = 1;
+
+    var savedExpInfo = expenseSvc.getSavedExpenses();
+    $scope.categories = savedExpInfo.categories;
+    $scope.subcategories = savedExpInfo.subcategories;
+    $scope.expense = savedExpInfo.expense;
+    $scope.totalExpense = savedExpInfo.totalExpense;
 
     /* THIS BEGINS THE UPLOAD PROCESS FOR USER */
     $scope.saveExpenses = function(arr) {
@@ -26,7 +32,15 @@ angular.module('budgetApp').controller('expenseCtrl',
 
     /* ADDS ALL EXPENSES FROM UPLOAD */
     $scope.addExpenses = function() {
-      expenseSvc.addExpenses(expenseInfo);
+      expenseSvc.addExpenses(expenseInfo).then(function(status) {
+        expenseSvc.getExpenses($scope.userID).then(function(res) {
+          expenseSvc.saveExpenses(res.categoryNames, res.subcategoryNames, res.categories, res);
+
+          /* GET EXPENSE PROJECTION INFO */
+          var expProjInfo = expenseSvc.getExpProjectionInfo();
+          $scope.projections.projExps = projectionSvc.calcExpenses(expProjInfo);
+        });
+      });
     }
 
     /* SAVES ALL KEYWORDS ADDED BY USER FROM UPLOAD */

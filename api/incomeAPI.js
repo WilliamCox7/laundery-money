@@ -10,8 +10,9 @@ var incomeAPI = {
       req.body.period, req.body.next, req.body.pattern,
       req.body.days, req.body.deduction, req.body.percent
     ];
-    db.addIncome(newIncome, function(err, income) {});
-    res.status(200).send('Income Added');
+    db.addIncome(newIncome, function(err, source) {
+      res.status(200).send('Income Added');
+    });
   },
 
   /* GETS ALL INCOMES FOR USER */
