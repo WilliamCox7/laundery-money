@@ -15,9 +15,9 @@ var expenseAPI = {
     var expenseInfo = req.body.info;
     for (var i = 0; i < expenseInfo.length; i++) {
       if (i !== expenseInfo.length - 1) {
-        db.insertExpenses(expenseInfo[i], function(err, expense) {});
+        db.insertExpense(expenseInfo[i], function(err, expense) {});
       } else {
-        db.insertLastExpense(expenseInfo[i], function(err, expense) {
+        db.insertExpense(expenseInfo[i], function(err, expense) {
           res.status(200).send("Added All Expenses");
         });
       }
