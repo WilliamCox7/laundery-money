@@ -147,9 +147,6 @@ angular.module('budgetApp').service('incomeSvc',
         if (income.deduction) {
           var monDed = deduction / 12;
           var biWDed = deduction / 26
-          console.log(deduction);
-          console.log(monDed);
-          console.log(biWDed);
           incomeOutput.preTax[income.deduction] = { y: deduction, m: monDed, b: biWDed };
         }
         incomeInfo[key].preTax.y = deduction;

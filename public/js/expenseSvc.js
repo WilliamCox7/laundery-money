@@ -139,9 +139,9 @@ angular.module('budgetApp').service('expenseSvc',
 
         var expDate = new Date(expense.date);
         expProjectionInfo[key][expDate.getMonth()] += expense.amount;
-        expenses.categories[key].total += expense.amount;
-        expenses.categories[key].sub[subKey].total += expense.amount;
-        expenses.total += expense.amount;
+        expenses.categories[key].total += Math.abs(expense.amount);
+        expenses.categories[key].sub[subKey].total += Math.abs(expense.amount);
+        expenses.total += Math.abs(expense.amount);
         expenses.categories[key].habit = (expenses.categories[key].total / expenses.total) * 100;
         expenses.categories[key].sub[subKey].habit = (expenses.categories[key].sub[subKey].total / expenses.categories[key].total) * 100;
 

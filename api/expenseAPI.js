@@ -14,16 +14,27 @@ var expenseAPI = {
   insertExpenses: function(req, res) {
     var expenseInfo = req.body.info;
     for (var i = 0; i < expenseInfo.length; i++) {
-      db.insertExpenses(expenseInfo[i], function(err, expense) {});
+      if (i !== expenseInfo.length - 1) {
+        db.insertExpenses(expenseInfo[i], function(err, expense) {});
+      } else {
+        db.insertLastExpense(expenseInfo[i], function(err, expense) {
+          res.status(200).send("Added All Expenses");
+        });
+      }
     }
-    res.status(200).send("Added All Expenses");
   },
 
   /* SAVES USER PREFERENCES FOR UPLOAD */
   saveKeywords: function(req, res) {
     var keywordInfo = req.body.info;
     for (var i = 0; i < keywordInfo.length; i++) {
-      db.saveKeyword(keywordInfo[i], function(err, keywords) {});
+      if (i !== keywordInfo.length - 1) {
+        db.saveKeyword(keywordInfo[i], function(err, keywords) {});
+      } else {
+        db.saveLastKeyword(keywordInfo[i], function(err, keywords) {
+          res.status(200).send("Added All Expenses");
+        });
+      }
     }
     res.status(200).send("Added All Keyword Info");
   },

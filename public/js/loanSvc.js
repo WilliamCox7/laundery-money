@@ -132,7 +132,7 @@ angular.module('budgetApp').service('loanSvc',
         var interest, principal;
         loanProjectionInfo[key] = { firstPayment: firstPayment, monthlyPayment: monPay };
 
-        for (var i = 0; i < months; i++) {
+        for (var i = 0; i <= months; i++) {
           interest = (balance * (rate/100)) / 12;
           principal = monPay - interest;
           balance = balance - principal;

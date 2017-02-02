@@ -82,12 +82,12 @@ var ToDo = {
         mvp: false
       },
       4: {
-        complete: false,
+        complete: true,
         issue: 'pre-tax deduction table has 401k hardcoded',
         mvp: true
       },
       5: {
-        complete: false,
+        complete: true,
         issue: 'when adding income, it directs you to edit view where it doesnt display correct info',
         mvp: true
       },
@@ -108,7 +108,7 @@ var ToDo = {
 
     EXPENSES: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'Percentages are off in habbit column',
         mvp: true
       },
@@ -126,7 +126,7 @@ var ToDo = {
 
     EXPENSESEDIT: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'Needs automatic keywords to ignore non-expenses',
         nonExpenses: {
           1: 'Online Payments'
@@ -147,7 +147,7 @@ var ToDo = {
 
     LOANS: {
       1: {
-        complete: false,
+        complete: true,
         issue: 'flex wrapping has problems',
         mvp: true
       },
@@ -157,12 +157,12 @@ var ToDo = {
         mvp: false
       },
       3: {
-        complete: false,
+        complete: true,
         issue: 'principal and interest are not showing information',
         mvp: true
       },
       4: {
-        complete: false,
+        complete: true,
         issue: 'when adding loan, it directs you to edit view where it doesnt display correct info',
         mvp: true
       },
