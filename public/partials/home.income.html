@@ -1,7 +1,10 @@
 <section class="income" id="income-income">
   <div class="washers">
-    <div class="washer" ng-repeat="income in incomes" ng-click="selectIncome(income.source)" ui-sref="home.incomeEdit({source: income.source})">
+    <div class="washer" ng-repeat="income in incomes" ng-click="selectIncome(income.source)" ui-sref="home.incomeEdit({source: income.source})" ng-mouseenter="hoverVideo($event)" ng-mouseleave="hideVideo($event)">
       <p>{{income.source}}</p>
+      <video loop>
+        <source src="../src/WM.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="addwasher" ng-click="openModal()">
       <div class="plus-sign">
@@ -10,6 +13,7 @@
         <div class="center-part-1"></div>
         <div class="center-part-2"></div>
       </div>
+      <img class="hover-wm" src="../src/WM.jpg" />
     </div>
   </div>
   <div class="income-summary">

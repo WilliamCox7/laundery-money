@@ -71,7 +71,7 @@ button:focus {outline:0;}
   padding: 15px;
   background: none;
   color: #a5d6e8;
-  width: 150px;
+  width: 159px;
   font-size: 13px;
   height: 50px;
 }
@@ -217,6 +217,38 @@ input:-webkit-autofill {
   height: calc(~'100% - 184px');
 }
 
+.dashboard .options .half .options-income {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard .options .half .options-income video {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
+
+.dashboard .options .half .options-expenses {
+  background-image: url('../src/goldstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half .options-loans {
+  background-image: url('../src/creditstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half .options-projections {
+  background-image: url('../src/coinstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .dashboard .options .half {
   font-family: 'betterCallSaul';
   font-size: 50px;
@@ -236,11 +268,35 @@ input:-webkit-autofill {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border: solid 3px @main-gray;
+  border: solid 3px @main;
+}
+
+.dashboard .options .half h1 p {
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-projections p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-loans p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-expenses p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
 }
 
 .dashboard .options .half h1:hover {
-  border: solid 3px @main;
+  border: solid 3px @main-dark;
   cursor: pointer;
 }
 
@@ -293,49 +349,60 @@ input:-webkit-autofill {
 }
 
 .income .washer {
-  width: 245px;
+  width: 255px;
   margin-right: 40px;
   min-width: 245px;
   height: 360px;
   display: flex;
   justify-content: center;
-  border: solid 3px @main;
   align-items: center;
+  position: relative;
+}
+
+.income .washer video {
+  width: 115.5%;
+  position: absolute;
+  z-index: -1;
 }
 
 .income .washer:hover {
   cursor: pointer;
   p {
-    color: @main-dark;
+    color: @main;
   }
-  border: solid 3px @main-dark;
 }
 
 .income .washer p {
   font-family: 'betterCallSaul';
   font-size: 30px;
-  color: @main;
+  margin-top: 230px;
+  color: @main-gray;
 }
 
 .income .addwasher {
-  width: 245px;
+  width: 255px;
   margin-right: 40px;
   min-width: 245px;
   height: 360px;
   display: flex;
   justify-content: center;
-  border: dashed 3px @main-gray;
+  background-image: url('../src/WMA.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   align-items: center;
 }
 
 .income .addwasher .plus-sign {
-  display: flex;
+  display: none;
+  position: absolute;
+  z-index: 1;
   justify-content: center;
   align-items: center;
 }
 
 .income .addwasher .plus-sign .tall-part {
-  border: solid 3px @main-gray;
+  border: solid 3px lightgray;
   position: absolute;
   width: 20px;
   height: 70px;
@@ -343,7 +410,7 @@ input:-webkit-autofill {
 }
 
 .income .addwasher .plus-sign .long-part {
-  border: solid 3px @main-gray;
+  border: solid 3px lightgray;
   position: absolute;
   width: 70px;
   height: 20px;
@@ -368,22 +435,49 @@ input:-webkit-autofill {
 
 .income .addwasher:hover {
   cursor: pointer;
-  border: solid 3px @main;
-  .plus-sign .tall-part {
-    background: @main;
-    border-color: @main;
+  .plus-sign {
+    display: flex;
   }
-  .plus-sign .long-part {
-    background: @main;
-    border-color: @main;
-  }
-  .plus-sign .center-part-1 {
-    background: @main;
-    border-color: @main;
-  }
-  .plus-sign .center-part-2 {
-    background: @main;
-    border-color: @main;
+}
+
+.income .addwasher:hover .plus-sign .tall-part {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .long-part {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .center-part-1 {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .center-part-2 {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher img {
+  width: 295px;
+  opacity: 0.2;
+  display: none;
+}
+
+.income .addwasher p {
+  position: absolute;
+  font-family: 'betterCallSaul';
+  font-size: 30px;
+  margin-top: 115px;
+  color: @main-dark;
+}
+
+.income .addwasher:hover {
+  cursor: pointer;
+  .hover-wm {
+    display: block;
   }
 }
 
@@ -676,18 +770,28 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   font-size: 24px;
   margin-left: 40px;
   font-family: 'betterCallSaul';
-  border: solid 3px @main;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: @main;
+  color: @main-gray;
   float: right;
+  position: relative;
+}
+
+.expenses .expense-manager video {
+  position: absolute;
+  width: 115.5%;
+  z-index: -1;
+}
+
+.expenses .expense-manager p {
+  margin-top: 220px;
+  font-size: 26px;
 }
 
 .expenses .expense-manager:hover {
   cursor: pointer;
-  color: @main-dark;
-  border: solid 3px @main-dark;
+  color: @main;
 }
 
 .expenses .expense-report .exp-tbl-header {

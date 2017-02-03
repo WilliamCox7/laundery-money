@@ -33,7 +33,10 @@
       <p>${{totalExpense.y | makePos | currency:""}}</p>
     </div>
   </div>
-  <div class="expense-manager" ui-sref="home.expenseEdit">
+  <div class="expense-manager" ui-sref="home.expenseEdit" ng-mouseenter="hoverVideo($event)" ng-mouseleave="hideVideo($event)">
     <p>Expense Manager</p>
+    <video loop>
+      <source src="../src/WM.mp4" type="video/mp4">
+    </video>
   </div>
 </section>

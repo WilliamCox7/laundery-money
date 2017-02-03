@@ -57,7 +57,7 @@ button:focus {
   padding: 15px;
   background: none;
   color: #a5d6e8;
-  width: 150px;
+  width: 159px;
   font-size: 13px;
   height: 50px;
 }
@@ -181,6 +181,33 @@ input:-webkit-autofill {
 .dashboard .options {
   height: calc(100% - 184px);
 }
+.dashboard .options .half .options-income {
+  position: relative;
+  overflow: hidden;
+}
+.dashboard .options .half .options-income video {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+}
+.dashboard .options .half .options-expenses {
+  background-image: url('../src/goldstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.dashboard .options .half .options-loans {
+  background-image: url('../src/creditstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.dashboard .options .half .options-projections {
+  background-image: url('../src/coinstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .dashboard .options .half {
   font-family: 'betterCallSaul';
   font-size: 50px;
@@ -199,10 +226,30 @@ input:-webkit-autofill {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border: solid 3px lightgray;
+  border: solid 3px #a5d6e8;
+}
+.dashboard .options .half h1 p {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: solid 3px #a5d6e8;
+}
+.dashboard .options .half .options-projections p {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: solid 3px #a5d6e8;
+}
+.dashboard .options .half .options-loans p {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: solid 3px #a5d6e8;
+}
+.dashboard .options .half .options-expenses p {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: solid 3px #a5d6e8;
 }
 .dashboard .options .half h1:hover {
-  border: solid 3px #a5d6e8;
+  border: solid 3px #4a798a;
   cursor: pointer;
 }
 .upload {
@@ -247,39 +294,49 @@ input:-webkit-autofill {
   margin-bottom: 40px;
 }
 .income .washer {
-  width: 245px;
+  width: 255px;
   margin-right: 40px;
   min-width: 245px;
   height: 360px;
   display: flex;
   justify-content: center;
-  border: solid 3px #a5d6e8;
   align-items: center;
+  position: relative;
+}
+.income .washer video {
+  width: 115.5%;
+  position: absolute;
+  z-index: -1;
 }
 .income .washer:hover {
   cursor: pointer;
-  border: solid 3px #4a798a;
 }
 .income .washer:hover p {
-  color: #4a798a;
+  color: #a5d6e8;
 }
 .income .washer p {
   font-family: 'betterCallSaul';
   font-size: 30px;
-  color: #a5d6e8;
+  margin-top: 230px;
+  color: lightgray;
 }
 .income .addwasher {
-  width: 245px;
+  width: 255px;
   margin-right: 40px;
   min-width: 245px;
   height: 360px;
   display: flex;
   justify-content: center;
-  border: dashed 3px lightgray;
+  background-image: url('../src/WMA.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   align-items: center;
 }
 .income .addwasher .plus-sign {
-  display: flex;
+  display: none;
+  position: absolute;
+  z-index: 1;
   justify-content: center;
   align-items: center;
 }
@@ -313,23 +370,43 @@ input:-webkit-autofill {
 }
 .income .addwasher:hover {
   cursor: pointer;
-  border: solid 3px #a5d6e8;
+}
+.income .addwasher:hover .plus-sign {
+  display: flex;
 }
 .income .addwasher:hover .plus-sign .tall-part {
-  background: #a5d6e8;
-  border-color: #a5d6e8;
+  background: #4a798a;
+  border-color: #4a798a;
 }
 .income .addwasher:hover .plus-sign .long-part {
-  background: #a5d6e8;
-  border-color: #a5d6e8;
+  background: #4a798a;
+  border-color: #4a798a;
 }
 .income .addwasher:hover .plus-sign .center-part-1 {
-  background: #a5d6e8;
-  border-color: #a5d6e8;
+  background: #4a798a;
+  border-color: #4a798a;
 }
 .income .addwasher:hover .plus-sign .center-part-2 {
-  background: #a5d6e8;
-  border-color: #a5d6e8;
+  background: #4a798a;
+  border-color: #4a798a;
+}
+.income .addwasher img {
+  width: 295px;
+  opacity: 0.2;
+  display: none;
+}
+.income .addwasher p {
+  position: absolute;
+  font-family: 'betterCallSaul';
+  font-size: 30px;
+  margin-top: 115px;
+  color: #4a798a;
+}
+.income .addwasher:hover {
+  cursor: pointer;
+}
+.income .addwasher:hover .hover-wm {
+  display: block;
 }
 .income .income-summary {
   min-width: 600px;
@@ -586,17 +663,25 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   font-size: 24px;
   margin-left: 40px;
   font-family: 'betterCallSaul';
-  border: solid 3px #a5d6e8;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #a5d6e8;
+  color: lightgray;
   float: right;
+  position: relative;
+}
+.expenses .expense-manager video {
+  position: absolute;
+  width: 115.5%;
+  z-index: -1;
+}
+.expenses .expense-manager p {
+  margin-top: 220px;
+  font-size: 26px;
 }
 .expenses .expense-manager:hover {
   cursor: pointer;
-  color: #4a798a;
-  border: solid 3px #4a798a;
+  color: #a5d6e8;
 }
 .expenses .expense-report .exp-tbl-header {
   width: 100%;

@@ -1,7 +1,10 @@
 <section class="income" id="income-loans">
   <div class="washers">
-    <div class="washer" ng-repeat="loan in loans" ng-click="selectLoan(loan.payee)" ui-sref="home.loanEdit({payee: loan.payee})">
+    <div class="washer" ng-repeat="loan in loans" ng-click="selectLoan(loan.payee)" ui-sref="home.loanEdit({payee: loan.payee})" ng-mouseenter="hoverVideo($event)" ng-mouseleave="hideVideo($event)">
       <p>{{loan.payee}}</p>
+      <video loop>
+        <source src="../src/WM.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="addwasher" ng-click="openModal()">
       <div class="plus-sign">
@@ -10,6 +13,7 @@
         <div class="center-part-1"></div>
         <div class="center-part-2"></div>
       </div>
+      <img class="hover-wm" src="../src/WM.jpg" />
     </div>
   </div>
   <div class="income-summary">

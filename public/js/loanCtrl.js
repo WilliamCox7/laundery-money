@@ -55,6 +55,16 @@ angular.module('budgetApp').controller('loanCtrl',
       loanSvc.setLoan(payee);
     }
 
+    $scope.hoverVideo = function($event) {
+      var video = angular.element($event.currentTarget).children().eq(1);
+      $(video).get(0).play();
+    }
+
+    $scope.hideVideo = function($event) {
+      var video = angular.element($event.currentTarget).children().eq(1);
+      $(video).get(0).pause();
+    }
+
   }
 
 );
