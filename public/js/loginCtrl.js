@@ -38,6 +38,14 @@ angular.module('budgetApp').controller('loginCtrl',
       sibling.removeClass('active');
     }
 
+    document.getElementById('vid2').addEventListener('loadedmetadata', function() {
+      this.currentTime = 6;
+    }, false);
+
+    document.getElementById('vid3').addEventListener('loadedmetadata', function() {
+      this.currentTime = 1;
+    }, false);
+
   }
 
 );

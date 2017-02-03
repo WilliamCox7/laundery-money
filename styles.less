@@ -46,16 +46,18 @@ button:focus {outline:0;}
 
 .login .intro-animation {
   width: 90%;
-  height: calc(~'100% - 378px');
+  height: 370px;
   display: flex;
-  justify-content: center;
-  border: solid 3px @main;
+  justify-content: space-around;
   margin: 40px auto;
 }
 
+.login .intro-animation video {
+  height: 100%;
+}
+
 .login .intro-animation img {
-  position: relative;
-  margin: auto;
+  height: 100%;
 }
 
 .login .login-form {
@@ -873,7 +875,10 @@ input[type="checkbox"]:checked + label span.checkbox::after {
 .expenses .exp-manager-animation {
   width: 260px;
   height: 360px;
-  border: solid 3px @main;
+  background-image: url('../src/WM.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .expenses .exp-manager table {
