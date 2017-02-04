@@ -33,9 +33,12 @@ button:focus {
   text-align: justify;
   color: #4a798a;
 }
+.login {
+  margin-top: 90px;
+}
 .login .intro-animation {
-  width: 90%;
-  height: 370px;
+  width: 931px;
+  height: 300px;
   display: flex;
   justify-content: space-around;
   margin: 40px auto;
@@ -122,22 +125,45 @@ input:-webkit-autofill {
   border: solid 3px #a5d6e8;
   cursor: pointer;
 }
+.login .bottom {
+  width: 923px;
+  margin: auto;
+}
 .login .left-side {
   width: 340px;
   float: left;
   margin-left: 5%;
 }
 .login .right-side {
-  width: calc(90% - 380px);
+  width: 450px;
+  overflow: hidden;
   margin-left: 40px;
   margin-right: 5%;
   height: 258px;
+  position: relative;
   display: flex;
   float: right;
   border: solid 3px #a5d6e8;
 }
-.login .right-side img {
-  margin: auto;
+.login .right-side .goodbye {
+  display: none;
+}
+.login .right-side h1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  font-family: 'betterCallSaul';
+  color: #a5d6e8;
+}
+.login .right-side video {
+  position: absolute;
+  z-index: -1;
+  margin-left: -3px;
+  height: 100%;
 }
 .dashboard .navBar {
   padding: 20px;

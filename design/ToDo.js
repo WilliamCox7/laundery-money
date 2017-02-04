@@ -21,7 +21,7 @@ var ToDo = {
         mvp: true
       },
       4: {
-        complete: false,
+        complete: true,
         issue: 'Needs main intro animation',
         mvp: false
       },

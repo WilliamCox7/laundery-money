@@ -44,9 +44,13 @@ button:focus {outline:0;}
   color: @main-dark;
 }
 
+.login {
+  margin-top: 90px;
+}
+
 .login .intro-animation {
-  width: 90%;
-  height: 370px;
+  width: 931px;
+  height: 300px;
   display: flex;
   justify-content: space-around;
   margin: 40px auto;
@@ -146,6 +150,11 @@ input:-webkit-autofill {
   cursor: pointer;
 }
 
+.login .bottom {
+  width: 923px;
+  margin: auto;
+}
+
 .login .left-side {
   width: 340px;
   float: left;
@@ -153,17 +162,39 @@ input:-webkit-autofill {
 }
 
 .login .right-side {
-  width: calc(~'90% - 380px');
+  width: 450px;
+  overflow: hidden;
   margin-left: 40px;
   margin-right: 5%;
   height: 258px;
+  position: relative;
   display: flex;
   float: right;
   border: solid 3px @main;
 }
 
-.login .right-side img {
-  margin: auto;
+.login .right-side .goodbye {
+  display: none;
+}
+
+.login .right-side h1 {
+  //margin: auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  font-family: 'betterCallSaul';
+  color: @main;
+}
+
+.login .right-side video {
+  position: absolute;
+  z-index: -1;
+  margin-left: -3px;
+  height: 100%;
 }
 
 .dashboard .navBar {
