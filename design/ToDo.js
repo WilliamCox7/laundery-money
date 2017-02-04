@@ -26,7 +26,7 @@ var ToDo = {
         mvp: false
       },
       5: {
-        complete: false,
+        complete: true,
         issue: 'Needs washing machine animations',
         mvp: false
       },
