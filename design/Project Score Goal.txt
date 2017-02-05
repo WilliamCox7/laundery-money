@@ -3,9 +3,9 @@ Endpoint Testing								20pts							false
 Less														10pts							true
 ES6															10pts							false
 Electron												20pts							false
-Domain Registration							10pts							false
+Domain Registration							10pts							true
 Defined MVP											10pts							true
 Responsive											20pts							true
-Mentions Tech										10pts							false
-Uses Time Effectively						10pts							false
+Mentions Tech										10pts							true
+Uses Time Effectively						10pts							true
 																150pts

@@ -8,6 +8,11 @@ angular.module('budgetApp').controller('incomeEditCtrl',
     }
 
     getIncome();
+    if ($scope.specIncome.preTax.b === 0) {
+      $('#preTax-edit-tbl').css('display', 'none');
+      $('.income .income-summary').css('justifyContent', 'inherit');
+      $('.income .income-summary table').css('marginBottom', '20');
+    }
 
     /* UPDATES THE INCOME SELECTED BY THE USER */
     $scope.updateIncome = function(source, amount, period, next, pattern, days, deduction, percent) {

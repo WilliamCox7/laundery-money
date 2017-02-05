@@ -8,6 +8,11 @@ angular.module('budgetApp').controller('loanEditCtrl',
     }
 
     getLoan();
+    if (!$scope.specLoan.mortgageIns) {
+      $('#other-edit-tbl').css('display', 'none');
+      $('#income-loans-edit .income-summary').css('justifyContent', 'inherit');
+      $('#income-loans-edit .income-summary table').css('marginBottom', '20');
+    }
 
     /* UPDATES LOAN SELECTED BY USER */
     $scope.updateLoan = function(payee, loanAmount, payment, rate, loanType, term, termLength, nextPay) {

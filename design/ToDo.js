@@ -49,17 +49,17 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'Custom animations for each option',
         mvp: false
       },
       3: {
-        complete: false,
+        complete: true,
         issue: 'Custom icons',
         mvp: false
       },
       4: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       }
@@ -72,7 +72,7 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'washing machine animations',
         mvp: false
       },
@@ -92,8 +92,13 @@ var ToDo = {
         mvp: true
       },
       6: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
+        mvp: true
+      },
+      7: {
+        complete: true,
+        issue: 'If no pre-tax deductions, then dont show table',
         mvp: true
       }
     },
@@ -113,12 +118,12 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'Custom animation for expense manager button',
         mvp: false
       },
       3: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       }
@@ -134,12 +139,12 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       },
       3: {
-        complete: false,
+        complete: true,
         issue: 'Custom animation on left side',
         mvp: false
       }
@@ -152,7 +157,7 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'washing machine animations',
         mvp: false
       },
@@ -167,7 +172,7 @@ var ToDo = {
         mvp: true
       },
       5: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       }
@@ -190,7 +195,7 @@ var ToDo = {
         mvp: false
       },
       4: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       }
@@ -203,12 +208,12 @@ var ToDo = {
         mvp: true
       },
       2: {
-        complete: false,
+        complete: true,
         issue: 'Needs final touches of style',
         mvp: true
       },
       3: {
-        complete: false,
+        complete: true,
         issue: 'Custom animation',
         mvp: false
       }

@@ -7,6 +7,13 @@ angular.module('budgetApp').controller('incomeCtrl',
     if ($scope.incomes.length > 1) {
       $('#income-income').css('display', 'block');
       $('.form-modal').css('marginTop', '-984px');
+    } else if (Object.keys($scope.incomeOutput.preTax).length === 0) {
+      $('.income .income-summary').css('justifyContent', 'inherit');
+      $('.income .income-summary table').css('marginBottom', '20');
+    }
+    if (Object.keys($scope.incomeOutput.preTax).length === 0) {
+      $('#preTax-tbl').css('display', 'none');
+      $('.income .income-summary').css('minHeight', '270');
     }
 
     /* OPENS FORM FOR NEW INCOME */

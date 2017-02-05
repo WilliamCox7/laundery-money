@@ -17,63 +17,63 @@
     </tr>
     <tr>
       <td>Income</td>
-      <td>${{projections.income[0] | currency:""}}</td>
-      <td>${{projections.income[1] | currency:""}}</td>
-      <td>${{projections.income[2] | currency:""}}</td>
-      <td>${{projections.income[3] | currency:""}}</td>
-      <td>${{projections.income[4] | currency:""}}</td>
-      <td>${{projections.income[5] | currency:""}}</td>
-      <td>${{projections.income[6] | currency:""}}</td>
-      <td>${{projections.income[7] | currency:""}}</td>
-      <td>${{projections.income[8] | currency:""}}</td>
-      <td>${{projections.income[9] | currency:""}}</td>
-      <td>${{projections.income[10] | currency:""}}</td>
-      <td>${{projections.income[11] | currency:""}}</td>
+      <td><span>$</span>{{projections.income[0] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[1] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[2] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[3] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[4] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[5] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[6] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[7] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[8] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[9] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[10] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.income[11] | currency:"":0}}</td>
     </tr>
     <tr ng-repeat="(key, value) in projections.projLoans">
       <td>{{key}}</td>
-      <td>${{projections.projLoans[key][0] | currency:""}}</td>
-      <td>${{projections.projLoans[key][1] | currency:""}}</td>
-      <td>${{projections.projLoans[key][2] | currency:""}}</td>
-      <td>${{projections.projLoans[key][3] | currency:""}}</td>
-      <td>${{projections.projLoans[key][4] | currency:""}}</td>
-      <td>${{projections.projLoans[key][5] | currency:""}}</td>
-      <td>${{projections.projLoans[key][6] | currency:""}}</td>
-      <td>${{projections.projLoans[key][7] | currency:""}}</td>
-      <td>${{projections.projLoans[key][8] | currency:""}}</td>
-      <td>${{projections.projLoans[key][9] | currency:""}}</td>
-      <td>${{projections.projLoans[key][10] | currency:""}}</td>
-      <td>${{projections.projLoans[key][11] | currency:""}}</td>
+      <td><span>$</span>{{projections.projLoans[key][0] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][1] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][2] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][3] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][4] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][5] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][6] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][7] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][8] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][9] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][10] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projLoans[key][11] | currency:"":0}}</td>
     </tr>
     <tr ng-repeat="(key, value) in projections.projExps">
       <td>{{key}}</td>
-      <td>${{projections.projExps[key][0] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][1] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][2] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][3] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][4] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][5] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][6] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][7] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][8] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][9] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][10] | makePos | currency:""}}</td>
-      <td>${{projections.projExps[key][11] | makePos | currency:""}}</td>
+      <td><span>$</span>{{projections.projExps[key][0] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][1] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][2] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][3] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][4] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][5] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][6] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][7] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][8] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][9] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][10] | makePos | currency:"":0}}</td>
+      <td><span>$</span>{{projections.projExps[key][11] | makePos | currency:"":0}}</td>
     </tr>
-    <tr>
-      <td>Left Over</td>
-      <td>${{projections.leftOver[0] | currency:""}}</td>
-      <td>${{projections.leftOver[1] | currency:""}}</td>
-      <td>${{projections.leftOver[2] | currency:""}}</td>
-      <td>${{projections.leftOver[3] | currency:""}}</td>
-      <td>${{projections.leftOver[4] | currency:""}}</td>
-      <td>${{projections.leftOver[5] | currency:""}}</td>
-      <td>${{projections.leftOver[6] | currency:""}}</td>
-      <td>${{projections.leftOver[7] | currency:""}}</td>
-      <td>${{projections.leftOver[8] | currency:""}}</td>
-      <td>${{projections.leftOver[9] | currency:""}}</td>
-      <td>${{projections.leftOver[10] | currency:""}}</td>
-      <td>${{projections.leftOver[11] | currency:""}}</td>
+    <tr id="proj-last-row">
+      <td id="proj-last-row">Left Over</td>
+      <td><span>$</span>{{projections.leftOver[0] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[1] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[2] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[3] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[4] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[5] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[6] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[7] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[8] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[9] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[10] | currency:"":0}}</td>
+      <td><span>$</span>{{projections.leftOver[11] | currency:"":0}}</td>
     </tr>
   </table>
 </section>

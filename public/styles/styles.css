@@ -212,10 +212,11 @@ input:-webkit-autofill {
   position: relative;
   overflow: hidden;
 }
-.dashboard .options .half .options-income video {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
+.dashboard .options .half .options-income {
+  background-image: url('../src/fatstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .dashboard .options .half .options-expenses {
   background-image: url('../src/goldstacks.jpg');
@@ -826,12 +827,33 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   color: white;
   font-size: 20px;
   font-family: 'betterCallSaul';
+  border-right: solid 1px #4a798a;
+}
+.projections table th:nth-child(13) {
+  border-right: solid 1px #4a798a;
 }
 .projections table th {
   padding: 10px;
   background: #a5d6e8;
   color: #4a798a;
+  border-top: solid 1px #4a798a;
 }
 .projections table td {
-  padding: 10px;
+  padding: 5px;
+  color: #4a798a;
+  font-size: 14px;
+  text-align: right;
+  width: 7.692307%;
+  border: solid 1px #4a798a;
+}
+.projections table td span {
+  float: left;
+}
+.projections table td:nth-child(1) {
+  background: #a5d6e8;
+}
+#proj-last-row {
+  background: lightgray;
+  color: #4a798a;
+  border: solid 1px #4a798a;
 }

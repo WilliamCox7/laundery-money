@@ -255,10 +255,17 @@ input:-webkit-autofill {
   overflow: hidden;
 }
 
-.dashboard .options .half .options-income video {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
+// .dashboard .options .half .options-income video {
+//   position: absolute;
+//   z-index: -1;
+//   width: 100%;
+// }
+
+.dashboard .options .half .options-income {
+  background-image: url('../src/fatstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .dashboard .options .half .options-expenses {
@@ -966,14 +973,39 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   color: white;
   font-size: 20px;
   font-family: 'betterCallSaul';
+  border-right: solid 1px @main-dark;
+}
+
+.projections table th:nth-child(13) {
+  border-right: solid 1px @main-dark;
 }
 
 .projections table th {
   padding: 10px;
   background: @main;
   color: @main-dark;
+  border-top: solid 1px @main-dark;
 }
 
 .projections table td {
-  padding: 10px;
+  padding: 5px;
+  color: @main-dark;
+  font-size: 14px;
+  text-align: right;
+  width: 7.692307%;
+  border: solid 1px @main-dark;
+}
+
+.projections table td span {
+  float: left;
+}
+
+.projections table td:nth-child(1) {
+  background: @main;
+}
+
+#proj-last-row {
+  background: @main-gray;
+  color: @main-dark;
+  border: solid 1px @main-dark;
 }
