@@ -20,14 +20,14 @@
     <table class="table-header">
       <tr>
         <th>Item</th>
-        <th>Bi-Weekly</th>
-        <th>Monthly</th>
-        <th>Yearly</th>
+        <th ng-click="toggleColumn(2)">Bi-Weekly</th>
+        <th ng-click="toggleColumn(3)">Monthly</th>
+        <th ng-click="toggleColumn(4)">Yearly</th>
       </tr>
     </table>
     <table>
       <tr class="header-row">
-        <td class="table-subHeader">Total Gross Income</td>
+        <td class="table-subHeader">Gross Income</td>
         <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.b | currency:""}}</td>
         <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.m | currency:""}}</td>
         <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.y | currency:""}}</td>

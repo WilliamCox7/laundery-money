@@ -6,7 +6,6 @@ angular.module('budgetApp').controller('loanCtrl',
     $scope.loanOutput = loanSvc.getSavedOuput();
     if ($scope.loans.length > 1) {
       $('#income-loans').css('display', 'block');
-      $('.form-modal').css('marginTop', '-984px');
     } else if ($scope.loanOutput.mortgageIns === 0) {
       $('#income-loans .income-summary').css('justifyContent', 'inherit');
       $('#income-loans .income-summary table').css('marginBottom', '20');
@@ -44,7 +43,6 @@ angular.module('budgetApp').controller('loanCtrl',
 
           if (res.length > 1) {
             $('.income').css('display', 'block');
-            $('.form-modal').css('marginTop', '-984px');
           }
 
           /* GET LOAN PROJECTION INFO */

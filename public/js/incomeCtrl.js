@@ -4,10 +4,9 @@ angular.module('budgetApp').controller('incomeCtrl',
 
     $scope.incomes = incomeSvc.getSavedIncomes();
     $scope.incomeOutput = incomeSvc.getSavedOuput();
-    
+
     if ($scope.incomes.length > 1) {
       $('#income-income').css('display', 'block');
-      $('.form-modal').css('marginTop', '-984px');
     } else if (Object.keys($scope.incomeOutput.preTax).length === 0) {
       $('.income .income-summary').css('justifyContent', 'inherit');
       $('.income .income-summary table').css('marginBottom', '20');
@@ -28,6 +27,25 @@ angular.module('budgetApp').controller('incomeCtrl',
       var className = element[0].className;
       if (className.indexOf('form-modal') >= 0 || className === 'close') {
         $('.form-modal').css('display', 'none');
+      }
+    }
+
+    $scope.toggleColumn = function(col) {
+      if (col === 2) {
+        $('.income .income-summary th:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary th:nth-child('+ 3 +')').css('display', 'table-cell');
+        $('.income .income-summary td:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary td:nth-child('+ 3 +')').css('display', 'table-cell');
+      } else if (col === 3) {
+        $('.income .income-summary th:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary th:nth-child('+ 4 +')').css('display', 'table-cell');
+        $('.income .income-summary td:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary td:nth-child('+ 4 +')').css('display', 'table-cell');
+      } else {
+        $('.income .income-summary th:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary th:nth-child('+ 2 +')').css('display', 'table-cell');
+        $('.income .income-summary td:nth-child('+ col +')').css('display', 'none');
+        $('.income .income-summary td:nth-child('+ 2 +')').css('display', 'table-cell');
       }
     }
 
@@ -56,7 +74,6 @@ angular.module('budgetApp').controller('incomeCtrl',
 
           if (res.length > 1) {
             $('.income').css('display', 'block');
-            $('.form-modal').css('marginTop', '-984px');
           }
 
           /* GET INCOME PROJECTION INFO */
