@@ -37,7 +37,8 @@ button:focus {
   margin-top: 90px;
 }
 .login .intro-animation {
-  width: 931px;
+  max-width: 931px;
+  width: 90%;
   height: 300px;
   display: flex;
   justify-content: space-around;
@@ -856,4 +857,106 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   background: lightgray;
   color: #4a798a;
   border: solid 1px #4a798a;
+}
+@media (max-width: 340px) {
+  .dashboard .navBar .left-side {
+    margin-left: auto !important;
+  }
+  .dashboard .navBar {
+    padding: 40px;
+  }
+  .login .login-form {
+    width: 270px;
+  }
+  .login button {
+    width: 125px;
+  }
+  .login form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .login form input[type="text"],
+  .login form input[type="password"] {
+    width: 273px !important;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .login .sub {
+    width: 270px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .login form button,
+  .login form a {
+    font-size: 18px;
+    width: 80px;
+  }
+}
+@media (max-width: 495px) {
+  .dashboard .navBar {
+    border: none;
+    margin: auto;
+    margin-bottom: -35px;
+    height: 75px;
+  }
+  .dashboard .navBar .left-side {
+    margin-left: 20px;
+    font-size: 32px;
+  }
+  .dashboard .navBar .right-side {
+    width: 110px;
+    height: auto;
+  }
+  .dashboard .navBar .right-side button {
+    width: 60px;
+  }
+  .dashboard .navBar .right-side a {
+    width: 40px;
+  }
+  .dashboard .options .half {
+    margin: 60px 40px 40px 40px;
+    display: block;
+    width: auto;
+  }
+  .dashboard .options .half h1 {
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  #vid3 {
+    display: none;
+  }
+  .login {
+    margin-top: auto;
+  }
+}
+@media (max-width: 730px) {
+  .dashboard .navBar .right-side {
+    width: 40%;
+  }
+}
+@media (max-width: 770px) {
+  .dashboard .options .half {
+    height: 200px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 850px) {
+  #vid2 {
+    display: none;
+  }
+}
+@media (max-width: 920px) {
+  .bottom .right-side {
+    display: none;
+  }
+  .bottom .left-side {
+    width: auto;
+    float: none;
+    margin-left: auto;
+  }
+  .bottom {
+    width: 100% !important;
+  }
 }
