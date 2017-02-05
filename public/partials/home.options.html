@@ -1,0 +1,25 @@
+<section class="options">
+  <div class="half">
+    <!-- <h1 class="options-income" ui-sref="home.income" ng-mouseenter="hoverVideo($event)" ng-mouseleave="hideVideo($event)">
+      <p>Income</p>
+      <video loop poster="../src/fatstacks.jpg">
+        <source src="../src/huell.mp4" type="video/mp4">
+      </video>
+    </h1> -->
+    <h1 class="options-income" ui-sref="home.income"><p>Income</p></h1>
+    <h1 class="options-expenses" ui-sref="home.expenses"><p>Expenses</p></h1>
+  </div>
+  <div class="half">
+    <h1 class="options-loans" ui-sref="home.loans"><p>Loans</p></h1>
+    <h1 class="options-projections" ui-sref="home.projections"><p>Projections</p></h1>
+  </div>
+</section>
+<div id="init-modal" class="form-modal" ng-click="closeModal($event)">
+  <div class="modal-content">
+    <span class="close" ng-click="closeModal($event)">&times;</span>
+    <p>In order for me to process your projections correctly, I'm going to need a little more info.</p>
+    <p class="modal-question">What is your current bank account balance?</p>
+    <input ng-model="bankBalance" type="text" placeholder="$" />
+    <button ng-click="getStarted(bankBalance)">Get Started</button>
+  </div>
+</div>

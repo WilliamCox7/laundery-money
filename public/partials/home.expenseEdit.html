@@ -1,0 +1,21 @@
+<section class="expenses">
+  <div class="exp-manager-animation">
+
+  </div>
+  <div class="exp-manager">
+    <table id="exp-manager-tbl">
+      <tr>
+        <th>Keyword</th>
+        <th>Category</th>
+        <th>Subcategory</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="keywordItem in userKeywords track by $index">
+        <td>{{keywordItem.keyword}}</td>
+        <td>{{keywordItem.category}}</td>
+        <td>{{keywordItem.subcategory}}</td>
+        <td ng-click="removeKeyword(keywordItem.keyword, $index)">X</td>
+      </tr>
+    </table>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<main class="dashboard">
+  <section class="navBar">
+    <div class="left-side">
+      <h1 ui-sref="home.options">{{username}}</h1>
+    </div>
+    <div class="right-side">
+      <button ui-sref="home.upload"><img src="../src/upload.svg" /></button>
+      <a href="/logout"><img src="../src/logoutbutton.svg" /></a>
+    </div>
+  </section>
+  <ui-view></ui-view>
+</main>

@@ -1,0 +1,142 @@
+<section class="income" id="income-income">
+  <div class="washers">
+    <div class="washer" ng-repeat="income in incomes" ng-click="selectIncome(income.source)" ui-sref="home.incomeEdit({source: income.source})" ng-mouseenter="hoverVideo($event)" ng-mouseleave="hideVideo($event)">
+      <p>{{income.source}}</p>
+      <video loop>
+        <source src="../src/WM.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="addwasher" ng-click="openModal()">
+      <div class="plus-sign">
+        <div class="tall-part"></div>
+        <div class="long-part"></div>
+        <div class="center-part-1"></div>
+        <div class="center-part-2"></div>
+      </div>
+      <img class="hover-wm" src="../src/WM.jpg" />
+    </div>
+  </div>
+  <div class="income-summary">
+    <table class="table-header">
+      <tr>
+        <th>Item</th>
+        <th>Bi-Weekly</th>
+        <th>Monthly</th>
+        <th>Yearly</th>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Total Gross Income</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.b | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.m | currency:""}}</td>
+        <td class="table-subHeader"><span>$</span> {{incomeOutput.gross.y | currency:""}}</td>
+      </tr>
+    </table>
+    <table id="preTax-tbl">
+      <tr class="header-row">
+        <td class="table-subHeader">Pre-Tax Deductions</td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="table-row" ng-repeat="(key, value) in incomeOutput.preTax">
+        <td>{{key}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.preTax[key].y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">After Deductions</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.after.y | currency:""}}</td>
+      </tr>
+    </table>
+    <table>
+      <tr class="header-row">
+        <td class="table-subHeader">Taxes</td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+        <td class="table-subHeader"></td>
+      </tr>
+      <tr class="table-row">
+        <td>Social Security</td>
+        <td><span>$</span> {{incomeOutput.ss.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.ss.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.ss.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Medicare</td>
+        <td><span>$</span> {{incomeOutput.med.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.med.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.med.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>Withholding</td>
+        <td><span>$</span> {{incomeOutput.fed.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.fed.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.fed.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td>State Tax</td>
+        <td><span>$</span> {{incomeOutput.state.b | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.state.m | currency:""}}</td>
+        <td><span>$</span> {{incomeOutput.state.y | currency:""}}</td>
+      </tr>
+      <tr class="table-row">
+        <td class="table-total">Net Income</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.b | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.m | currency:""}}</td>
+        <td class="table-total"><span>$</span> {{incomeOutput.net.y | currency:""}}</td>
+      </tr>
+    </table>
+  </div>
+</section>
+<div class="form-modal" ng-click="closeModal($event)">
+  <div class="modal-content">
+    <span class="close" ng-click="closeModal($event)">&times;</span>
+    <table>
+      <tr>
+        <td><p>Income Source:</p></td>
+        <td><input ng-model="source" type="text" placeholder="who is paying you?" /></td>
+      </tr>
+      <tr>
+        <td><p>Amount:</p></td>
+        <td>
+          <input ng-model="amount" class="medium-input" type="text" placeholder="what is your wage?" />
+          <select ng-model="period" class="short-select">
+            <option value="hourly">/Hr</option>
+            <option value="yearly">/Yr</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><p>First Paycheck:</p></td>
+        <td><input ng-model="next" type="date" /></td>
+      </tr>
+      <tr>
+        <td><p>Paycheck Pattern:</p></td>
+        <td>
+          <select id="certainDaysSelect" ng-model="item" ng-change="toggleCertainDays(item)">
+            <option value="weekly">Weekly</option>
+            <option value="bi-weekly">Bi-Weekly</option>
+            <option value="days">Certain Days</option>
+          </select>
+          <input ng-model="days" id="certainDaysInput" class="short-select" type="text" placeholder="ex: 5,20" />
+        </td>
+      </tr>
+      <tr>
+        <td><p>Pre-Tax Deductions:</p></td>
+        <td>
+          <input ng-model="deduction" class="medium-input" type="text" placeholder="ex: 401k" />
+          <input ng-model="percent" class="short-select" type="text" placeholder="%" />
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><button ng-click="addIncome(source, amount, period, next, item, days, deduction, percent)">Add New Income</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

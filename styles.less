@@ -1,0 +1,1011 @@
+@main: #a5d6e8;
+@main-dark: #4a798a;
+@main-gray: lightgray;
+
+@font-face {
+    font-family: 'betterCallSaul';
+    src: url('../src/script1scriptcasualnormal.ttf') format('truetype');
+}
+
+body {
+  font-family: arial;
+}
+
+main {
+  max-width: 1300px;
+  margin: auto;
+}
+
+button:focus {outline:0;}
+
+#init-modal {
+  top: 584px;
+  display: none;
+}
+
+#init-modal .modal-content {
+  width: 290px;
+}
+
+#init-modal .modal-content input {
+  padding: 5px;
+  margin: 10px 0px;
+  width: 210px;
+  border: solid 2px @main-dark;
+}
+
+#init-modal .modal-content .modal-question {
+  margin-top: 10px;
+}
+
+#init-modal .modal-content p {
+  width: 210px;
+  text-align: justify;
+  color: @main-dark;
+}
+
+.login {
+  margin-top: 90px;
+}
+
+.login .intro-animation {
+  width: 931px;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  margin: 40px auto;
+}
+
+.login .intro-animation video {
+  height: 100%;
+}
+
+.login .intro-animation img {
+  height: 100%;
+}
+
+.login .login-form {
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.login button {
+  border: solid 3px @main-gray;
+  padding: 15px;
+  background: none;
+  color: #a5d6e8;
+  width: 159px;
+  font-size: 13px;
+  height: 50px;
+}
+
+.login .active {
+  background: @main;
+  border: solid 3px @main;
+  color: white;
+}
+
+.login .login-form button:hover {
+  background: @main;
+  border: solid 3px @main;
+  color: white;
+  cursor: pointer;
+}
+
+.login form {
+  width: 340px;
+  margin: auto;
+}
+
+.login .signUpForm {
+  width: 167.7px !important;
+  display: none;
+}
+
+.login .signUpInput {
+  width: 167.7px !important;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    -webkit-text-fill-color: @main !important;
+}
+
+.login form input[type="text"], .login form input[type="password"] {
+  width: 100%;
+  border: solid 3px @main;
+  padding: 15px;
+  background: white;
+  color: @main;
+  margin-bottom: 20px;
+}
+
+.login .sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login form button, .login form a {
+  font-size: 23px;
+  color: #a5d6e8;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'betterCallSaul';
+  padding: 12px;
+  border: solid 3px @main-gray;
+  width: 100px;
+  height: 47px;
+}
+
+.login form button p {
+  margin-top: -5px;
+  margin-left: -5px;
+}
+
+.login form button:hover, .login form a:hover {
+  border: solid 3px @main;
+  cursor: pointer;
+}
+
+.login .bottom {
+  width: 923px;
+  margin: auto;
+}
+
+.login .left-side {
+  width: 340px;
+  float: left;
+  margin-left: 5%;
+}
+
+.login .right-side {
+  width: 450px;
+  overflow: hidden;
+  margin-left: 40px;
+  margin-right: 5%;
+  height: 258px;
+  position: relative;
+  display: flex;
+  float: right;
+  border: solid 3px @main;
+}
+
+.login .right-side .goodbye {
+  display: none;
+}
+
+.login .right-side h1 {
+  //margin: auto;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  font-family: 'betterCallSaul';
+  color: @main;
+}
+
+.login .right-side video {
+  position: absolute;
+  z-index: -1;
+  margin-left: -3px;
+  height: 100%;
+}
+
+.dashboard .navBar {
+  padding: 20px;
+  border: solid 3px @main;
+  margin: 60px 60px 40px 60px;
+  height: 84px;
+}
+
+.dashboard h1:hover {
+  cursor: pointer;
+}
+
+.dashboard .navBar .left-side {
+  float: left;
+  margin-left: 30px;
+  color: @main;
+  font-family: 'betterCallSaul';
+  font-size: 40px;
+}
+
+.dashboard .navBar .right-side {
+  float: right;
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
+  height: 100%;
+}
+
+.dashboard .navBar .right-side button {
+  width: 70px;
+  border: none;
+  background: white;
+}
+
+.dashboard .navBar .right-side button:hover {
+  cursor: pointer;
+}
+
+.dashboard .navBar .right-side button img {
+  margin-top: -10px;
+}
+
+.dashboard .navBar .right-side a {
+  width: 50px;
+}
+
+.dashboard .navBar .right-side a img {
+  margin-top: -5px;
+}
+
+.dashboard .options {
+  height: calc(~'100% - 184px');
+}
+
+.dashboard .options .half .options-income {
+  position: relative;
+  overflow: hidden;
+}
+
+// .dashboard .options .half .options-income video {
+//   position: absolute;
+//   z-index: -1;
+//   width: 100%;
+// }
+
+.dashboard .options .half .options-income {
+  background-image: url('../src/fatstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half .options-expenses {
+  background-image: url('../src/goldstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half .options-loans {
+  background-image: url('../src/creditstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half .options-projections {
+  background-image: url('../src/coinstacks.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.dashboard .options .half {
+  font-family: 'betterCallSaul';
+  font-size: 50px;
+  color: @main;
+  display: flex;
+  width: calc(~'100% - 120px');
+  margin: auto;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.dashboard .options .half h1 {
+  width: calc(~'50% - 20px');
+  margin-bottom: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: solid 3px @main;
+}
+
+.dashboard .options .half h1 p {
+  padding: 10px;
+  background: rgba(0,0,0,0.2);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-projections p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-loans p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half .options-expenses p {
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  border: solid 3px @main;
+}
+
+.dashboard .options .half h1:hover {
+  border: solid 3px @main-dark;
+  cursor: pointer;
+}
+
+.upload {
+  width: 90%;
+  display: flex;
+  height: calc(~'100% - 468px');
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.upload-hist {
+  display: flex;
+  justify-content: center;
+  color: @main-gray;
+}
+
+.upload h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  width: 300px;
+  color: @main;
+  font-family: 'betterCallSaul';
+  height: 230px;
+  border: dashed 3px @main-gray;
+  border-radius: 30px;
+}
+
+.upload h1:hover {
+  border: solid 3px @main;
+  cursor: pointer;
+}
+
+.upload input[type="file"] {
+  display: none;
+}
+
+.income {
+  width: calc(~'100% - 120px');
+  margin: auto;
+  display: flex;
+}
+
+.income .washers {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.income .washer {
+  width: 255px;
+  margin-right: 40px;
+  min-width: 245px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.income .washer video {
+  width: 115.5%;
+  position: absolute;
+  z-index: -1;
+}
+
+.income .washer:hover {
+  cursor: pointer;
+  p {
+    color: @main;
+  }
+}
+
+.income .washer p {
+  font-family: 'betterCallSaul';
+  font-size: 30px;
+  margin-top: 230px;
+  color: @main-gray;
+}
+
+.income .addwasher {
+  width: 255px;
+  margin-right: 40px;
+  min-width: 245px;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  background-image: url('../src/WMA.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+}
+
+.income .addwasher .plus-sign {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.income .addwasher .plus-sign .tall-part {
+  border: solid 3px lightgray;
+  position: absolute;
+  width: 20px;
+  height: 70px;
+  border-radius: 5px;
+}
+
+.income .addwasher .plus-sign .long-part {
+  border: solid 3px lightgray;
+  position: absolute;
+  width: 70px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.income .addwasher .plus-sign .center-part-1 {
+  background: white;
+  border: solid 3px white;
+  position: absolute;
+  width: 20px;
+  height: 14px;
+}
+
+.income .addwasher .plus-sign .center-part-2 {
+  background: white;
+  border: solid 3px white;
+  position: absolute;
+  width: 14px;
+  height: 20px;
+}
+
+.income .addwasher:hover {
+  cursor: pointer;
+  .plus-sign {
+    display: flex;
+  }
+}
+
+.income .addwasher:hover .plus-sign .tall-part {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .long-part {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .center-part-1 {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher:hover .plus-sign .center-part-2 {
+  background: @main-dark;
+  border-color: @main-dark;
+}
+
+.income .addwasher img {
+  width: 295px;
+  opacity: 0.2;
+  display: none;
+}
+
+.income .addwasher p {
+  position: absolute;
+  font-family: 'betterCallSaul';
+  font-size: 30px;
+  margin-top: 115px;
+  color: @main-dark;
+}
+
+.income .addwasher:hover {
+  cursor: pointer;
+  .hover-wm {
+    display: block;
+  }
+}
+
+.income .income-summary {
+  min-width: 600px;
+  width: 100%;
+  margin-bottom: 40px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.income .income-summary table {
+  width: 100%;
+}
+
+.income .income-summary th {
+  text-align: left;
+  padding: 10px;
+  background: @main-dark;
+  color: white;
+  font-weight: bold;
+}
+
+.income .income-summary th:nth-child(n+2) {
+  text-align: left;
+  width: 135px;
+  padding: 0px 10px;
+}
+
+.income .income-summary td {
+  color: @main-dark;
+  padding: 5px;
+}
+
+.income .income-summary td span {
+  float: left;
+}
+
+.income .income-summary td:nth-child(n+2) {
+  text-align: right;
+  width: 135px;
+  padding: 0px 10px;
+}
+
+.income .income-summary .table-header {
+  margin-top: 0px;
+}
+
+.income .income-summary .header-row {
+  border: solid 1px @main-dark;
+}
+
+.income .income-summary .table-subheader {
+  background: @main;
+  color: @main-dark;
+  font-weight: bold;
+}
+
+.income .income-summary .table-total {
+  border-bottom: solid 1px @main-dark;
+  color: @main-dark;
+  background: @main-gray;
+}
+
+.income .income-summary .table-row {
+  border-left: solid 1px @main-dark;
+  border-right: solid 1px @main-dark;
+}
+
+.form-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  margin-top: -584px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.form-modal .modal-content {
+  width: 460px;
+  margin: auto;
+  margin-top: 100px;
+  border: solid 3px @main-dark;
+  box-shadow: 0px 0px 10px @main-dark;
+  background: @main;
+  padding: 20px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {margin-top: -300px; opacity: 0}
+    to {margin-top: 100; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {margin-top: -300px; opacity: 0}
+    to {margin-top: 100; opacity: 1}
+}
+
+.form-modal .modal-content .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.form-modal .modal-content .close:hover,
+.form-modal .modal-content .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-modal .modal-content td,
+.income-details td {
+  padding: 5px;
+}
+
+.form-modal .modal-content td p,
+.income-details td p {
+  color: @main-dark;
+  text-align: right;
+  font-weight: bold;
+}
+
+.form-modal .modal-content td input,
+.income-details td input {
+  border: solid 2px @main-dark;
+  padding: 6px;
+  width: 210px;
+}
+
+.form-modal .modal-content td select,
+.income-details td select {
+  border: solid 2px @main-dark;
+  padding: 5px;
+  width: 210px;
+}
+
+.form-modal .modal-content .short-select,
+.income-details .short-select {
+  width: 63px;
+}
+
+.form-modal .modal-content .medium-input,
+.income-details .medium-input {
+  width: 143px;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.form-modal .modal-content button,
+.income-details button {
+  width: 210px;
+  padding: 5px;
+  background: white;
+  border: solid 2px @main-dark;
+}
+
+.form-modal .modal-content button:hover,
+.income-details button:hover {
+  background: @main-dark;
+  color: white;
+  cursor: pointer;
+}
+
+#certainDaysInput {
+  display: none;
+}
+
+.form-modal .modal-content .exp-details p {
+  color: @main-dark;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.form-modal .modal-content .exp-details #exp-detail-desc {
+  border-bottom: solid 2px @main-dark;
+  width: 91%;
+  padding-bottom: 5px;
+}
+
+.form-modal .modal-content .exp-details #exp-detail-desc span {
+  float: right;
+}
+
+.form-modal .modal-content .exp-details .exp-detail-info {
+  display: flex;
+  justify-content: space-between;
+  width: 91%;
+}
+
+.form-modal .modal-content .exp-actions select,
+.form-modal .modal-content .exp-actions input[type="text"] {
+  width: 43%;
+  padding: 5px;
+  border: solid 2px @main-dark;
+  margin: 5px;
+}
+
+.form-modal .modal-content .exp-actions button {
+  width: 43%;
+  margin-left: 197px;
+  margin-top: 6px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.exp-actions label {
+  position: relative;
+  margin-left: 40px;
+  top: 1px;
+}
+
+.exp-actions span::before,
+.exp-actions span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.exp-actions span.checkbox {
+  color: @main-dark;
+}
+
+.exp-actions span.checkbox::before {
+  width: 27px;
+  height: 27px;
+  background-color: #fff;
+  left: -35px;
+  box-sizing: border-box;
+  border: solid 2px @main-dark;
+  transition: border-color .2s;
+}
+
+.exp-actions span.checkbox:hover::before,
+.exp-actions span.checkbox:hover::after {
+  cursor: pointer;
+}
+
+.exp-actions span.checkbox::after {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  left: -30px;
+  top: 1px;
+  color: transparent;
+  transition: color .2s;
+}
+
+input[type="checkbox"]:checked + label span.checkbox::after {
+  color: @main-dark;
+}
+
+#upload-modal {
+  top: 584px;
+}
+
+.income-details {
+  width: 640px;
+}
+
+.expenses {
+  width: calc(~'100% - 120px');
+  margin: auto;
+  display: flex;
+}
+
+.expenses .expense-report {
+  width: calc(~'100% - 300px');
+}
+
+.expenses .expense-manager {
+  width: 260px;
+  height: 360px;
+  font-size: 24px;
+  margin-left: 40px;
+  font-family: 'betterCallSaul';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: @main-gray;
+  float: right;
+  position: relative;
+}
+
+.expenses .expense-manager video {
+  position: absolute;
+  width: 115.5%;
+  z-index: -1;
+}
+
+.expenses .expense-manager p {
+  margin-top: 220px;
+  font-size: 26px;
+}
+
+.expenses .expense-manager:hover {
+  cursor: pointer;
+  color: @main;
+}
+
+.expenses .expense-report .exp-tbl-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.expenses .expense-report .exp-tbl-header h1 {
+  background: @main-dark;
+  color: white;
+  width: 16.66%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#long-column {
+  width: 33.33%;
+}
+
+.expenses .expense-report .exp-tbl-cat {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border: solid 1px @main-dark;
+}
+
+.expenses .expense-report .exp-tbl-cat p {
+  background: @main;
+  color: white;
+  width: 16.66%;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.expenses .expense-report .exp-tbl-sub {
+  position: absolute;
+  width: 100%;
+  margin-top: 37px;
+}
+
+.expenses .expense-report .exp-tbl-sub p {
+  background: white;
+  color: @main-dark;
+  font-weight: normal;
+}
+
+.expenses .expense-report .exp-tbl-row {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.expenses .expense-report .exp-tbl-totals {
+  width: 100%;
+  display: flex;
+  color: @main-dark;
+  background: @main-gray;
+  border: solid 1px @main-dark;
+}
+
+.expenses .expense-report .exp-tbl-totals p {
+  width: 16.66%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.expenses .exp-manager {
+  width: calc(~'100% - 300px');
+  margin-left: 40px;
+}
+
+.expenses .exp-manager-animation {
+  width: 260px;
+  height: 360px;
+  background-image: url('../src/WM.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.expenses .exp-manager table {
+  width: 100%;
+  border: solid 1px @main-dark;
+}
+
+.expenses .exp-manager table th {
+  background: @main-dark;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
+}
+
+.expenses .exp-manager table tr {
+  color: @main-dark;
+
+}
+
+.expenses .exp-manager table tr:nth-child(odd) {
+  background: @main-gray;
+}
+
+.expenses .exp-manager table td {
+  padding: 10px;
+}
+
+.expenses .exp-manager table td:nth-child(4) {
+  width: 30px;
+}
+
+.expenses .exp-manager table td:nth-child(4):hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#loan-modal {
+  width: 415px;
+}
+
+.projections {
+  width: calc(~'100% - 120px');
+  margin: auto;
+  display: flex;
+}
+
+.projections table {
+  width: 100%;
+}
+
+.projections table th:nth-child(1) {
+  background: @main-dark;
+  color: white;
+  font-size: 20px;
+  font-family: 'betterCallSaul';
+  border-right: solid 1px @main-dark;
+}
+
+.projections table th:nth-child(13) {
+  border-right: solid 1px @main-dark;
+}
+
+.projections table th {
+  padding: 10px;
+  background: @main;
+  color: @main-dark;
+  border-top: solid 1px @main-dark;
+}
+
+.projections table td {
+  padding: 5px;
+  color: @main-dark;
+  font-size: 14px;
+  text-align: right;
+  width: 7.692307%;
+  border: solid 1px @main-dark;
+}
+
+.projections table td span {
+  float: left;
+}
+
+.projections table td:nth-child(1) {
+  background: @main;
+}
+
+#proj-last-row {
+  background: @main-gray;
+  color: @main-dark;
+  border: solid 1px @main-dark;
+}

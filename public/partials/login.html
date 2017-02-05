@@ -1,0 +1,41 @@
+<main class="login">
+  <section class="intro-animation">
+    <video id="vid2" autoplay loop>
+      <source src="../src/WM.mp4" type="video/mp4">
+    </video>
+    <video id="vid3">
+      <source src="../src/WM.mp4" type="video/mp4">
+    </video>
+    <img src="../src/WM.jpg" />
+  </section>
+  <div class="bottom">
+    <section class="left-side">
+      <div class="login-form">
+        <button class="active" ng-click="toggleActive($event)">Sign In</button>
+        <button ng-click="toggleActive($event)">Sign Up</button>
+      </div>
+      <form ng-submit="haveAnAOneDay($event, username, password, first, last)">
+        <input class="signUpForm inputForm" type="text" name"first" placeholder="first name" ng-model="first" />
+        <input class="signUpForm inputForm" type="text" name="last" placeholder="last name" ng-model="last" />
+        <input class="inputForm" type="text" name="username" placeholder="username" ng-model="username" />
+        <input class="inputForm" type="password" name="password" placeholder="password" ng-model="password" />
+        <div class="sub">
+          <button type="submit"><p>Log In</p></button>
+          <a ng-click="haveAnAOneDay($event)"><p>Fb</p></a>
+          <a ng-click="haveAnAOneDay($event)"><p>G+</p></a>
+        </div>
+      </form>
+    </section>
+    <section class="right-side">
+      <div class="welcome">
+        <h1>Welcome</h1>
+      </div>
+      <div class="goodbye">
+        <h1>Have An A1 Day!</h1>
+        <video id="a1vid">
+          <source src="../src/A1day.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+  </div>
+</main>
