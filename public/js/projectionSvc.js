@@ -7,6 +7,7 @@ angular.module('budgetApp').service('projectionSvc',
     var eDone = false;
     var lDone = false;
     var balance = 0;
+    var projInfo = {};
 
     var leftOverOutput = {
       0: 0, 1: 0, 2: 0,
@@ -17,6 +18,7 @@ angular.module('budgetApp').service('projectionSvc',
 
     calc.calcLeftOver = function() {
       if (iDone && eDone && lDone) {
+        console.log("calculating left over");
         for (var i = 0; i < 12; i++) {
           if (i !== 0) {
             leftOverOutput[i] += leftOverOutput[i-1];
@@ -25,6 +27,31 @@ angular.module('budgetApp').service('projectionSvc',
           }
         }
       }
+    }
+
+    this.calcLeftOverAgain = function(inc, exp, loan) {
+      var leftOverOutput = {
+        0: 0, 1: 0, 2: 0,
+        3: 0, 4: 0, 5: 0,
+        6: 0, 7: 0, 8: 0,
+        9: 0, 10: 0, 11: 0
+      }
+      for (var i = 0; i < 12; i++) {
+        if (i !== 0) { leftOverOutput[i] += leftOverOutput[i-1]; }
+        else {leftOverOutput[0] += balance;}
+        leftOverOutput[i] += inc[i];
+        for (var prop in exp) {
+          leftOverOutput[i] -= exp[prop][i];
+        }
+        for (var prop in loan) {
+          leftOverOutput[i] -= loan[prop][i];
+        }
+      }
+      return leftOverOutput;
+    }
+
+    this.getProjInfo = function() {
+      return projInfo;
     }
 
     this.getLeftOver = function() {
@@ -77,6 +104,8 @@ angular.module('budgetApp').service('projectionSvc',
       iDone = true;
       calc.calcLeftOver();
 
+      projInfo.income = income;
+
       return income;
 
     }
@@ -100,6 +129,8 @@ angular.module('budgetApp').service('projectionSvc',
 
       eDone = true;
       calc.calcLeftOver();
+
+      projInfo.expenses = expenses;
 
       return expenses;
 
@@ -142,6 +173,8 @@ angular.module('budgetApp').service('projectionSvc',
 
       lDone = true;
       calc.calcLeftOver();
+
+      projInfo.loans = loanOutput;
 
       return loanOutput;
 

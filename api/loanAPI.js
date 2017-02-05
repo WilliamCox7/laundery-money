@@ -29,14 +29,16 @@ var loanAPI = {
       req.body.payment, req.body.rate, req.body.type,
       req.body.term, req.body.termLength, req.body.next
     ];
-    db.updateLoan(loan, function(err, loan) {});
-    res.status(200).send("Updated Loan");
+    db.updateLoan(loan, function(err, loan) {
+      res.status(200).send("Updated Loan");
+    });
   },
 
   /* DELETES LOAN SELECTED BY USER */
   removeLoan: function(req, res) {
-    db.removeLoan(req.body.id, req.body.payee, function(err, loan) {});
-    res.status(200).send('Removed');
+    db.removeLoan(req.body.id, req.body.payee, function(err, loan) {
+      res.status(200).send('Removed');
+    });
   }
 
 }

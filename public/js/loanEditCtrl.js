@@ -1,6 +1,6 @@
 angular.module('budgetApp').controller('loanEditCtrl',
 
-  function($scope, $location, loanSvc) {
+  function($scope, $location, loanSvc, projectionSvc) {
 
     /* GETS SPECIFIC LOAN ON USER SELECT */
     function getLoan() {
@@ -20,8 +20,13 @@ angular.module('budgetApp').controller('loanEditCtrl',
         loanSvc.getLoans($scope.userID).then(function(res) {
           $scope.loans = res;
           $scope.loanOutput = loanSvc.calcLoans(res);
+          loanSvc.saveLoanInfo(res, $scope.loanOutput);
           loanSvc.setLoan(payee);
           getLoan();
+
+          /* GET LOAN PROJECTION INFO */
+          var loanProjInfo = loanSvc.getLoanProjectionInfo();
+          $scope.projections.projLoans = projectionSvc.calcLoans(loanProjInfo);
         });
       });
     }
@@ -29,9 +34,20 @@ angular.module('budgetApp').controller('loanEditCtrl',
     /* DELETES LOAN SELECTED BY USER */
     $scope.removeLoan = function(payee) {
       loanSvc.removeLoan($scope.userID, payee).then(function(status) {
-        if (status === 'Removed') {
-          $location.path('/home/loans');
-        }
+        loanSvc.getLoans($scope.userID).then(function(res) {
+          var loanOutputInfo = loanSvc.calcLoans(res);
+          loanSvc.saveLoanInfo(res, loanOutputInfo);
+
+          /* GET LOAN PROJECTION INFO */
+          var loanProjInfo = loanSvc.getLoanProjectionInfo();
+          $scope.projections.projLoans = projectionSvc.calcLoans(loanProjInfo);
+
+          if (status === 'Removed') {
+            $location.path('/home/loans');
+          }
+
+        });
+
       });
     }
 

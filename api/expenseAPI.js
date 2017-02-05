@@ -47,8 +47,9 @@ var expenseAPI = {
 
   /* DELETES THE SELECTED USER PREFERENCE */
   removeKeyword: function(req, res) {
-    db.removeKeyword(req.body.id, req.body.keyword, function(err, keyword) {});
-    res.status(200).send("Removed Keyword");
+    db.removeKeyword(req.body.id, req.body.keyword, function(err, keyword) {
+      res.status(200).send("Removed Keyword");
+    });
   }
 
 }

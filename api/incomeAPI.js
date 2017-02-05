@@ -29,14 +29,16 @@ var incomeAPI = {
       req.body.period, req.body.next, req.body.pattern,
       req.body.days, req.body.deduction, req.body.percent
     ];
-    db.updateIncome(updatedIncome, function(err, income) {});
-    res.status(200).send('Income Updated')
+    db.updateIncome(updatedIncome, function(err, income) {
+      res.status(200).send('Income Updated');
+    });
   },
 
   /* DELETES INCOME SELECTED BY USER */
   deleteIncome: function(req, res) {
-    db.removeIncome([req.body.id, req.body.source], function(err, income) {});
-    res.status(200).send('Income Removed');
+    db.removeIncome([req.body.id, req.body.source], function(err, income) {
+      res.status(200).send('Income Removed');
+    });
   }
 
 }

@@ -1,6 +1,6 @@
 angular.module('budgetApp').controller('incomeEditCtrl',
 
-  function($scope, $location, incomeSvc) {
+  function($scope, $location, incomeSvc, projectionSvc) {
 
     /* GETS THE SPECIFIC INCOME SELECTED BY THE USER */
     function getIncome() {
@@ -20,8 +20,13 @@ angular.module('budgetApp').controller('incomeEditCtrl',
         incomeSvc.getIncomes($scope.userID).then(function(res) {
           $scope.incomes = res;
           $scope.incomeOutput = incomeSvc.calcIncome(res);
+          incomeSvc.saveIncomeInfo(res, $scope.incomeOutput);
           incomeSvc.setIncome(source);
           getIncome();
+
+          /* GET INCOME PROJECTION INFO */
+          var incProjInfo = incomeSvc.getIncProjectionInfo();
+          $scope.projections.income = projectionSvc.calcIncome(incProjInfo);
         });
       });
     }
@@ -29,7 +34,16 @@ angular.module('budgetApp').controller('incomeEditCtrl',
     /* DELETES INCOME SELECTED BY THE USER */
     $scope.removeIncome = function(source) {
       incomeSvc.removeIncome($scope.userID, source).then(function(status) {
-        if (status === 'Income Removed') { $location.path('/home/income'); }
+        incomeSvc.getIncomes($scope.userID).then(function(res) {
+          var incOutput = incomeSvc.calcIncome(res);
+          incomeSvc.saveIncomeInfo(res, incOutput);
+
+          /* GET INCOME PROJECTION INFO */
+          var incProjInfo = incomeSvc.getIncProjectionInfo();
+          $scope.projections.income = projectionSvc.calcIncome(incProjInfo);
+          if (status === 'Income Removed') { $location.path('/home/income'); }
+        });
+
       });
     }
 

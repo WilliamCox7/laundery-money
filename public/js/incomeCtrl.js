@@ -4,6 +4,7 @@ angular.module('budgetApp').controller('incomeCtrl',
 
     $scope.incomes = incomeSvc.getSavedIncomes();
     $scope.incomeOutput = incomeSvc.getSavedOuput();
+    
     if ($scope.incomes.length > 1) {
       $('#income-income').css('display', 'block');
       $('.form-modal').css('marginTop', '-984px');

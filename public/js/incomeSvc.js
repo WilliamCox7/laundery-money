@@ -95,6 +95,22 @@ angular.module('budgetApp').service('incomeSvc',
     /* CREATES OUTPUT INFORMATION FOR INCOME VIEWS */
     this.calcIncome = function(incomes) {
 
+      if (incomes.length === 0) {
+        savedIncomeInfo.incomes = null;
+        savedIncomeInfo.output = null;
+        incProjectionInfo = {};
+        return {
+          gross: { b: 0, m: 0, y: 0 },
+          preTax: {},
+          after: { b: 0, m: 0, y: 0 },
+          ss: { b: 0, m: 0, y: 0 },
+          med: { b: 0, m: 0, y: 0 },
+          fed: { b: 0, m: 0, y: 0 },
+          state: { b: 0, m: 0, y: 0 },
+          net: { b: 0, m: 0, y: 0 }
+        }
+      }
+
       var incomeOutput = {
         gross: { b: 0, m: 0, y: 0 },
         preTax: {},

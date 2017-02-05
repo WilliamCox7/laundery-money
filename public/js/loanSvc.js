@@ -96,6 +96,21 @@ angular.module('budgetApp').service('loanSvc',
     /* ORGANIZES LOAN DATA FOR OUTPUT */
     this.calcLoans = function(loans) {
 
+      if (loans.length === 0) {
+        savedLoanInfo.loans = null;
+        savedLoanInfo.output = null;
+        loanProjectionInfo = {};
+        return {
+          principal: 0,
+          interest: 0,
+          afterPI: 0,
+          mortgageIns: 0,
+          otherTotal: 0,
+          total: 0,
+          totalRem: 0
+        }
+      }
+
       var loanOutput = {
         principal: 0,
         interest: 0,
