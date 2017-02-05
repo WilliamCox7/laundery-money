@@ -1046,6 +1046,9 @@ input[type="checkbox"]:checked + label span.checkbox::after {
     font-size: 18px;
     width: 80px;
   }
+  .expenses {
+    width: 90%;
+  }
 }
 
 @media (max-width: 423px) {
@@ -1103,6 +1106,24 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   .login {
     margin-top: auto;
   }
+  .rem-col-2 {
+    display: none !important;
+  }
+  .expenses .expense-report .exp-tbl-cat p {
+    width: 50% !important;
+  }
+  .expenses .expense-report .exp-tbl-header h1 {
+    width: 50% !important;
+  }
+  .expenses .expense-report .exp-tbl-totals p {
+    width: 50% !important;
+  }
+  .expenses .expense-report {
+    margin-top: 20px;
+  }
+  .expenses .expense-manager {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1152,6 +1173,21 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   .dashboard .options .half {
     height: 200px;
     font-size: 18px;
+  }
+  .rem-col-1 {
+    display: none !important;
+  }
+  .long-column {
+    display: none;
+  }
+  .expenses .expense-report .exp-tbl-cat p {
+    width: 25%;
+  }
+  .expenses .expense-report .exp-tbl-header h1 {
+    width: 25%;
+  }
+  .expenses .expense-report .exp-tbl-totals p {
+    width: 25%;
   }
 }
 
@@ -1220,6 +1256,28 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   .income .addwasher .plus-sign .center-part-2 {
     border: solid 3px @main-gray;
     background: @main-gray;
+  }
+}
+
+@media (max-width: 1100px) {
+  .expenses {
+    flex-direction: column;
+    align-items: center;
+  }
+  .expenses .expense-report {
+    width: 100%;
+  }
+  .expenses .expense-manager {
+    margin-left: 0;
+    margin-top: 40px;
+  }
+  .expenses .exp-manager-animation {
+    display: none;
+  }
+  .expenses .exp-manager {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 
