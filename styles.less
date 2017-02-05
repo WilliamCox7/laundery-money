@@ -792,7 +792,8 @@ input[type="checkbox"]:checked + label span.checkbox::after {
 }
 
 .income-details {
-  width: 640px;
+  min-width: 394px;
+  margin-right: 20px;
 }
 
 .expenses {
@@ -1047,6 +1048,19 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   }
 }
 
+@media (max-width: 423px) {
+  .income-details td:nth-child(1) {
+    display: none;
+  }
+  .income-details {
+    min-width: inherit;
+    margin-top: 10px !important;
+  }
+  .income .income-summary {
+    min-height: inherit;
+  }
+}
+
 @media (max-width: 495px) {
   .dashboard .navBar {
     border: none;
@@ -1141,6 +1155,18 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   }
 }
 
+@media (max-width: 800px) {
+  .income {
+    flex-direction: column;
+  }
+  .income .income-summary {
+    margin-top: 20px;
+  }
+  .income-details {
+    margin: auto;
+  }
+}
+
 @media (max-width: 850px) {
   #vid2 {
     display: none;
@@ -1194,5 +1220,15 @@ input[type="checkbox"]:checked + label span.checkbox::after {
   .income .addwasher .plus-sign .center-part-2 {
     border: solid 3px @main-gray;
     background: @main-gray;
+  }
+}
+
+@media (max-width: 1145px) {
+  .income .income-summary th:nth-child(n+3),
+  .income .income-summary td:nth-child(n+3) {
+    display: none;
+  }
+  .income .income-summary {
+    min-width: inherit;
   }
 }
